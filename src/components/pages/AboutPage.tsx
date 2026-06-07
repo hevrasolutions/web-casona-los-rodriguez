@@ -34,8 +34,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse-facilities/casona-los-rodriguez-historic-farmhouse-001.webp')] opacity-25 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/95 to-primary/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse-facilities/casona-los-rodriguez-historic-farmhouse-001.webp')] pointer-events-none" />
+        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
           <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">

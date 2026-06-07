@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-06-06
+**Última Actualización:** 2026-06-07
 **Fase Activa:** Fase 7 — SEO Técnico y Optimización (Pendiente)
 
 ---
@@ -182,6 +182,10 @@ Las imágenes reales del sitio se organizan jerárquicamente en:
 * **Títulos (H1 / H2):** `Cormorant Garamond` (estilo elegante y tradicional).
 * **Subtítulos emocionales / frases:** `Lora` en cursiva.
 * **Cuerpo de texto y botones:** `Nunito Sans` (alta legibilidad).
+
+### Diseño de Cabeceras (Hero) de Páginas Secundarias
+* **Estructura:** Las imágenes de fondo deben tener una opacidad del 100% (sin clases restrictivas como `opacity-20` / `opacity-15`) para lucir claras y detalladas.
+* **Capa de Color:** Para garantizar el contraste de los textos superpuestos en blanco y oro, se debe emplear una capa superior con el color primario marrón de marca al **85% de opacidad** (`bg-primary/85`).
 
 ---
 

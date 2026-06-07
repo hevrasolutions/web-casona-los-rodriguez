@@ -23,8 +23,8 @@ export default function CancellationPage({ locale }: CancellationPageProps) {
     <>
       {/* Page Header */}
       <section className="bg-primary text-white-warm py-16 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/hero/casona-los-rodriguez-exterior-001.webp')] opacity-15 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/95 to-primary/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/hero/casona-los-rodriguez-exterior-001.webp')] pointer-events-none" />
+        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2">
