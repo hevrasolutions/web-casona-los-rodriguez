@@ -50,7 +50,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'granja-trapiche',
-    image: 'TODO_IMAGE',
+    image: '/images/gallery/farm-garden-trapiche/casona-los-rodriguez-rural-farm-experience-001.webp',
     labelES: 'Granja y trapiche',
     labelEN: 'Farm and trapiche',
     titleES: 'Viva la tradición rural entre animales, huerta y trapiche',

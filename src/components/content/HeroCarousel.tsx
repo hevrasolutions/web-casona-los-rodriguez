@@ -21,7 +21,7 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
   
   const isEs = locale === 'es';
-  const AUTOPLAY_DELAY = 8000; // 8 seconds
+  const AUTOPLAY_DELAY = 5000; // 5 seconds
 
   // Check for prefers-reduced-motion
   useEffect(() => {
@@ -138,43 +138,36 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
                   </div>
                 </div>
               )}
-              {/* Dark gradient overlay for readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/45 z-20" />
+              {/* Dark gradient overlay for readability, left-heavy for text contrast */}
+              <div className="absolute inset-0 bg-black/60 lg:bg-gradient-to-r lg:from-black/85 lg:via-black/55 lg:to-transparent z-20" />
             </div>
           );
         })}
       </div>
 
       {/* Main Content Overlay */}
-      <Container className="relative z-25 text-center text-white-warm py-24 sm:py-32 flex flex-col items-center select-none">
+      <Container className="relative z-25 text-left text-white-warm py-24 sm:py-32 flex flex-col items-start select-none w-full">
         {/* Fixed H1 */}
         <h1
           id="hero-title"
-          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl text-white-warm leading-[1.15]"
+          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl text-white-warm leading-[1.15] text-left"
         >
           {isEs ? 'Donde la tierra cuenta su historia' : 'Where the land tells its story'}
         </h1>
 
-        {/* Fixed Subtitle */}
-        <p className="mt-4 text-sm sm:text-base md:text-lg max-w-2xl text-white-warm/80 font-normal leading-relaxed">
-          {isEs
-            ? 'Una casona rural de más de 120 años donde el visitante cocina, come, aprende, baila y revive las tradiciones del campo costarricense.'
-            : 'A rural farmhouse of over 120 years where the visitor cooks, eats, learns, dances, and revives the traditions of the Costa Rican countryside.'}
-        </p>
-
-        {/* Slide Variable Content Box */}
-        <div className="mt-8 p-6 bg-black/45 backdrop-blur-sm border border-gold/25 rounded-lg w-full max-w-xl text-center min-h-[160px] flex flex-col justify-center">
+        {/* Slide Variable Content */}
+        <div className="mt-8 min-h-[160px] flex flex-col justify-center max-w-2xl w-full">
           {heroSlides.map((slide, index) => {
             if (index !== currentIndex) return null;
             return (
-              <div key={slide.id} className="animate-fade-in">
+              <div key={slide.id} className="animate-fade-in text-left">
                 <span className="font-subheading text-base sm:text-lg text-gold font-semibold uppercase tracking-wider block mb-1">
                   {isEs ? slide.labelES : slide.labelEN}
                 </span>
-                <h2 className="font-heading text-xl sm:text-2xl font-bold text-white-warm tracking-wide mb-2">
+                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white-warm tracking-wide mb-3 leading-snug">
                   {isEs ? slide.titleES : slide.titleEN}
                 </h2>
-                <p className="text-xs sm:text-sm text-white-warm/90 leading-relaxed font-body">
+                <p className="text-sm sm:text-base text-white-warm/85 leading-relaxed font-body">
                   {isEs ? slide.descriptionES : slide.descriptionEN}
                 </p>
               </div>
@@ -182,25 +175,17 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
           })}
         </div>
 
-        {/* Fixed CTAs */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+        {/* Fixed CTAs (Single button styled in Gold secondary style) */}
+        <div className="mt-10 flex justify-start w-full sm:w-auto">
           <Button
-            variant="primary"
+            variant="secondary"
             size="lg"
             href={`/${locale}/experiencias`}
-            className="shadow-lg min-w-[200px]"
+            className="shadow-lg min-w-[200px] text-center"
             onClick={handleInteractiveClick}
           >
             {dict.common.exploreExperiences}
           </Button>
-          <BookingCTA
-            variant="secondary"
-            size="lg"
-            className="shadow-md min-w-[200px]"
-            onClick={handleInteractiveClick}
-          >
-            {dict.common.bookingLabel}
-          </BookingCTA>
         </div>
       </Container>
 
