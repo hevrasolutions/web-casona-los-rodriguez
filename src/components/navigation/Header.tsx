@@ -50,7 +50,7 @@ export default function Header({ locale, dict }: HeaderProps) {
   const isActive = (href: string) => {
     const cleanPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
     const cleanHref = href.endsWith('/') && href.length > 1 ? href.slice(0, -1) : href;
-    
+
     if (cleanHref === `/${locale}`) {
       return cleanPath === cleanHref;
     }
@@ -60,17 +60,16 @@ export default function Header({ locale, dict }: HeaderProps) {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          scrolled
-            ? 'bg-cream/80 backdrop-blur-md shadow-md py-[1px] border-b border-sand/20'
-            : 'bg-cream/90 backdrop-blur-md py-4'
-        }`}
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${scrolled
+          ? 'bg-cream/80 backdrop-blur-md shadow-md py-[1px] border-b border-sand/20'
+          : 'bg-cream/90 backdrop-blur-md py-4'
+          }`}
       >
         <Container className="flex items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex-shrink-0 transition-transform duration-300 hover:scale-[1.02]">
             <Image
-              src="/images/logo/casona-los-rodriguez-logo-header-320x140.png"
+              src="/images/logo/casona-los-rodriguez-logo-header-320x140-1.png"
               alt="Casona Los Rodríguez Logo"
               width={140}
               height={61}
@@ -85,11 +84,10 @@ export default function Header({ locale, dict }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-semibold tracking-wide transition-colors duration-200 ${
-                  isActive(link.href)
-                    ? 'text-terracotta font-bold'
-                    : 'text-primary/80 hover:text-terracotta'
-                }`}
+                className={`text-sm font-semibold tracking-wide transition-colors duration-200 ${isActive(link.href)
+                  ? 'text-terracotta font-bold'
+                  : 'text-primary/80 hover:text-terracotta'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -128,9 +126,8 @@ export default function Header({ locale, dict }: HeaderProps) {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-cream shadow-2xl border-l border-sand/20 p-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out lg:hidden ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-cream shadow-2xl border-l border-sand/20 p-6 flex flex-col justify-between transform transition-transform duration-300 ease-in-out lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         style={{
           top: scrolled ? '56px' : '86px',
           height: `calc(100vh - ${scrolled ? '56px' : '86px'})`
@@ -141,11 +138,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-base font-semibold py-2 border-b border-sand/10 transition-colors ${
-                isActive(link.href)
-                  ? 'text-terracotta font-bold border-b-terracotta'
-                  : 'text-primary hover:text-terracotta'
-              }`}
+              className={`text-base font-semibold py-2 border-b border-sand/10 transition-colors ${isActive(link.href)
+                ? 'text-terracotta font-bold border-b-terracotta'
+                : 'text-primary hover:text-terracotta'
+                }`}
             >
               {link.label}
             </Link>
