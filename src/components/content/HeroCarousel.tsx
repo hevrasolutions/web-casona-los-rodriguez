@@ -152,7 +152,7 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
           id="hero-title"
           className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl text-white-warm leading-[1.15] text-left"
         >
-          {isEs ? 'Donde la tierra cuenta su historia' : 'Where the land tells its story'}
+          {isEs ? 'Rescatando tradiciones, inspirando generaciones.' : 'Preserving traditions, inspiring generations.'}
         </h1>
 
         {/* Slide Variable Content */}
