@@ -153,18 +153,6 @@ export default function ContactPage({ locale }: ContactPageProps) {
                 </div>
               </div>
 
-              {/* Google Maps Embed iframe */}
-              <div className="border border-sand/20 rounded-lg overflow-hidden shadow-md h-[350px] w-full bg-white-warm">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.4688669405245!2d-84.594854!3d10.463655599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0733a3772c52f%3A0xe6f1eb4b6b926530!2sCasona%20Los%20Rodr%C3%ADguez!5e0!3m2!1ses-419!2scr!4v1780812023707!5m2!1ses-419!2scr" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={true} 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
             </div>
 
             {/* Right Column: Contact Form */}
@@ -174,6 +162,20 @@ export default function ContactPage({ locale }: ContactPageProps) {
 
           </div>
         </Container>
+      </section>
+
+      {/* Full Width Google Maps Section */}
+      <section className="w-full h-[400px] sm:h-[450px] relative border-b border-sand/20 bg-cream">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.4688669405245!2d-84.594854!3d10.463655599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0733a3772c52f%3A0xe6f1eb4b6b926530!2sCasona%20Los%20Rodr%C3%ADguez!5e0!3m2!1ses-419!2scr!4v1780812023707!5m2!1ses-419!2scr" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={true} 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title={isEs ? "Mapa de ubicación de Casona Los Rodríguez" : "Location map of Casona Los Rodríguez"}
+        ></iframe>
       </section>
 
       {/* Accordion FAQs Section */}
