@@ -29,10 +29,58 @@ const body = Nunito_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Casona Los Rodríguez | Experiencia Cultural Costarricense",
-  description: "Una experiencia cultural costarricense en una casona rural de más de 120 años, donde el visitante cocina, come, aprende, baila y revive las tradiciones del campo tico.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEs = locale === "es";
+
+  const title = isEs
+    ? "Casona Los Rodríguez | Experiencia Cultural Costarricense"
+    : "Casona Los Rodríguez | Costa Rican Cultural Experience";
+
+  const description = isEs
+    ? "Una experiencia cultural costarricense en una casona rural de más de 120 años, donde el visitante cocina, come, aprende, baila y revive las tradiciones del campo tico."
+    : "A Costa Rican cultural experience in a 120+ year old rural farmhouse, where visitors cook, eat, learn, dance, and revive countryside traditions.";
+
+  return {
+    metadataBase: new URL("https://casonalosrodriguez.cr"),
+    title,
+    description,
+    icons: {
+      icon: [
+        {
+          url: "/images/logo/casona-los-rodriguez-icono-favicon-32.svg",
+          type: "image/svg+xml",
+        },
+      ],
+    },
+    openGraph: {
+      title,
+      description,
+      url: "https://casonalosrodriguez.cr",
+      siteName: "Casona Los Rodríguez",
+      locale: isEs ? "es_CR" : "en_US",
+      type: "website",
+      images: [
+        {
+          url: "/images/hero/casona-los-rodriguez-exterior-001.webp",
+          width: 1200,
+          height: 630,
+          alt: "Casona Los Rodríguez",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/images/hero/casona-los-rodriguez-exterior-001.webp"],
+    },
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
