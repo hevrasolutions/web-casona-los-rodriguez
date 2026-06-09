@@ -73,7 +73,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
         <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/wood-fired-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')] pointer-events-none" />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
-        
+
         <Container className="relative z-10 py-6">
           <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
             {subtitle}
@@ -96,8 +96,8 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             {/* Text details */}
             <div className="lg:col-span-6 flex flex-col items-start text-left">
               <SectionTitle
-                title={isEs ? 'Nuestra Cocina de Leña' : 'Our Wood-Fired Kitchen'}
-                subtitle={isEs ? 'Cocina 100% Honesta' : '100% Honest Cooking'}
+                title={isEs ? 'Nuestra Cocina a la Leña' : 'Our Wood-Fired Kitchen'}
+                subtitle={isEs ? 'Gastronomía local' : 'Local Cuisine'}
                 align="left"
                 className="mb-6"
               />

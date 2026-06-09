@@ -66,7 +66,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/images/hero/casona-los-rodriguez-exterior-001.webp",
+          url: "/images/logo/casona-los-rodriguez-share.jpg",
           width: 1200,
           height: 630,
           alt: "Casona Los Rodríguez",
@@ -77,7 +77,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/hero/casona-los-rodriguez-exterior-001.webp"],
+      images: ["/images/logo/casona-los-rodriguez-share.jpg"],
     },
   };
 }
