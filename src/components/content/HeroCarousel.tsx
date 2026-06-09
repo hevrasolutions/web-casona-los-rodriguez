@@ -156,11 +156,19 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
         </h1>
 
         {/* Slide Variable Content */}
-        <div className="mt-8 min-h-[160px] flex flex-col justify-center max-w-2xl w-full">
+        <div className="mt-8 grid grid-cols-1 grid-rows-1 max-w-2xl w-full">
           {heroSlides.map((slide, index) => {
-            if (index !== currentIndex) return null;
+            const isActive = index === currentIndex;
             return (
-              <div key={slide.id} className="animate-fade-in text-left">
+              <div
+                key={slide.id}
+                aria-hidden={!isActive}
+                className={`col-start-1 row-start-1 text-left w-full transition-all duration-700 flex flex-col justify-center ${
+                  isActive
+                    ? 'opacity-100 pointer-events-auto z-10 animate-fade-in'
+                    : 'opacity-0 pointer-events-none z-0'
+                }`}
+              >
                 <span className="font-subheading text-base sm:text-lg text-gold font-semibold uppercase tracking-wider block mb-1">
                   {isEs ? slide.labelES : slide.labelEN}
                 </span>

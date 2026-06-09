@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-06-07
-**Fase Activa:** Fase 7 — SEO Técnico y Optimización (Pendiente)
+**Última Actualización:** 2026-06-09
+**Fase Activa:** Fase 7 — SEO Técnico y Optimización (En Progreso)
 
 ---
 
@@ -239,11 +239,11 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * **Fase 7 (PENDIENTE):** SEO técnico, metadatos y optimización final de rendimiento y animaciones.
 
 ### Tareas Pendientes para la Fase 7:
-* [/] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
+* [] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
 * [ ] **Schema Markup:** Integrar datos estructurados en formato JSON-LD para `LocalBusiness`, `TouristAttraction` (experiencias) y `Restaurant` para optimizar Rich Snippets en Google.
 * [ ] **Archivos SEO:** Configurar sitemap dinámico (`sitemap.xml`) y el archivo estático `robots.txt`.
 * [ ] **Hreflang Tags:** Declarar etiquetas hreflang cruzadas entre las páginas localizadas `/es` y `/en` para evitar penalizaciones por contenido duplicado.
-* [ ] **Core Web Vitals:** Auditoría de velocidad y optimización de rendimiento (Lazy loading, optimización de fuentes y tamaños de imágenes WebP).
+* [/] **Core Web Vitals:** Auditoría de velocidad y optimización de rendimiento (Lazy loading, optimización de fuentes y tamaños de imágenes WebP). *Completado: Estabilización de altura del Hero Carousel utilizando CSS Grid para eliminar por completo el Cumulative Layout Shift (CLS) en Desktop y Mobile.*
 * [ ] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento.
 * [ ] **Google Analytics 4:** Añadir los scripts de GA4 vinculando la variable de medición correspondiente.
 
