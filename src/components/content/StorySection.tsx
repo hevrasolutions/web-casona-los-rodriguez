@@ -12,13 +12,13 @@ interface StorySectionProps {
 export default function StorySection({ locale }: StorySectionProps) {
   const isEs = locale === 'es';
 
-  const title = isEs ? 'Tres generaciones. Una sola pasión.' : 'Three generations. One single passion.';
-  const subtitle = isEs ? 'Nuestra Historia' : 'Our Story';
+  const title = isEs ? 'Sembrar cultura en la juventud es cosechar esperanza para el futuro.' : 'Planting culture in the younger generation is sowing hope for the future.';
+  const subtitle = isEs ? 'Legado Cultural' : 'Cultural Heritage';
   const buttonLabel = isEs ? 'Conócenos más' : 'Learn more about us';
 
   const content = isEs
-    ? 'Casona Los Rodríguez es el legado vivo de una familia dedicada a preservar la herencia rural costarricense. Durante más de un siglo, esta casona de madera ha sido el corazón de nuestra familia. Hoy, abrimos nuestras puertas para compartir con el mundo el calor de nuestra cocina de leña, el funcionamiento de nuestro trapiche tradicional y el amor por nuestras costumbres campesinas. Aquí, cada rincón cuenta una historia de trabajo, música y tradición que ha pasado de padres a hijos, manteniendo vivo el auténtico espíritu tico.'
-    : 'Casona Los Rodríguez is the living legacy of a family dedicated to preserving Costa Rican rural heritage. For over a century, this historic wooden farmhouse has been the heart of our family. Today, we open our doors to share with the world the warmth of our wood-fired kitchen, our traditional oxen-driven sugarcane mill, and the love for our country customs. Here, every corner tells a story of work, music, and tradition passed down from parents to children, keeping the authentic Tico spirit alive.';
+    ? 'En Casona Los Rodríguez creemos que el arte y la educación son herramientas poderosas para transformar vidas. Trabajamos para brindar a los niños y jóvenes de La Fortuna oportunidades de desarrollar sus talentos, fortalecer sus valores y construir un futuro mejor a través de clases de baile, pintura, poesía y música. Nuestra misión: crear un espacio seguro donde cada joven pueda descubrir su potencial y convertirse en un agente de cambio positivo para su comunidad y para Costa Rica.'
+    : 'At Casona Los Rodríguez, we believe art and education are powerful forces that transform lives. We work to give the children and youth of La Fortuna the chance to discover their talents, build strong values, and shape a better future through dance, painting, poetry, and music. Our mission: to create a safe, nurturing space where every young person can unlock their potential and grow into a positive force for their community and for Costa Rica.';
 
   // Word count check
   // ES: 88 words, EN: 83 words. Well under 120 words constraint!

@@ -9,15 +9,15 @@ interface TrustBarProps {
 export default function TrustBar({ locale }: TrustBarProps) {
   const isEs = locale === 'es';
 
-  const sectionTitle = isEs 
-    ? '¿Qué hace que esta experiencia sea única?' 
-    : 'What makes this experience unique?';
+  const sectionTitle = isEs
+    ? 'Una experiencia cultural auténtica, de las pocas que quedan en Costa Rica.'
+    : 'A rare and authentic cultural experience, one of the few left in Costa Rica.';
 
   const items = [
     {
       title: isEs ? 'Historia Viva' : 'Living History',
-      desc: isEs 
-        ? 'Adéntrese en un tesoro arquitectónico preservado desde 1890, donde cada rincón cuenta una historia del patrimonio costarricense.' 
+      desc: isEs
+        ? 'Adéntrese en un tesoro arquitectónico preservado desde 1890, donde cada rincón cuenta una historia del patrimonio costarricense.'
         : 'Step into a preserved 1890 architectural treasure where every corner tells a story of Costa Rican heritage.',
       icon: (
         <svg className="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,8 +27,8 @@ export default function TrustBar({ locale }: TrustBarProps) {
     },
     {
       title: isEs ? 'Sabores Auténticos' : 'Authentic Flavors',
-      desc: isEs 
-        ? 'Saboree el alma de la finca con recetas tradicionales transmitidas por generaciones y cocinadas 100% a la leña.' 
+      desc: isEs
+        ? 'Saboree el alma de la finca con recetas tradicionales transmitidas por generaciones y cocinadas 100% a la leña.'
         : 'Taste the soul of the farm with traditional recipes passed down through generations, cooked over wood fire.',
       icon: (
         <svg className="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,8 +39,8 @@ export default function TrustBar({ locale }: TrustBarProps) {
     },
     {
       title: isEs ? 'Inmersión Rural' : 'Rural Immersion',
-      desc: isEs 
-        ? 'Reconéctese con la tierra a través de actividades prácticas que celebran el ritmo tranquilo de la vida de campo.' 
+      desc: isEs
+        ? 'Reconéctese con la tierra a través de actividades prácticas que celebran el ritmo tranquilo de la vida de campo.'
         : 'Reconnect with the earth through hands-on activities that celebrate the slow pace of rural life.',
       icon: (
         <svg className="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">

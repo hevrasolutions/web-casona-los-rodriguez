@@ -14,8 +14,8 @@ export default function WhyChooseUs({ locale }: WhyChooseUsProps) {
     {
       title: isEs ? 'Cocina 100% a la leña' : '100% Wood-fired kitchen',
       desc: isEs
-        ? 'Sienta el aroma y descubra el sabor inigualable de la comida campesina costarricense preparada al fogón de madera, una tradición que nutre el alma.'
-        : 'Feel the aroma and discover the unmatched flavor of Costa Rican farmhouse food prepared over a wood stove, a tradition that feeds the soul.',
+        ? 'Saboree la auténtica gastronomía costarricense preparada al fogón de leña con ingredientes locales frescos. Una tradición culinaria viva que refleja el verdadero sabor del campo tico.'
+        : 'Taste the authentic flavors of Costa Rican cuisine cooked over an open wood fire with fresh local ingredients, a living culinary tradition that captures the true soul of the Costa Rican countryside.',
       icon: (
         <svg className="w-8 h-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
@@ -23,10 +23,10 @@ export default function WhyChooseUs({ locale }: WhyChooseUsProps) {
       ),
     },
     {
-      title: isEs ? 'Trapiche de bueyes' : 'Oxen sugarcane mill',
+      title: isEs ? 'Clases de cocina típica' : 'Traditional Cooking Classes',
       desc: isEs
-        ? 'Reviva el proceso ancestral de molienda de caña impulsado por bueyes, deguste el jugo de caña fresco y aprenda sobre el dulce de tapa tradicional.'
-        : 'Relive the ancestral sugarcane milling process driven by oxen, taste fresh cane juice, and learn about traditional block sugar production.',
+        ? 'Aprenda a preparar platos tradicionales costarricenses junto a nuestra familia en La Fortuna. Una experiencia práctica y auténtica que lo conecta de cerca con la gastronomía del campo.'
+        : 'Learn to cook classic Costa Rican dishes alongside our local family in La Fortuna. A hands-on, intimate experience that brings you inside the authentic flavors and traditions of the countryside.',
       icon: (
         <svg className="w-8 h-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -36,8 +36,8 @@ export default function WhyChooseUs({ locale }: WhyChooseUsProps) {
     {
       title: isEs ? 'Música y bailes típicos' : 'Folk music & dances',
       desc: isEs
-        ? 'Conéctese con la alegría de nuestro folclor a través de música en vivo y bailes tradicionales que invitan al visitante a participar y bailar.'
-        : 'Connect with the joy of our folklore through live music and traditional dances that invite visitors to participate and dance along.',
+        ? 'Viva la alegría del folclor costarricense con música en vivo y bailes típicos que invitan a participar. Una experiencia cultural que celebra con orgullo la identidad de Costa Rica.'
+        : 'Experience the joy of Costa Rican folklore through live music and traditional dance performances that invite you to join in — a vibrant celebration of our national cultural identity.',
       icon: (
         <svg className="w-8 h-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
@@ -45,10 +45,10 @@ export default function WhyChooseUs({ locale }: WhyChooseUsProps) {
       ),
     },
     {
-      title: isEs ? 'Historia viva de Costa Rica' : 'Costa Rica living history',
+      title: isEs ? 'Más de 120 años de historia' : 'Over 120 Years of History',
       desc: isEs
-        ? 'Explore una casona original de más de un siglo de antigüedad, interactúe con una familia local de agricultores y viva la cultura en primera persona.'
-        : 'Explore an original century-old farmhouse, interact with a local farming family, and experience the culture first-hand.',
+        ? 'Explore una casona original construida en 1890 para el expresidente Rafael Yglesias Castro. Un patrimonio cultural vivo en La Fortuna que conecta el pasado con el presente de Costa Rica.'
+        : 'Explore an original farmhouse built in 1890 for Costa Rican president Rafael Yglesias Castro — a living cultural landmark in La Fortuna that bridges the past and present of Costa Rica.',
       icon: (
         <svg className="w-8 h-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -61,7 +61,7 @@ export default function WhyChooseUs({ locale }: WhyChooseUsProps) {
     <section className="py-20 sm:py-28 bg-cream/40">
       <Container>
         <SectionTitle
-          title={isEs ? '¿Por qué elegirnos?' : 'Why Choose Us?'}
+          title={isEs ? 'Cuatro razones para vivir esta experiencia.' : 'Four reasons to live this experience.'}
           subtitle={isEs ? 'Lo que nos hace únicos' : 'What makes us unique'}
           className="mb-16"
         />
