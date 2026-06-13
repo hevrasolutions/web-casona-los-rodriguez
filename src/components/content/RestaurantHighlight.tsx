@@ -15,9 +15,9 @@ export default function RestaurantHighlight({ locale }: RestaurantHighlightProps
   const title = isEs ? 'Sabores cocinados a la leña, como siempre ha sido.' : 'Flavors cooked over wood fire, the way it has always been.';
   const subtitle = isEs ? 'Gastronomía Típica' : 'Traditional Gastronomy';
   const description = isEs
-    ? 'En nuestro restaurante no hay espacio para lo artificial. Cada platillo se prepara al calor del fogón de leña, utilizando ingredientes frescos cultivados en nuestro huerto y recetas tradicionales heredadas. Disfrute del auténtico gallo pinto, la olla de carne, tortillas palmeadas al instante, picadillos sazonados y carnes ahumadas con el toque único del humo de madera.'
-    : 'In our restaurant, there is no room for the artificial. Every dish is prepared over a wood stove, using fresh ingredients grown in our garden and inherited traditional recipes. Enjoy authentic gallo pinto, beef stew (olla de carne), handmade tortillas, seasoned hash (picadillos), and smoked meats with the unique touch of wood fire.';
-  
+    ? 'Imagine sentarse a la mesa en la Casona: el aroma de la leña en el aire, carne ahumada recién servida, tortillas palmeadas al instante y una olla de carne que cocinó toda la mañana a fuego lento. En nuestra cocina no hay atajos, solo recetas costarricenses de siempre, ingredientes frescos de la zona y el fuego que nunca se apaga. Una mesa en la Casona es una experiencia que se recuerda.'
+    : 'Picture yourself at a table in La Casona: the scent of burning wood in the air, freshly smoked meat just served, hand-pressed tortillas still warm, and a slow-cooked olla de carne that has been simmering all morning. Our kitchen takes no shortcuts — just timeless Costa Rican recipes, fresh local ingredients, and a fire that never goes out. A meal at La Casona is an experience you will not forget.';
+
   const buttonLabel = isEs ? 'Conozca nuestro restaurante' : 'Discover our restaurant';
 
   return (

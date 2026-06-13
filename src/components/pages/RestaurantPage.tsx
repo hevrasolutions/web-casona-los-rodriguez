@@ -1,8 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
+import Button from '../ui/Button';
 import BookingCTA from '../ui/BookingCTA';
 
 interface RestaurantPageProps {
@@ -15,35 +17,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
   const title = isEs ? 'Restaurante típico a la leña en La Fortuna' : 'Traditional wood-fired restaurant in La Fortuna';
   const subtitle = isEs ? 'Sabores del Campo Costarricense' : 'Flavors of the Costa Rican Countryside';
 
-  // Menu lists
-  const menuCategories = [
-    {
-      title: isEs ? 'Especialidades a la Leña' : 'Wood-Fired Specialties',
-      items: [
-        { name: isEs ? 'Carne ahumada a la leña' : 'Wood-fired smoked meat', desc: isEs ? 'Lomito de cerdo seleccionado ahumado lentamente con maderas aromáticas.' : 'Premium pork loin slowly smoked with aromatic local woods.' },
-        { name: isEs ? 'Carne en salsa tradicional' : 'Beef in typical sauce', desc: isEs ? 'Dados de carne tierna cocinados a fuego lento en salsa criolla costarricense.' : 'Tender beef cubes slow-cooked in traditional Costa Rican Creole sauce.' },
-        { name: isEs ? 'Arroz con pollo tradicional' : 'Traditional chicken and rice', desc: isEs ? 'El clásico platillo de fiesta tico, sazonado al fogón y servido con papas tostadas.' : 'The classic Costa Rican party dish, seasoned over the hearth, served with potato chips.' },
-        { name: isEs ? 'Arroz arreglado típico' : 'Special seasoned rice', desc: isEs ? 'Arroz cocinado al caldo de leña combinado con carne de cerdo desmechada y vegetales.' : 'Seasoned rice cooked in wood-fired broth mixed with shredded pork and vegetables.' },
-      ]
-    },
-    {
-      title: isEs ? 'Sopas, Caldos y Cremas' : 'Soups & Stews',
-      items: [
-        { name: isEs ? 'Olla de carne tradicional' : 'Olla de carne (Beef stew)', desc: isEs ? 'Sustancioso caldo criollo con trozos de res y verduras locales (yuca, elote, ayote, papa).' : 'Rich Creole broth with beef cuts and local root vegetables (cassava, corn, squash, potatoes).' },
-        { name: isEs ? 'Sopa de tomate casera' : 'Homemade tomato soup', desc: isEs ? 'Crema natural de tomates asados al fogón con un toque de albahaca fresca.' : 'Natural fire-roasted tomato cream soup with a touch of fresh basil.' },
-        { name: isEs ? 'Sopa de ayote' : 'Squash soup', desc: isEs ? 'Crema aterciopelada de ayote sazón asado en las brasas de leña.' : 'Velvety cream soup of sweet squash roasted in wood embers.' },
-      ]
-    },
-    {
-      title: isEs ? 'Entradas y Acompañamientos' : 'Sides & Appetizers',
-      items: [
-        { name: isEs ? 'Picadillo de raíz de papaya' : 'Papaya root hash (Picadillo)', desc: isEs ? 'Picadillo tradicional preparado con raíz de papaya verde rallada y carne de cerdo molida.' : 'Traditional hash prepared with grated green papaya root and ground pork.' },
-        { name: isEs ? 'Frijoles frescos molidos' : 'Fresh refried beans', desc: isEs ? 'Frijoles negros de la zona cocinados a la leña y molidos con especias criollas.' : 'Local black beans cooked over wood fire and mashed with Creole spices.' },
-        { name: isEs ? 'Tortillas palmeadas de maíz' : 'Handmade corn tortillas', desc: isEs ? 'Tortillas de maíz hechas a mano por nuestra familia y cocinadas al instante en el comal.' : 'Corn tortillas patted by hand by our family and cooked instantly on the clay griddle.' },
-        { name: isEs ? 'Ensaladas frescas de la huerta' : 'Fresh garden salads', desc: isEs ? 'Hojas verdes crujientes, tomates cherry y aderezos caseros de la huerta a su plato.' : 'Crisp green leaves, cherry tomatoes, and homemade dressings from the garden to your plate.' },
-      ]
-    }
-  ];
+  // menuCategories removed (static design used below)
 
   // Dietary options
   const dietaryOptions = [
@@ -103,13 +77,13 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
               />
               <p className="text-base sm:text-lg text-primary/80 font-body leading-relaxed mb-6">
                 {isEs
-                  ? 'En Casona Los Rodríguez, cocinar a la leña no es una opción turística, es nuestra forma de vida. El humo de maderas seleccionadas aporta un aroma profundo y una textura única a cada ingrediente. Mantenemos encendidos nuestros fogones tradicionales todos los días para palmear las tortillas de maíz criollo, sazonar los picadillos al calor de la ceniza y ahumar los cortes de carne que servimos en nuestra mesa.'
-                  : 'At Casona Los Rodríguez, wood-fired cooking is not a touristic gimmick—it is our way of life. The smoke of selected local timbers brings a deep aroma and unique texture to every single ingredient. We keep our traditional stoves burning every day to pat local corn tortillas, slow-cook hashes over hot ashes, and smoke the cuts of meat that we serve on our family table.'}
+                  ? 'El Fogón de la Casona es donde la tradición cobra vida: maderas seleccionadas, el fogón encendido cada día y recetas que trascienden generaciones. Aquí palmeamos tortillas de maíz criollo, sazonamos picadillos al calor de las brasas y ahumamos los cortes de carne que definen el auténtico sabor tico.'
+                  : 'El Fogón de la Casona is where tradition comes alive: hand-selected firewood, the hearth burning every day, and recipes that transcend generations. Here we hand-press corn tortillas, season picadillos over glowing embers, and slow-smoke cuts of meat that define the authentic flavor of Costa Rica.'}
               </p>
               <p className="text-base sm:text-lg text-primary/80 font-body leading-relaxed">
                 {isEs
-                  ? 'Nuestros platillos son elaborados con ingredientes cosechados directamente en nuestra huerta orgánica o traídos por pequeños agricultores locales de La Fortuna.'
-                  : 'Our dishes are crafted using ingredients harvested directly from our organic vegetable garden or brought in by local small farmers from La Fortuna.'}
+                  ? 'Muchos de nuestros ingredientes vienen de nuestra propia huerta o directamente de pequeños agricultores de la zona de La Fortuna, apoyando la economía local y garantizando la frescura que hace única cada visita a la Casona.'
+                  : 'Many of our ingredients come from our own garden or directly from small-scale local farmers in the La Fortuna area, supporting the local economy and ensuring the freshness that makes every visit to La Casona unique.'}
               </p>
             </div>
 
@@ -128,37 +102,108 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       </section>
 
       {/* Menu Showcase Section */}
-      <section className="py-20 sm:py-28 bg-cream/40 border-t border-b border-sand/15">
-        <Container>
-          <SectionTitle
-            title={isEs ? 'El Menú Destacado' : 'Featured Menu'}
-            subtitle={isEs ? 'Recetas Familiares Ancestrales' : 'Ancestral Family Recipes'}
-            className="mb-16"
-          />
+      <section className="py-20 sm:py-28 bg-cream/40 border-t border-b border-sand/15 text-center">
+        <Container className="max-w-4xl flex flex-col items-center">
+          {/* Eyebrow */}
+          <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+            {isEs ? 'Nuestra Gastronomía' : 'Our Gastronomy'}
+          </span>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-            {menuCategories.map((cat, idx) => (
-              <div
-                key={idx}
-                className="bg-white-warm border border-sand/20 rounded-lg p-6 sm:p-8 shadow-sm flex flex-col h-full"
-              >
-                <h3 className="font-heading text-xl font-bold text-primary mb-6 pb-2 border-b border-gold/20 uppercase tracking-wide">
-                  {cat.title}
-                </h3>
-                <ul className="flex flex-col gap-6">
-                  {cat.items.map((item, iIdx) => (
-                    <li key={iIdx} className="flex flex-col text-left">
-                      <h4 className="font-heading text-base sm:text-lg font-bold text-primary mb-1">
-                        {item.name}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-primary/70 font-body leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* H2 Title */}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-6 max-w-2xl leading-tight">
+            {isEs ? 'Una propuesta culinaria hecha para usted' : 'A Culinary Experience Made for You'}
+          </h2>
+
+          {/* Intro Paragraph */}
+          <p className="text-base sm:text-lg text-primary/80 font-body leading-relaxed max-w-2xl mb-12">
+            {isEs
+              ? 'En Casona Los Rodríguez no trabajamos con un menú fijo — diseñamos propuestas gastronómicas personalizadas según sus gustos, el tamaño del grupo y las necesidades de cada visitante, incluyendo opciones vegetarianas, veganas y para restricciones alimentarias especiales.'
+              : 'At Casona Los Rodríguez we do not work with a fixed menu — we design personalized culinary proposals based on your tastes, group size, and dietary needs, including vegetarian, vegan, and allergy-friendly options.'}
+          </p>
+
+          {/* Dish list: 2 columns desktop / 1 column mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5 w-full text-left mb-12 max-w-3xl mx-auto">
+            {/* Left Column */}
+            <div className="flex flex-col gap-5">
+              {[
+                isEs ? 'Casados típicos' : 'Traditional Costa Rican casado',
+                isEs ? 'Carne ahumada a la leña' : 'Wood-smoked beef',
+                isEs ? 'Chicharrones tradicionales con yuca' : 'Traditional chicharrones with yuca',
+                isEs ? 'Olla de carne tradicional' : 'Traditional olla de carne',
+              ].map((plate, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                  </svg>
+                  <span className="font-body font-medium text-primary text-base sm:text-lg leading-snug">
+                    {plate}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-5">
+              {[
+                isEs ? 'Tortillas palmeadas de maíz' : 'Hand-pressed corn tortillas',
+                isEs ? 'Picadillo de raíz de papaya' : 'Papaya root picadillo',
+                isEs ? 'Chorreadas de maíz con natilla' : 'Corn chorreadas with natilla cream',
+              ].map((plate, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                  </svg>
+                  <span className="font-body font-medium text-primary text-base sm:text-lg leading-snug">
+                    {plate}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Separator line */}
+          <hr className="w-full border-t border-cream-dark/60 mb-8 max-w-3xl" />
+
+          {/* Closing Line */}
+          <p className="font-subheading italic text-gold text-lg sm:text-xl mb-10 max-w-2xl">
+            {isEs
+              ? '...y muchos platillos típicos más, preparados a la leña y adaptados a sus preferencias.'
+              : '...and many more traditional dishes, wood-fired and tailored to your preferences.'}
+          </p>
+
+          {/* CTA Area (Button + secondary link note) */}
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              variant="primary"
+              size="lg"
+              href={
+                isEs
+                  ? 'https://wa.me/50688094163?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20propuesta%20gastron%C3%B3mica%20de%20Casona%20Los%20Rodr%C3%ADguez.'
+                  : 'https://wa.me/50688094163?text=Hello,%20I%20would%20like%20to%20request%20more%20information%20about%20the%20culinary%20proposal%20at%20Casona%20Los%20Rodr%C3%ADguez.'
+              }
+              external={true}
+              className="shadow-md min-w-[220px]"
+            >
+              {isEs ? 'Reservar ahora' : 'Book Now'}
+            </Button>
+
+            <p className="text-xs sm:text-sm text-primary/70 font-body max-w-md leading-relaxed mt-1">
+              {isEs ? (
+                <>
+                  ¿Viajás en grupo o representás una agencia?{' '}
+                  <Link href="/es/agencias" className="text-blue-colonial hover:underline font-semibold">
+                    Conocé nuestra sección de Agencias &rarr;
+                  </Link>
+                </>
+              ) : (
+                <>
+                  Traveling with a group or a travel agency?{' '}
+                  <Link href="/en/agencies" className="text-blue-colonial hover:underline font-semibold">
+                    Visit our Agencies &rarr; section
+                  </Link>
+                </>
+              )}
+            </p>
           </div>
         </Container>
       </section>
@@ -211,8 +256,8 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="py-20 sm:py-28 bg-cream/40 border-t border-b border-sand/15">
         <Container>
           <SectionTitle
-            title={isEs ? 'Servicios para Grupos y Operadores' : 'Services for Groups & Operators'}
-            subtitle={isEs ? 'Capacidades Comerciales B2B' : 'B2B Commercial Solutions'}
+            title={isEs ? 'Una experiencia adaptada a cada grupo' : 'An Experience Tailored to Every Group'}
+            subtitle={isEs ? 'Para grupos y agencias' : 'For Groups and Agencies'}
             className="mb-16"
           />
 
