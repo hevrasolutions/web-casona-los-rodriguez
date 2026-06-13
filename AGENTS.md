@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-06-09
+**Última Actualización:** 2026-06-13
 **Fase Activa:** Fase 7 — SEO Técnico y Optimización (En Progreso)
 
 ---
@@ -106,7 +106,7 @@ Organizados en `/src/components/`:
   * [`ExperienceDetailPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailPage.tsx): Detalle dinámico para experiencias.
   * [`ExperiencesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperiencesPage.tsx): Catálogo de experiencias.
   * [`GalleryPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/GalleryPage.tsx): Visualización de fotos con filtro y lightbox.
-  * [`RestaurantPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/RestaurantPage.tsx): Menú de comidas e información gastronómica.
+  * [`RestaurantPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/RestaurantPage.tsx): Menú de propuesta gastronómica personalizada (2 columnas en escritorio, 1 en móvil con iconos de llama dorados, CTA de reserva directa a WhatsApp) y cierre de página en parallax.
   * [`TermsPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/TermsPage.tsx): Términos y condiciones legales.
 * **`ui/` (Componentes atómicos)**
   * [`BookingCTA.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/BookingCTA.tsx): Botón estándar de reserva.
@@ -196,6 +196,7 @@ Las imágenes reales del sitio se organizan jerárquicamente en:
   * *"Clase de cocina típica"* / *"Cocina tradicional con familia local"*.
   * *"Cenas culturales"*.
   * *"Reservar experiencia"*.
+  * *"Reservar ahora"* (para botón CTA del restaurante enlazado a WhatsApp).
   * *"Solicitar cotización"* (para agencias).
 * **Evitar:**
   * *"Productos"*.
@@ -244,7 +245,7 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * [ ] **Archivos SEO:** Configurar sitemap dinámico (`sitemap.xml`) y el archivo estático `robots.txt`.
 * [ ] **Hreflang Tags:** Declarar etiquetas hreflang cruzadas entre las páginas localizadas `/es` y `/en` para evitar penalizaciones por contenido duplicado.
 * [/] **Core Web Vitals:** Auditoría de velocidad y optimización de rendimiento (Lazy loading, optimización de fuentes y tamaños de imágenes WebP). *Completado: Estabilización de altura del Hero Carousel utilizando CSS Grid para eliminar por completo el Cumulative Layout Shift (CLS) en Desktop y Mobile.*
-* [ ] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento.
+* [/] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento. *Completado: Efecto parallax global (Desktop y Mobile) con overlay de contraste en el CTA final de la página del Restaurante.*
 * [ ] **Google Analytics 4:** Añadir los scripts de GA4 vinculando la variable de medición correspondiente.
 
 ---

@@ -314,19 +314,30 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         </Container>
       </section>
 
-      {/* CTA final */}
-      <section className="py-20 bg-wood text-white-warm text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-wood/30 opacity-60 pointer-events-none" />
-        <Container className="relative z-10 flex flex-col items-center">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-4 tracking-wide max-w-xl leading-tight">
+      {/* CTA final con efecto Parallax en Desktop y Mobile */}
+      <section className="relative py-24 sm:py-32 bg-primary text-white-warm overflow-hidden text-center border-t border-wood/50">
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: "url('/images/gallery/wood-fired-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')"
+          }}
+        />
+        <div className="absolute inset-0 bg-primary/80 z-10" />
+
+        <Container className="relative z-20 flex flex-col items-center select-none">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl leading-tight text-white-warm mb-6">
             {isEs ? '¿Listo para degustar la sazón tradicional?' : 'Ready to taste traditional seasoning?'}
           </h2>
-          <p className="text-sm sm:text-base text-white-warm/85 max-w-xl mb-8 font-body">
+          <p className="text-base sm:text-lg text-white-warm/80 font-body max-w-xl mb-10 leading-relaxed">
             {isEs
               ? 'Reserve su almuerzo o cena campesina como parte de nuestras experiencias gastronómicas.'
               : 'Book your farmhouse lunch or dinner as part of our culinary experiences.'}
           </p>
-          <BookingCTA variant="secondary" size="lg" className="min-w-[220px]">
+          <BookingCTA
+            variant="primary"
+            size="lg"
+            className="shadow-xl px-10 py-4 hover:scale-[1.03] transition-transform duration-200"
+          >
             {isEs ? 'Reservar experiencia gastronómica' : 'Book culinary experience'}
           </BookingCTA>
         </Container>
