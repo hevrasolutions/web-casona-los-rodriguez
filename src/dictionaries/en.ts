@@ -46,6 +46,9 @@ export const en: Dictionary = {
     adults: 'Adults',
     children: 'Children',
     infants: 'Infants',
+    adultsRange: 'Adults (11+)',
+    childrenRange: 'Children (5–10)',
+    infantsRange: 'Infants (0–4)',
     free: 'free'
   },
   contactForm: {

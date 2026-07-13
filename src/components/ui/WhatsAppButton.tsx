@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { Dictionary } from '@/dictionaries/es';
 
 interface WhatsAppButtonProps {
@@ -9,6 +10,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({ locale, dict }: WhatsAppButtonProps) {
+  const pathname = usePathname();
   const phoneNumber = '50688094163';
   const defaultMessage =
     locale === 'es'
@@ -18,12 +20,21 @@ export default function WhatsAppButton({ locale, dict }: WhatsAppButtonProps) {
   const encodedMessage = encodeURIComponent(defaultMessage);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
+  // En los detalles de experiencia la barra de reserva móvil ocupa el borde
+  // inferior; ahí el flotante solo se muestra en desktop.
+  const segments = pathname?.split('/').filter(Boolean) ?? [];
+  const isExperienceDetail =
+    segments.length === 3 &&
+    (segments[1] === 'experiencias' || segments[1] === 'experiences');
+
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center bg-[#25D366] hover:bg-[#128C7E] text-white-warm p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 group"
+      className={`${
+        isExperienceDetail ? 'hidden lg:flex' : 'flex'
+      } fixed bottom-6 right-6 z-50 items-center justify-center bg-[#25D366] hover:bg-[#128C7E] text-white-warm p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 group`}
       aria-label={dict.whatsapp.tooltip}
     >
       <svg

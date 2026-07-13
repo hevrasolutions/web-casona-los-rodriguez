@@ -1,0 +1,557 @@
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Locale, getDictionary } from '@/lib/i18n';
+import { Experience } from '@/types/experience';
+import { experiences } from '@/data/experiences';
+import { galleryMetadata } from '@/data/gallery-metadata';
+import Container from '../ui/Container';
+import SectionTitle from '../ui/SectionTitle';
+import ExperienceCard from '../experiences/ExperienceCard';
+import BookingSidebar from '../experiences/BookingSidebar';
+import MobileBookingBar from '../experiences/MobileBookingBar';
+
+interface ExperienceDetailV2Props {
+  experience: Experience;
+  locale: Locale;
+}
+
+const MAPS_EMBED_URL =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.4688669405245!2d-84.594854!3d10.463655599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0733a3772c52f%3A0xe6f1eb4b6b926530!2sCasona%20Los%20Rodr%C3%ADguez!5e0!3m2!1ses-419!2scr!4v1780812023707!5m2!1ses-419!2scr';
+
+export default function ExperienceDetailV2({
+  experience,
+  locale,
+}: ExperienceDetailV2Props) {
+  const isEs = locale === 'es';
+  const dict = getDictionary(locale);
+
+  const title = isEs ? experience.title : experience.titleEN;
+  const h1 = (isEs ? experience.h1 : experience.h1EN) ?? title;
+  const tagline = isEs ? experience.tagline : experience.taglineEN;
+  const overview = (isEs ? experience.overview : experience.overviewEN) ?? [];
+  const highlights =
+    (isEs ? experience.highlights : experience.highlightsEN) ?? [];
+  const itinerary = (isEs ? experience.itinerary : experience.itineraryEN) ?? [];
+  const itineraryNote = isEs
+    ? experience.itineraryNote
+    : experience.itineraryNoteEN;
+  const foodOptions = isEs ? experience.foodOptions : experience.foodOptionsEN;
+  const brandIdentity = isEs
+    ? experience.brandIdentity
+    : experience.brandIdentityEN;
+  const faq = (isEs ? experience.faq : experience.faqEN) ?? [];
+  const includes = isEs ? experience.includes : experience.includesEN;
+  const notIncludes =
+    (isEs ? experience.notIncludes : experience.notIncludesEN) ?? [];
+  const whatToBring = isEs ? experience.whatToBring : experience.whatToBringEN;
+
+  const categoryLabels = {
+    cultural: isEs ? 'Cultura' : 'Culture',
+    gastronomia: isEs ? 'Gastronomía' : 'Gastronomy',
+    nocturna: isEs ? 'Nocturna' : 'Night Experience',
+    express: 'Express',
+  };
+
+  const badgeLabels = {
+    bestseller: isEs ? 'Más Vendido' : 'Bestseller',
+    premium: 'Premium',
+    recommended: isEs ? 'Recomendado' : 'Recommended',
+    express: 'Express',
+  };
+
+  const foodChips = [
+    { icon: '🍗', label: isEs ? 'Pollo' : 'Chicken' },
+    { icon: '🐖', label: isEs ? 'Cerdo' : 'Pork' },
+    { icon: '🐟', label: isEs ? 'Pescado' : 'Fish' },
+    { icon: '🌱', label: isEs ? 'Vegano-Vegetariano' : 'Vegan-Vegetarian' },
+  ];
+
+  const quickFacts = [
+    {
+      label: dict.common.duration,
+      value: isEs ? experience.duration : experience.durationEN,
+    },
+    experience.minPersons
+      ? {
+          label: isEs ? 'Grupo' : 'Group',
+          value: `${isEs ? 'Mín' : 'Min'} ${experience.minPersons}${
+            experience.maxPersons
+              ? ` · ${isEs ? 'Máx' : 'Max'} ${experience.maxPersons}`
+              : ''
+          }`,
+        }
+      : null,
+    experience.difficulty || experience.difficultyEN
+      ? {
+          label: isEs ? 'Dificultad' : 'Difficulty',
+          value: isEs ? experience.difficulty : experience.difficultyEN,
+        }
+      : null,
+    experience.tourType || experience.tourTypeEN
+      ? {
+          label: isEs ? 'Tipo' : 'Type',
+          value: isEs ? experience.tourType : experience.tourTypeEN,
+        }
+      : null,
+  ].filter((fact): fact is { label: string; value: string } => !!fact?.value);
+
+  const galleryAlt = (src: string, idx: number) => {
+    const filename = src.split('/').pop() ?? '';
+    const meta = galleryMetadata[filename];
+    if (meta) return isEs ? meta.altES : meta.altEN;
+    return `${title} — ${isEs ? 'foto' : 'photo'} ${idx + 1}`;
+  };
+
+  // Resolve related experiences (up to 2 related)
+  const related = experiences
+    .filter(
+      (exp) =>
+        exp.slug !== experience.slug && exp.category === experience.category
+    )
+    .slice(0, 2);
+
+  if (related.length < 2) {
+    const fill = experiences
+      .filter(
+        (exp) =>
+          exp.slug !== experience.slug &&
+          !related.some((r) => r.slug === exp.slug)
+      )
+      .slice(0, 2 - related.length);
+    related.push(...fill);
+  }
+
+  const faqJsonLd =
+    faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faq.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.a,
+            },
+          })),
+        }
+      : null;
+
+  const sectionHeading =
+    'font-heading text-2xl sm:text-3xl font-bold text-primary mb-5 sm:mb-6';
+
+  return (
+    <>
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+
+      {/* 1. Hero full-width */}
+      <section className="relative bg-primary overflow-hidden">
+        <Image
+          src={experience.heroImage}
+          alt={galleryAlt(experience.heroImage, 0)}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-primary/85" />
+        <Container className="relative z-10 py-16 sm:py-20 lg:py-28 flex flex-col items-center text-center">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white-warm leading-tight max-w-4xl">
+            {h1}
+          </h1>
+          <p className="mt-4 sm:mt-6 font-subheading italic text-base sm:text-lg md:text-xl text-gold max-w-2xl leading-relaxed">
+            {tagline}
+          </p>
+        </Container>
+      </section>
+
+      {/* 2. Breadcrumbs + Badges */}
+      <div className="bg-cream border-b border-sand/15 py-3 text-xs select-none">
+        <Container className="flex flex-wrap items-center gap-x-2 gap-y-2 text-primary/60 font-body">
+          <Link
+            href={`/${locale}`}
+            className="hover:text-terracotta transition-colors"
+          >
+            {isEs ? 'Inicio' : 'Home'}
+          </Link>
+          <span>/</span>
+          <Link
+            href={isEs ? `/${locale}/experiencias` : `/${locale}/experiences`}
+            className="hover:text-terracotta transition-colors"
+          >
+            {isEs ? 'Experiencias' : 'Experiences'}
+          </Link>
+          <span>/</span>
+          <span className="text-primary font-semibold truncate max-w-[150px] sm:max-w-none">
+            {title}
+          </span>
+          <span className="flex items-center gap-2 w-full sm:w-auto sm:ml-auto">
+            <span className="bg-sand/20 text-wood text-xs font-bold px-2.5 py-1 rounded">
+              {categoryLabels[experience.category]}
+            </span>
+            {experience.badge && (
+              <span className="bg-terracotta text-white-warm text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
+                {badgeLabels[experience.badge]}
+              </span>
+            )}
+          </span>
+        </Container>
+      </div>
+
+      {/* 3. Main 2-column layout (single column on mobile) */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-cream">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+            {/* Main Content Column */}
+            <div className="lg:col-span-2 flex flex-col gap-10 sm:gap-12">
+              {/* Quick facts bar */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-8 bg-white-warm border border-sand/25 rounded-lg px-5 py-4 sm:px-6">
+                {quickFacts.map((fact) => (
+                  <div key={fact.label} className="flex flex-col">
+                    <span className="text-[11px] uppercase tracking-wide font-bold text-gold">
+                      {fact.label}
+                    </span>
+                    <span className="text-sm font-semibold text-primary">
+                      {fact.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* 4. Overview */}
+              <div>
+                <h2 className={sectionHeading}>
+                  {isEs ? 'Descripción de la experiencia' : 'Overview'}
+                </h2>
+                <div className="flex flex-col gap-4">
+                  {overview.map((paragraph, idx) => (
+                    <p
+                      key={idx}
+                      className="text-base text-primary/80 font-body leading-relaxed"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* 5. Highlights */}
+              {highlights.length > 0 && (
+                <div>
+                  <h2 className={sectionHeading}>
+                    {isEs ? 'Lo que vas a vivir' : "What You'll Experience"}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {highlights.map((highlight, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 bg-white-warm border border-sand/25 rounded-lg p-4 sm:p-5"
+                      >
+                        <span className="text-2xl leading-none" aria-hidden="true">
+                          {highlight.icon}
+                        </span>
+                        <p className="text-sm sm:text-base text-primary/85 font-body leading-relaxed">
+                          {highlight.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 6. Gallery: horizontal snap strip on mobile, grid from sm */}
+              {experience.images.length > 0 && (
+                <div>
+                  <h2 className={sectionHeading}>
+                    {isEs ? 'Galería de la experiencia' : 'Experience Gallery'}
+                  </h2>
+                  <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:overflow-visible sm:pb-0">
+                    {experience.images.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="relative aspect-[4/3] w-60 shrink-0 snap-start rounded-lg overflow-hidden border border-sand/20 shadow-sm bg-sand/10 sm:w-auto sm:shrink"
+                      >
+                        <Image
+                          src={img}
+                          alt={galleryAlt(img, idx)}
+                          fill
+                          sizes="(max-width: 640px) 60vw, (max-width: 1024px) 33vw, 17vw"
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 7. Brand identity strip */}
+              {brandIdentity && (
+                <div className="rounded-lg bg-primary px-6 py-10 sm:px-10 sm:py-12 text-center">
+                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-gold mb-4">
+                    {brandIdentity.title}
+                  </h2>
+                  <p className="font-subheading italic text-white-warm/90 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                    {brandIdentity.text}
+                  </p>
+                </div>
+              )}
+
+              {/* 8. Itinerary (numbered, no fixed times) */}
+              {itinerary.length > 0 && (
+                <div>
+                  <h2 className={sectionHeading}>
+                    {isEs ? 'Itinerario' : 'Itinerary'}
+                  </h2>
+                  <ol className="flex flex-col gap-4">
+                    {itinerary.map((step, idx) => (
+                      <li key={idx} className="flex items-start gap-4">
+                        <span className="w-8 h-8 shrink-0 rounded-full bg-terracotta text-white-warm font-bold text-sm flex items-center justify-center">
+                          {idx + 1}
+                        </span>
+                        <p className="text-sm sm:text-base text-primary/85 font-body leading-relaxed pt-1.5">
+                          {step}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                  {itineraryNote && (
+                    <p className="mt-4 text-xs sm:text-sm italic text-primary/60 font-body">
+                      {itineraryNote}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* 9. Food options (informative icon row) */}
+              {foodOptions && (
+                <div>
+                  <h2 className={sectionHeading}>
+                    {isEs ? 'Opciones de alimentación' : 'Meal Options'}
+                  </h2>
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-4">
+                    {foodChips.map((chip) => (
+                      <span
+                        key={chip.label}
+                        className="inline-flex items-center gap-2 bg-white-warm border border-sand/30 rounded-full px-4 py-2 text-xs sm:text-sm font-semibold text-primary/85"
+                      >
+                        <span aria-hidden="true">{chip.icon}</span>
+                        {chip.label}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm sm:text-base text-primary/75 font-body leading-relaxed">
+                    {foodOptions}
+                  </p>
+                </div>
+              )}
+
+              {/* 10. Includes / Not included + practical info */}
+              <div className="flex flex-col gap-6">
+                <div className="bg-white-warm border border-sand/25 rounded-lg p-6 sm:p-8">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-4 flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5 text-jungle"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {isEs ? 'Incluye' : 'Includes'}
+                  </h3>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                    {includes.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="text-sm text-primary/80 font-body flex items-start gap-2"
+                      >
+                        <span className="text-jungle font-bold select-none mt-0.5">
+                          ✓
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {notIncludes.length > 0 && (
+                    <div className="mt-6 pt-5 border-t border-sand/20">
+                      <h4 className="text-xs font-bold text-primary/50 uppercase tracking-wider mb-3">
+                        {isEs ? 'No incluye' : 'Not included'}
+                      </h4>
+                      <ul className="flex flex-wrap gap-x-6 gap-y-2">
+                        {notIncludes.map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="text-sm text-primary/60 font-body flex items-start gap-2"
+                          >
+                            <span className="text-primary/40 select-none mt-0.5">
+                              ✗
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                {/* Practical info */}
+                <div className="bg-cream/40 border border-sand/35 rounded-lg p-6 sm:p-8">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-4">
+                    {isEs ? 'Información práctica' : 'Practical Information'}
+                  </h3>
+                  {whatToBring && (
+                    <p className="text-sm text-primary/85 font-body mb-5">
+                      <strong>{isEs ? 'Qué llevar:' : 'What to bring:'}</strong>{' '}
+                      {whatToBring}
+                    </p>
+                  )}
+                  {experience.meetingPointUrl && (
+                    <div>
+                      <p className="text-sm text-primary/85 font-body font-semibold mb-3">
+                        {isEs ? 'Punto de encuentro:' : 'Meeting point:'}
+                      </p>
+                      <div className="rounded-lg overflow-hidden border border-sand/30 mb-3">
+                        <iframe
+                          src={MAPS_EMBED_URL}
+                          title={
+                            isEs
+                              ? 'Mapa del punto de encuentro en Casona Los Rodríguez'
+                              : 'Meeting point map at Casona Los Rodríguez'
+                          }
+                          className="w-full h-44 sm:h-56 border-0"
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <a
+                        href={experience.meetingPointUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-colonial hover:text-terracotta underline transition-colors"
+                      >
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        {isEs ? 'Abrir en Google Maps' : 'Open in Google Maps'}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* 11. FAQ */}
+              {faq.length > 0 && (
+                <div>
+                  <h2 className={sectionHeading}>
+                    {isEs
+                      ? 'Preguntas frecuentes'
+                      : 'Frequently Asked Questions'}
+                  </h2>
+                  <div className="flex flex-col gap-3">
+                    {faq.map((item, idx) => (
+                      <details
+                        key={idx}
+                        className="group bg-white-warm border border-sand/25 rounded-lg"
+                      >
+                        <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-semibold text-primary text-sm sm:text-base">
+                          {item.q}
+                          <svg
+                            className="w-4 h-4 shrink-0 text-gold transition-transform duration-200 group-open:rotate-180"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
+                          </svg>
+                        </summary>
+                        <p className="px-5 pb-5 text-sm text-primary/80 font-body leading-relaxed">
+                          {item.a}
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Booking column: in-flow card on mobile, sticky sidebar on desktop */}
+            <aside className="lg:col-span-1">
+              <BookingSidebar
+                experience={experience}
+                locale={locale}
+                dict={dict}
+              />
+            </aside>
+          </div>
+        </Container>
+      </section>
+
+      {/* 12. Related Experiences */}
+      <section className="py-14 sm:py-20 bg-cream/40 border-t border-sand/15">
+        <Container>
+          <SectionTitle
+            title={isEs ? 'Experiencias Relacionadas' : 'Related Experiences'}
+            subtitle={
+              isEs
+                ? 'Siga explorando nuestras tradiciones'
+                : 'Continue exploring our traditions'
+            }
+            className="mb-12"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {related.map((exp) => (
+              <ExperienceCard
+                key={exp.slug}
+                experience={exp}
+                locale={locale}
+                dict={dict}
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Spacer so the fixed mobile bar never covers the last content */}
+      <div className="h-20 lg:hidden" aria-hidden="true" />
+
+      <MobileBookingBar experience={experience} locale={locale} dict={dict} />
+    </>
+  );
+}

@@ -44,6 +44,9 @@ export const es = {
     adults: 'Adultos',
     children: 'Niños',
     infants: 'Infantes',
+    adultsRange: 'Adultos (11+)',
+    childrenRange: 'Niños (5–10)',
+    infantsRange: 'Infantes (0–4)',
     free: 'gratis'
   },
   contactForm: {
