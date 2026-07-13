@@ -34,7 +34,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse-facilities/casona-los-rodriguez-historic-farmhouse-001.webp')] pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp')] pointer-events-none" />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
@@ -49,7 +49,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
           </p>
         </Container>
       </section>
-
+ 
       {/* History & Heritage Section */}
       <section className="py-20 sm:py-28 bg-cream">
         <Container>
@@ -69,11 +69,11 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 {dict.aboutPage.historyText2}
               </p>
             </div>
-
+ 
             {/* Right: Historic Facade Image */}
             <div className="lg:col-span-6 relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl border border-sand/30 bg-sand/10">
               <Image
-                src="/images/gallery/farmhouse-facilities/casona-los-rodriguez-historic-farmhouse-001.webp"
+                src="/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp"
                 alt={isEs ? 'Fachada de la casona histórica de 120 años' : '120-year-old historic farmhouse facade'}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -121,7 +121,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
             {/* Left: Family Experience Photo */}
             <div className="lg:col-span-6 order-2 lg:order-1 relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl border border-sand/30 bg-sand/10">
               <Image
-                src="/images/gallery/family-experiences/casona-los-rodriguez-family-cultural-experience-001.webp"
+                src="/images/gallery/customer-experiences/casona-los-rodriguez-family-cultural-experience-001.webp"
                 alt={isEs ? 'La familia Rodríguez compartiendo en la casona' : 'The Rodriguez family sharing at the casona'}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

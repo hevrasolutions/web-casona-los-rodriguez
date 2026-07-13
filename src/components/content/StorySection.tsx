@@ -51,7 +51,7 @@ export default function StorySection({ locale }: StorySectionProps) {
           {/* Image Column */}
           <div className="lg:col-span-6 relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl border border-sand/30">
             <Image
-              src="/images/gallery/farmhouse-facilities/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp"
+              src="/images/gallery/farmhouse/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp"
               alt={isEs ? 'Entrada de la Casona con mecedoras tradicionales' : 'Farmhouse porch with traditional rocking chairs'}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

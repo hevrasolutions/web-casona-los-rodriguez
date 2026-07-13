@@ -22,7 +22,7 @@ export default function FinalCTA({ locale }: FinalCTAProps) {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-scroll lg:bg-fixed"
         style={{
-          backgroundImage: "url('/images/gallery/farmhouse-facilities/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp')"
+          backgroundImage: "url('/images/gallery/farmhouse/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp')"
         }}
       />
       <div className="absolute inset-0 bg-primary/80 z-10" />

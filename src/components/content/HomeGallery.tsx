@@ -19,27 +19,27 @@ export default function HomeGallery({ locale }: HomeGalleryProps) {
   // 6 representative real images
   const galleryImages = [
     {
-      src: '/images/gallery/farmhouse-facilities/casona-los-rodriguez-farmhouse-la-fortuna-001.webp',
+      src: '/images/gallery/farmhouse/casona-los-rodriguez-farmhouse-la-fortuna-001.webp',
       alt: isEs ? 'Fachada exterior de Casona Los Rodríguez' : 'Exterior facade of Casona Los Rodríguez',
     },
     {
-      src: '/images/gallery/wood-fired-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp',
+      src: '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp',
       alt: isEs ? 'Clase de cocina típica costarricense' : 'Typical Costa Rican cooking class',
     },
     {
-      src: '/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp',
+      src: '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp',
       alt: isEs ? 'Comida típica costarricense preparada a la leña' : 'Traditional Costa Rican typical food cooked over wood fire',
     },
     {
-      src: '/images/gallery/farm-garden-trapiche/casona-los-rodriguez-rural-farm-experience-001.webp',
+      src: '/images/gallery/farm-trapiche/casona-los-rodriguez-rural-farm-experience-001.webp',
       alt: isEs ? 'Recorrido por la granja y finca rural' : 'Farm and rural farmhouse tour',
     },
     {
-      src: '/images/gallery/farmhouse-facilities/casona-los-rodriguez-traditional-dining-room-001.webp',
+      src: '/images/gallery/farmhouse/casona-los-rodriguez-traditional-dining-room-001.webp',
       alt: isEs ? 'Comedor interior con muebles antiguos de colección' : 'Interior dining room with antique collectible furniture',
     },
     {
-      src: '/images/gallery/family-experiences/casona-los-rodriguez-family-cultural-experience-001.webp',
+      src: '/images/gallery/customer-experiences/casona-los-rodriguez-family-cultural-experience-001.webp',
       alt: isEs ? 'Grupo familiar viviendo la experiencia cultural' : 'Family group experiencing the cultural tour',
     },
   ];

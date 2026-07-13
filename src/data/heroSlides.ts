@@ -26,7 +26,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'cocina-lena',
-    image: '/images/gallery/cooking/casona-los-rodriguez-woodfire-cooking-001.webp',
+    image: '/images/gallery/restaurant-kitchen/casona-los-rodriguez-woodfire-cooking-001.webp',
     labelES: 'Cocina a la leña',
     labelEN: 'Wood-fire cooking',
     titleES: 'Sabores cocinados como siempre ha sido',
@@ -38,19 +38,19 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'comida-tipica',
-    image: '/images/gallery/traditional-food/casona-los-rodriguez-food-picadillo-001.webp',
+    image: '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-001.webp',
     labelES: 'Comida típica',
     labelEN: 'Traditional food',
     titleES: 'Sabores costarricenses preparados a la leña',
     titleEN: 'Costa Rican flavors cooked over a wood fire',
-    descriptionES: 'Disfrute platillos tradicionales cocinados como antes, con ingredientes frescos y el calor del fogón.',
+    descriptionES: 'Disfrute platillos tradicionales cocinados como antes, con ingredientes frescos and el calor del fogón.',
     descriptionEN: 'Enjoy traditional dishes prepared the old way, with fresh ingredients and the warmth of the wood-fired kitchen.',
     altES: 'Platillos típicos costarricenses preparados a la leña',
     altEN: 'Traditional Costa Rican typical dishes prepared over wood fire'
   },
   {
     id: 'granja-trapiche',
-    image: '/images/gallery/farm-garden-trapiche/casona-los-rodriguez-rural-farm-experience-001.webp',
+    image: '/images/gallery/farm-trapiche/casona-los-rodriguez-rural-farm-experience-001.webp',
     labelES: 'Granja y trapiche',
     labelEN: 'Farm and trapiche',
     titleES: 'Viva la tradición rural entre animales, huerta y trapiche',

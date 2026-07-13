@@ -18,11 +18,11 @@ export default function FeaturedExperiences({
 }: FeaturedExperiencesProps) {
   const isEs = locale === 'es';
 
-  // Filter the 3 featured experiences
+  // Filter the 3 experiences
   const featuredSlugs = [
-    'experiencia-cultural-completa',
-    'noche-campesina-premium',
-    'cocina-tradicional-familia-local',
+    'tour-historico-cultural-la-fortuna',
+    'clase-cocina-tia-yami',
+    'day-pass-casona-finca',
   ];
 
   // Keep them in the specific order we want
@@ -31,11 +31,11 @@ export default function FeaturedExperiences({
     .filter((exp): exp is typeof experiences[0] => !!exp);
 
   return (
-    <section className="py-20 sm:py-28 bg-cream/30 border-t border-b border-sand/10">
+    <section id="experiencias" className="py-20 sm:py-28 bg-cream/30 border-t border-b border-sand/10">
       <Container>
         <SectionTitle
-          title={isEs ? 'Experiencias Destacadas' : 'Featured Experiences'}
-          subtitle={isEs ? 'Nuestras mejores actividades' : 'Our top rated activities'}
+          title={isEs ? 'Nuestras Experiencias' : 'Our Experiences'}
+          subtitle={isEs ? 'Descubre las tradiciones del campo costarricense' : 'Discover the traditions of the Costa Rican countryside'}
           className="mb-14"
         />
 
@@ -48,17 +48,6 @@ export default function FeaturedExperiences({
               dict={dict}
             />
           ))}
-        </div>
-
-        <div className="mt-14 text-center">
-          <Button
-            variant="ghost"
-            size="lg"
-            href={`/${locale}/experiencias`}
-            className="min-w-[220px]"
-          >
-            {isEs ? 'Ver todas las experiencias' : 'View all experiences'}
-          </Button>
         </div>
       </Container>
     </section>

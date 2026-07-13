@@ -28,7 +28,7 @@ export default function RestaurantHighlight({ locale }: RestaurantHighlightProps
           <div className="grid grid-cols-2 gap-4 lg:col-span-6 order-2 lg:order-1">
             <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md">
               <Image
-                src="/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp"
+                src="/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp"
                 alt={isEs ? 'Comida típica costarricense' : 'Typical Costa Rican food'}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -37,7 +37,7 @@ export default function RestaurantHighlight({ locale }: RestaurantHighlightProps
             </div>
             <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md mt-6">
               <Image
-                src="/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-006.webp"
+                src="/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-006.webp"
                 alt={isEs ? 'Chicharrón con yuca en hoja de banano' : 'Pork chunks with cassava served on banana leaf'}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"

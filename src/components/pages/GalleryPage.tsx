@@ -3,14 +3,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { Locale } from '@/lib/i18n';
-import { galleryItems } from '@/data/gallery';
+import { GalleryItem } from '@/lib/gallery';
 import Container from '../ui/Container';
 
 interface GalleryPageProps {
   locale: Locale;
+  initialItems: GalleryItem[];
 }
 
-export default function GalleryPage({ locale }: GalleryPageProps) {
+export default function GalleryPage({ locale, initialItems }: GalleryPageProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const isEs = locale === 'es';
@@ -20,18 +21,18 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
 
   const categories = [
     { id: 'all', label: isEs ? 'Todas' : 'All' },
-    { id: 'casona', label: isEs ? 'La Casona e Instalaciones' : 'The Farmhouse & Facilities' },
-    { id: 'restaurante-cocina', label: isEs ? 'Restaurante y Cocina a la Leña' : 'Restaurant & Wood-Fired Kitchen' },
-    { id: 'comida', label: isEs ? 'Comida Típica' : 'Traditional Food' },
-    { id: 'granja-trapiche', label: isEs ? 'Granja, Huerta y Trapiche' : 'Farm, Garden & Trapiche' },
-    { id: 'cultura', label: isEs ? 'Eventos y Cultura' : 'Events & Culture' },
-    { id: 'familia', label: isEs ? 'Familia y Experiencias' : 'Family & Experiences' },
+    { id: 'farmhouse', label: isEs ? 'La Casona e Instalaciones' : 'The Farmhouse & Facilities' },
+    { id: 'restaurant-kitchen', label: isEs ? 'Restaurante y Cocina a la Leña' : 'Restaurant & Wood-Fired Kitchen' },
+    { id: 'typical-food', label: isEs ? 'Comida Típica' : 'Traditional Food' },
+    { id: 'farm-trapiche', label: isEs ? 'Granja, Huerta y Trapiche' : 'Farm, Garden & Trapiche' },
+    { id: 'traditional-events', label: isEs ? 'Eventos y Cultura' : 'Events & Culture' },
+    { id: 'customer-experiences', label: isEs ? 'Experiencias de Clientes' : 'Customer Experiences' },
   ];
 
   // Filter items
   const filteredItems = activeCategory === 'all'
-    ? galleryItems
-    : galleryItems.filter((item) => item.category === activeCategory);
+    ? initialItems
+    : initialItems.filter((item) => item.category === activeCategory);
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -73,7 +74,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
     <>
       {/* Page Header */}
       <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse-facilities/casona-los-rodriguez-family-cultural-experience-001.webp')] pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-002.webp')] pointer-events-none" />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">

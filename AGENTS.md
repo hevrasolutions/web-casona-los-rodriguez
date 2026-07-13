@@ -28,13 +28,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 Turistas internacionales (EE.UU., Canadá, Europa, LATAM), familias, parejas, grupos pequeños, agencias de turismo receptivo, coordinadores educativos y corporativos.
 
 ### Catálogo de Experiencias Reales (Precios Confirmados)
-1. **Experiencia Cultural Completa Costarricense:** $69 adulto / $55 niño | Duración: 4.5 – 5 horas | **BESTSELLER**
-2. **Experiencia Rural Costarricense:** $59 adulto / $49 niño | Duración: 4 horas
-3. **Cocina Tradicional con Familia Local:** $39 adulto / $29 niño | Duración: 2 horas
-4. **Noche Campesina con Cultura y Baile:** $49 adulto (grupos de 2 a 6 personas) / $42 adulto (grupos 7+) | Duración: 4 horas | Inicio: 5:00 p.m.
-5. **Experiencia Cultural con Música en Vivo:** $55 adulto | Duración: 4 horas
-6. **Noche Campesina Premium:** $65 adulto | Duración: 4 horas | **PREMIUM**
-7. **Experiencia Nocturna Express:** $39 adulto / $25 niño | Duración: 2.5 horas | Mínimo 4 personas | Horario: 5:00 p.m. – 7:30 p.m.
+1. **Tour Histórico Cultural en La Fortuna:** $69 adulto / $55 niño | Duración: 4.5 – 5 horas | **BESTSELLER**
+2. **Cooking Class con Tía Yami:** $39 adulto / $29 niño | Duración: 2 horas
+3. **La Casona and Farm Day Pass with Traditional Wood-Fired Lunch:** $59 adulto / $49 niño | Duración: 4 horas
 
 ---
 
@@ -140,8 +136,9 @@ El enrutamiento está segmentado dinámicamente según el locale en `/src/app/[l
 ## 6. Archivos de Datos y Tipos
 
 * **`src/types/experience.ts`**: Define los tipos para modelar experiencias (`Experience`, `ExperienceCategory`, `ExperienceBadge`, `ExperiencePricing`).
-* **`src/data/experiences.ts`**: Array de objetos con toda la información localizada para las 7 experiencias.
-* **`src/data/gallery.ts`**: Mapeo y agrupado de imágenes de la galería con sus textos descriptivos en español e inglés.
+* **`src/data/experiences.ts`**: Array de objetos con toda la información localizada para las 3 experiencias oficiales.
+* **`src/lib/gallery.ts`**: Helper de Node.js para escanear y cargar dinámicamente las imágenes de la galería del File System.
+* **`src/data/gallery-metadata.ts`**: Diccionario de metadatos de las fotos de la galería para alt texts bilingües.
 * **`src/data/heroSlides.ts`**: Contenido e imágenes del carrusel Hero en el inicio.
 * **`src/dictionaries/es.ts` y `src/dictionaries/en.ts`**: Diccionarios estáticos que definen los textos comunes del sitio (botones, banners, navegación, secciones de contacto).
 
@@ -149,18 +146,16 @@ El enrutamiento está segmentado dinámicamente según el locale en `/src/app/[l
 
 ## 7. Estructura de Imágenes en `/public/images`
 
-Las imágenes reales del sitio se organizan jerárquicamente en:
+Las imágenes reales del sitio se organizan en:
 * `/images/hero/`: Fotos de portada y fachadas principales de la Casona.
 * `/images/logo/`: Variaciones de tamaño del logotipo para encabezado, retina y pie de página.
 * `/images/gallery/`:
-  * `farmhouse-facilities/` (Facilidades y arquitectura)
-  * `family-experiences/` (Experiencias y talleres familiares)
-  * `farm-garden-trapiche/` (Trapiche de bueyes, animales, cultivos)
-  * `wood-fired-kitchen/` (Recetas e imágenes del fogón de leña)
-  * `cooking/` (Taller de preparación culinaria)
-  * `culture-events/` (Presentaciones culturales de música y danza)
-  * `traditional-food/` (Imágenes de los platos de comida típica)
-  * `farm/` (Instalaciones de la finca)
+  * `farmhouse/` (La Casona e Instalaciones)
+  * `restaurant-kitchen/` (Fogón de leña, ollas de barro y preparación)
+  * `typical-food/` (Platillos tradicionales costarricenses)
+  * `farm-trapiche/` (Finca, huerto y molienda de caña)
+  * `culture/` (Bailes folclóricos y cultura)
+  * `customer-experiences/` (Fotos y vivencias de clientes)
 
 ---
 
@@ -237,6 +232,7 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 
 ### Estado Actual del Proyecto
 * **Fases 1 a 6 (COMPLETAS):** Configuración base, componentes comunes, página de inicio, detalles dinámicos, restaurante, galería, formularios de contacto/cotización de agencias y políticas base.
+* **Pre-Fase 7 - Reestructuración y Dinamismo (COMPLETA):** Reorganización física de imágenes en carpetas en inglés, carga dinámica de la galería desde el sistema de archivos de Node.js, reducción del catálogo a 3 experiencias oficiales en el Home.
 * **Fase 7 (PENDIENTE):** SEO técnico, metadatos y optimización final de rendimiento y animaciones.
 
 ### Tareas Pendientes para la Fase 7:

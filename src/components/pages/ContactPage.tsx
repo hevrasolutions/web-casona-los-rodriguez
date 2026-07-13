@@ -26,7 +26,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse-facilities/casona-los-rodriguez-rustic-facilities-001.webp')] pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-001.webp')] pointer-events-none" />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">

@@ -35,17 +35,17 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
 
   // 4 tasty food photos
   const foodPhotos = [
-    '/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp',
-    '/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-006.webp',
-    '/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-005.webp',
-    '/images/gallery/traditional-food/casona-los-rodriguez-typical-food-la-fortuna-008.webp',
+    '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp',
+    '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-006.webp',
+    '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-005.webp',
+    '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-008.webp',
   ];
 
   return (
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/wood-fired-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')] pointer-events-none" />
+        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')] pointer-events-none" />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
 
         <Container className="relative z-10 py-6">
@@ -90,7 +90,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             {/* Side Image */}
             <div className="lg:col-span-6 relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl border border-sand/30 bg-sand/10">
               <Image
-                src="/images/gallery/wood-fired-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-002.webp"
+                src="/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-002.webp"
                 alt={isEs ? 'Ollas de barro en fogón de leña tradicional' : 'Clay pots on traditional wood-fired stove'}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -319,7 +319,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/gallery/wood-fired-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')"
+            backgroundImage: "url('/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')"
           }}
         />
         <div className="absolute inset-0 bg-primary/80 z-10" />
