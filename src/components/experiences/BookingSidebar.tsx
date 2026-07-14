@@ -18,41 +18,9 @@ export default function BookingSidebar({
 }: BookingSidebarProps) {
   const isEs = locale === 'es';
   const bookingHref = experience.whatsappBookingUrl?.[locale] ?? '#';
-
-  const specs = [
-    {
-      label: dict.common.duration,
-      value: isEs ? experience.duration : experience.durationEN,
-    },
-    experience.minPersons
-      ? {
-          label: dict.common.minPersons,
-          value: `${experience.minPersons} ${isEs ? 'personas' : 'people'}${
-            experience.maxPersons
-              ? ` · ${isEs ? 'Máx' : 'Max'} ${experience.maxPersons}`
-              : ''
-          }`,
-        }
-      : null,
-    experience.schedule || experience.scheduleEN
-      ? {
-          label: isEs ? 'Horarios' : 'Schedule',
-          value: isEs ? experience.schedule : experience.scheduleEN,
-        }
-      : null,
-    experience.difficulty || experience.difficultyEN
-      ? {
-          label: isEs ? 'Dificultad' : 'Difficulty',
-          value: isEs ? experience.difficulty : experience.difficultyEN,
-        }
-      : null,
-    experience.tourType || experience.tourTypeEN
-      ? {
-          label: isEs ? 'Tipo' : 'Type',
-          value: isEs ? experience.tourType : experience.tourTypeEN,
-        }
-      : null,
-  ].filter((spec): spec is { label: string; value: string } => !!spec?.value);
+  // Duración, grupo, dificultad y tipo viven en la barra de datos rápidos de
+  // la página; aquí solo se muestran los horarios.
+  const schedule = isEs ? experience.schedule : experience.scheduleEN;
 
   return (
     <div className="bg-white-warm border border-sand/30 rounded-lg p-6 lg:p-8 shadow-md lg:sticky lg:top-24">
@@ -91,17 +59,15 @@ export default function BookingSidebar({
         </div>
       </div>
 
-      {/* Quick Specs */}
-      <div className="flex flex-col gap-3 mb-8 text-sm border-t border-b border-sand/15 py-4 text-primary/80 font-body">
-        {specs.map((spec) => (
-          <div key={spec.label} className="flex justify-between gap-3">
-            <span className="text-primary font-semibold shrink-0">
-              {spec.label}:
-            </span>
-            <span className="text-right">{spec.value}</span>
-          </div>
-        ))}
-      </div>
+      {/* Schedule */}
+      {schedule && (
+        <div className="flex justify-between gap-3 mb-8 text-sm border-t border-b border-sand/15 py-4 text-primary/80 font-body">
+          <span className="text-primary font-semibold shrink-0">
+            {isEs ? 'Horarios' : 'Schedule'}:
+          </span>
+          <span className="text-right">{schedule}</span>
+        </div>
+      )}
 
       {/* CTAs */}
       <div className="flex flex-col gap-3 mb-4">

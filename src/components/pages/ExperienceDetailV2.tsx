@@ -75,11 +75,7 @@ export default function ExperienceDetailV2({
     experience.minPersons
       ? {
           label: isEs ? 'Grupo' : 'Group',
-          value: `${isEs ? 'Mín' : 'Min'} ${experience.minPersons}${
-            experience.maxPersons
-              ? ` · ${isEs ? 'Máx' : 'Max'} ${experience.maxPersons}`
-              : ''
-          }`,
+          value: `${isEs ? 'Mín' : 'Min'} ${experience.minPersons}`,
         }
       : null,
     experience.difficulty || experience.difficultyEN
@@ -211,9 +207,12 @@ export default function ExperienceDetailV2({
             {/* Main Content Column */}
             <div className="lg:col-span-2 flex flex-col gap-10 sm:gap-12">
               {/* Quick facts bar */}
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 sm:gap-8 bg-white-warm border border-sand/25 rounded-lg px-5 py-4 sm:px-6">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-4 sm:gap-10 bg-white-warm border border-sand/25 rounded-lg px-5 py-4 sm:px-6">
                 {quickFacts.map((fact) => (
-                  <div key={fact.label} className="flex flex-col">
+                  <div
+                    key={fact.label}
+                    className="flex flex-col items-center text-center"
+                  >
                     <span className="text-[11px] uppercase tracking-wide font-bold text-gold">
                       {fact.label}
                     </span>
