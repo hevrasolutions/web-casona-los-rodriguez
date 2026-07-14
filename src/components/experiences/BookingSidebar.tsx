@@ -61,13 +61,29 @@ export default function BookingSidebar({
 
       {/* Schedule */}
       {schedule && (
-        <div className="flex justify-between gap-3 mb-8 text-sm border-t border-b border-sand/15 py-4 text-primary/80 font-body">
+        <div className="flex justify-between gap-3 mb-4 text-sm border-t border-b border-sand/15 py-4 text-primary/80 font-body">
           <span className="text-primary font-semibold shrink-0">
             {isEs ? 'Horarios' : 'Schedule'}:
           </span>
           <span className="text-right">{schedule}</span>
         </div>
       )}
+
+      {/* Booking notes + cancellation policy link */}
+      <div className="flex flex-col gap-1.5 mb-6">
+        <p className="text-xs text-primary/60 font-body leading-relaxed">
+          {dict.common.pricesInUsd}
+        </p>
+        <p className="text-xs text-primary/60 font-body leading-relaxed">
+          {dict.common.bookingNotice}
+        </p>
+        <Link
+          href={isEs ? '/es/politica-de-cancelacion' : '/en/cancellation-policy'}
+          className="text-xs text-primary/60 hover:text-terracotta underline font-semibold transition-colors self-start"
+        >
+          {dict.footer.cancellation}
+        </Link>
+      </div>
 
       {/* CTAs */}
       <div className="flex flex-col gap-3 mb-4">

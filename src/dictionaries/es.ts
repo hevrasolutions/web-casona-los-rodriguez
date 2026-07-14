@@ -47,7 +47,9 @@ export const es = {
     adultsRange: 'Adultos (11+)',
     childrenRange: 'Niños (5–10)',
     infantsRange: 'Infantes (0–4)',
-    free: 'gratis'
+    free: 'gratis',
+    pricesInUsd: 'Los precios son expresados en dólares americanos.',
+    bookingNotice: 'Solo se aceptan reservas con mínimo 12 horas de anticipación.'
   },
   contactForm: {
     title: 'Enviarnos un mensaje',

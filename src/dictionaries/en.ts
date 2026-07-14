@@ -49,7 +49,9 @@ export const en: Dictionary = {
     adultsRange: 'Adults (11+)',
     childrenRange: 'Children (5–10)',
     infantsRange: 'Infants (0–4)',
-    free: 'free'
+    free: 'free',
+    pricesInUsd: 'Prices are expressed in US dollars.',
+    bookingNotice: 'Bookings must be made at least 12 hours in advance.'
   },
   contactForm: {
     title: 'Send us a message',
