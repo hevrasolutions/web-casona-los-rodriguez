@@ -57,22 +57,22 @@ export default function ExperienceGallery({
 
   return (
     <>
-      {/* Gallery strip: horizontal snap scroll on mobile, grid from sm */}
-      <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:overflow-visible sm:pb-0">
+      {/* Gallery: CSS masonry columns, all photos visible (2 cols on mobile) */}
+      <div className="columns-2 gap-3 space-y-3 sm:columns-3 lg:columns-4">
         {items.map((item, idx) => (
           <button
             key={idx}
             type="button"
             onClick={() => setLightboxIndex(idx)}
             aria-label={item.alt}
-            className="relative aspect-[4/3] w-60 shrink-0 snap-start rounded-lg overflow-hidden border border-sand/20 shadow-sm bg-sand/10 sm:w-auto sm:shrink cursor-pointer group focus:outline-none focus:ring-2 focus:ring-gold"
+            className="relative block w-full break-inside-avoid rounded-lg overflow-hidden border border-sand/20 shadow-sm bg-sand/10 cursor-pointer group focus:outline-none focus:ring-2 focus:ring-gold"
           >
             <Image
               src={item.src}
               alt={item.alt}
-              fill
-              sizes="(max-width: 640px) 60vw, (max-width: 1024px) 33vw, 17vw"
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              width={600}
+              height={450}
+              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
             />
           </button>
         ))}
