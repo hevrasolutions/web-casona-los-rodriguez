@@ -90,6 +90,13 @@ export default function BookingSidebar({
             className="w-1 h-1 rounded-full bg-primary/40 mt-[0.4em] shrink-0"
             aria-hidden="true"
           />
+          {dict.common.bookingNotice}
+        </p>
+        <p className="flex items-start gap-2 text-xs text-primary/60 font-body leading-relaxed">
+          <span
+            className="w-1 h-1 rounded-full bg-primary/40 mt-[0.4em] shrink-0"
+            aria-hidden="true"
+          />
           <span>
             {isEs ? 'Revisa nuestras ' : 'Review our '}
             <Link
