@@ -70,19 +70,38 @@ export default function BookingSidebar({
       )}
 
       {/* Booking notes + cancellation policy link */}
-      <div className="flex flex-col gap-1.5 mb-6">
-        <p className="text-xs text-primary/60 font-body leading-relaxed">
+      <div className="flex flex-col gap-2 mb-6">
+        <p className="flex items-start gap-2 text-xs text-primary/60 font-body leading-relaxed">
+          <span
+            className="w-1 h-1 rounded-full bg-primary/40 mt-[0.4em] shrink-0"
+            aria-hidden="true"
+          />
           {dict.common.pricesInUsd}
         </p>
-        <p className="text-xs text-primary/60 font-body leading-relaxed">
-          {dict.common.bookingNotice}
+        <p className="flex items-start gap-2 text-xs text-primary/60 font-body leading-relaxed">
+          <span
+            className="w-1 h-1 rounded-full bg-primary/40 mt-[0.4em] shrink-0"
+            aria-hidden="true"
+          />
+          {dict.common.taxNotice}
         </p>
-        <Link
-          href={isEs ? '/es/politica-de-cancelacion' : '/en/cancellation-policy'}
-          className="text-xs text-primary/60 hover:text-terracotta underline font-semibold transition-colors self-start"
-        >
-          {dict.footer.cancellation}
-        </Link>
+        <p className="flex items-start gap-2 text-xs text-primary/60 font-body leading-relaxed">
+          <span
+            className="w-1 h-1 rounded-full bg-primary/40 mt-[0.4em] shrink-0"
+            aria-hidden="true"
+          />
+          <span>
+            {isEs ? 'Revisa nuestras ' : 'Review our '}
+            <Link
+              href={
+                isEs ? '/es/politica-de-cancelacion' : '/en/cancellation-policy'
+              }
+              className="text-primary/60 hover:text-terracotta underline font-semibold transition-colors"
+            >
+              {isEs ? 'políticas de cancelación' : 'cancellation policy'}
+            </Link>
+          </span>
+        </p>
       </div>
 
       {/* CTAs */}

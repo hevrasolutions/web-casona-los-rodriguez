@@ -51,6 +51,7 @@ export const en: Dictionary = {
     infantsRange: 'Infants (0–4)',
     free: 'free',
     pricesInUsd: 'Prices are expressed in US dollars.',
+    taxNotice: '13% VAT tax not included in the price.',
     bookingNotice: 'Bookings must be made at least 12 hours in advance.'
   },
   contactForm: {

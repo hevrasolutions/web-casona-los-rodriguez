@@ -49,6 +49,7 @@ export const es = {
     infantsRange: 'Infantes (0–4)',
     free: 'gratis',
     pricesInUsd: 'Los precios son expresados en dólares americanos.',
+    taxNotice: 'Impuesto del 13% de IVA no incluido en el precio.',
     bookingNotice: 'Solo se aceptan reservas con mínimo 12 horas de anticipación.'
   },
   contactForm: {
