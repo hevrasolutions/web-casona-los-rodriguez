@@ -307,18 +307,16 @@ export default function ExperienceDetailV2({
                   <h2 className={sectionHeading}>
                     {isEs ? 'Itinerario' : 'Itinerary'}
                   </h2>
-                  <ol className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-6 relative border-l-2 border-sand/30 pl-6 ml-3 py-2">
                     {itinerary.map((step, idx) => (
-                      <li key={idx} className="flex items-start gap-4">
-                        <span className="w-8 h-8 shrink-0 rounded-full bg-terracotta text-white-warm font-bold text-sm flex items-center justify-center">
-                          {idx + 1}
-                        </span>
-                        <p className="text-sm sm:text-base text-primary/85 font-body leading-relaxed pt-1.5">
+                      <div key={idx} className="relative">
+                        <span className="absolute -left-[31px] top-1 w-4 h-4 bg-terracotta rounded-full border-2 border-white-warm" />
+                        <p className="font-heading text-base sm:text-lg font-bold text-primary leading-snug">
                           {step}
                         </p>
-                      </li>
+                      </div>
                     ))}
-                  </ol>
+                  </div>
                   {itineraryNote && (
                     <p className="mt-4 text-xs sm:text-sm italic text-primary/60 font-body">
                       {itineraryNote}
