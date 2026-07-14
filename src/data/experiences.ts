@@ -79,7 +79,7 @@ export const experiences: Experience[] = [
       'meet the locals la fortuna',
       'authentic things to do la fortuna'
     ],
-    h1: 'Descubra la historia que dio vida al destino turístico más emblemático de Costa Rica',
+    h1: 'Tour Histórico Cultural en La Fortuna: descubra la historia que dio vida al destino más emblemático de Costa Rica',
     h1EN: 'La Fortuna Cultural Heritage Tour: Meet the Locals & Live Their Story',
     overview: [
       'Antes de ser el destino de aventura que conoces hoy, La Fortuna era una pequeña comunidad agrícola al pie del Arenal. En este recorrido cultural, caminarás por cultivos tradicionales, escucharás de primera mano cómo era la vida aquí antes del turismo, y terminarás compartiendo mesa con una familia costarricense real — con almuerzo o cena típica y baile folclórico incluidos. No es una parada más en un itinerario: es la única forma de conocer la historia que nadie más te va a contar.'
