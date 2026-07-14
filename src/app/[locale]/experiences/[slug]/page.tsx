@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Locale, locales } from "@/lib/i18n";
 import { experiences } from "@/data/experiences";
 import { findExperience, getExperienceMetadata } from "@/lib/experienceSeo";
-import ExperienceDetailPage from "@/components/pages/ExperienceDetailPage";
 import ExperienceDetailV2 from "@/components/pages/ExperienceDetailV2";
 
 export function generateStaticParams() {
@@ -35,12 +35,11 @@ export default async function Page({
   const { locale, slug } = await params;
   const experience = findExperience(locale, slug);
 
-  // La presencia de contenido extendido activa la plantilla nueva (rollout por fases)
-  if (experience?.overview) {
-    return (
-      <ExperienceDetailV2 experience={experience} locale={locale as Locale} />
-    );
+  if (!experience) {
+    notFound();
   }
 
-  return <ExperienceDetailPage locale={locale as Locale} slug={slug} />;
+  return (
+    <ExperienceDetailV2 experience={experience} locale={locale as Locale} />
+  );
 }
