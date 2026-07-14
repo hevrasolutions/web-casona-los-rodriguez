@@ -27,25 +27,19 @@ export const experiences: Experience[] = [
     tourTypeEN: 'Shared',
     includes: [
       'Transporte desde Tabacón hasta La Fortuna y La Casona Los Rodríguez',
-      'Guía local especializado',
+      'Guía local bilingüe especializado (español/inglés)',
       'Recorrido histórico y cultural',
       'Visita a cultivos tradicionales',
-      'Conversatorio sobre historia, cultura y tradiciones de la región',
       'Agua',
-      'Almuerzo o cena, según el horario seleccionado',
-      'Presentación de bailes folclóricos costarricenses',
-      'Opción de disfrutar de música y baile en vivo en el horario vespertino'
+      'Almuerzo o cena, según el horario seleccionado'
     ],
     includesEN: [
       'Transportation from Tabacón to La Fortuna and Casona Los Rodríguez',
-      'Specialized local guide',
+      'Specialized bilingual local guide (Spanish/English)',
       'Historical and cultural tour',
       'Visit to traditional crops',
-      "Guided conversation about the region's history, culture, and traditions",
       'Water',
-      'Lunch or dinner, depending on the time slot selected',
-      'Traditional Costa Rican folkloric dance performance',
-      'Option to enjoy live music and dance during the evening time slot'
+      'Lunch or dinner, depending on the time slot selected'
     ],
     notIncludes: ['IVA 13%', 'Fotos'],
     notIncludesEN: ['13% VAT', 'Photos'],
