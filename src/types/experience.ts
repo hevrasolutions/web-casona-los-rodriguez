@@ -89,8 +89,8 @@ export interface Experience {
   difficultyEN?: string;
   tourType?: string;
   tourTypeEN?: string;
-  whatToBring?: string;
-  whatToBringEN?: string;
+  whatToBring?: string[];
+  whatToBringEN?: string[];
   meetingPointUrl?: string;
   whatsappBookingUrl?: {
     es: string;

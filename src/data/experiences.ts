@@ -167,8 +167,18 @@ export const experiences: Experience[] = [
         a: 'Yes — just let us know about allergies or dietary needs (vegetarian, vegan, gluten-free) when booking.'
       }
     ],
-    whatToBring: 'Ropa cómoda, zapato cerrado, repelente de insectos (preferiblemente natural o eco-friendly), cámara.',
-    whatToBringEN: 'Comfortable clothing, closed-toe shoes, insect repellent (preferably natural or eco-friendly), camera.',
+    whatToBring: [
+      'Ropa cómoda',
+      'Zapato cerrado',
+      'Repelente de insectos (preferiblemente natural o eco-friendly)',
+      'Cámara'
+    ],
+    whatToBringEN: [
+      'Comfortable clothing',
+      'Closed-toe shoes',
+      'Insect repellent (preferably natural or eco-friendly)',
+      'Camera'
+    ],
     meetingPointUrl: 'https://maps.app.goo.gl/bQ1WB3Z3kpX2buMf9',
     whatsappBookingUrl: {
       es: 'https://wa.me/50663901190?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20el%20Tour%20Hist%C3%B3rico%20Cultural%20en%20La%20Fortuna.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',

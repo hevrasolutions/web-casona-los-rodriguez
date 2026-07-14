@@ -375,24 +375,10 @@ export default function ExperienceDetailV2({
               {/* 10. Includes / Not included + practical info */}
               <div className="flex flex-col gap-6">
                 <div className="bg-white-warm border border-sand/25 rounded-lg p-6 sm:p-8">
-                  <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-4 flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5 text-jungle"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-4">
                     {isEs ? 'Incluye' : 'Includes'}
                   </h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  <ul className="flex flex-col gap-2.5 sm:grid sm:grid-rows-3 sm:grid-flow-col sm:gap-x-6">
                     {includes.map((item, idx) => (
                       <li
                         key={idx}
@@ -408,17 +394,38 @@ export default function ExperienceDetailV2({
 
                   {notIncludes.length > 0 && (
                     <div className="mt-6 pt-5 border-t border-sand/20">
-                      <h4 className="text-xs font-bold text-primary/50 uppercase tracking-wider mb-3">
+                      <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-4">
                         {isEs ? 'No incluye' : 'Not included'}
-                      </h4>
-                      <ul className="flex flex-wrap gap-x-6 gap-y-2">
+                      </h3>
+                      <ul className="flex flex-col gap-2.5 sm:grid sm:grid-rows-3 sm:grid-flow-col sm:gap-x-6">
                         {notIncludes.map((item, idx) => (
                           <li
                             key={idx}
-                            className="text-sm text-primary/60 font-body flex items-start gap-2"
+                            className="text-sm text-primary/80 font-body flex items-start gap-2"
                           >
-                            <span className="text-primary/40 select-none mt-0.5">
+                            <span className="text-terracotta font-bold select-none mt-0.5">
                               ✗
+                            </span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {whatToBring && whatToBring.length > 0 && (
+                    <div className="mt-6 pt-5 border-t border-sand/20">
+                      <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-4">
+                        {isEs ? 'Qué llevar' : 'What to bring'}
+                      </h3>
+                      <ul className="flex flex-col gap-2.5 sm:grid sm:grid-rows-3 sm:grid-flow-col sm:gap-x-6">
+                        {whatToBring.map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="text-sm text-primary/80 font-body flex items-start gap-2"
+                          >
+                            <span className="text-jungle font-bold select-none mt-0.5">
+                              ✓
                             </span>
                             <span>{item}</span>
                           </li>
@@ -433,12 +440,6 @@ export default function ExperienceDetailV2({
                   <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-4">
                     {isEs ? 'Información práctica' : 'Practical Information'}
                   </h3>
-                  {whatToBring && (
-                    <p className="text-sm text-primary/85 font-body mb-5">
-                      <strong>{isEs ? 'Qué llevar:' : 'What to bring:'}</strong>{' '}
-                      {whatToBring}
-                    </p>
-                  )}
                   {experience.meetingPointUrl && (
                     <div>
                       <p className="text-sm text-primary/85 font-body font-semibold mb-3">
