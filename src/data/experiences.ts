@@ -181,8 +181,8 @@ export const experiences: Experience[] = [
     ],
     meetingPointUrl: 'https://maps.app.goo.gl/bQ1WB3Z3kpX2buMf9',
     whatsappBookingUrl: {
-      es: 'https://wa.me/50663901190?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20el%20Tour%20Hist%C3%B3rico%20Cultural%20en%20La%20Fortuna.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
-      en: 'https://wa.me/50663901190?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Cultural%20Heritage%20Tour%20in%20La%20Fortuna.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
+      es: 'https://wa.me/50660817929?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20el%20Tour%20Hist%C3%B3rico%20Cultural%20en%20La%20Fortuna.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
+      en: 'https://wa.me/50660817929?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Cultural%20Heritage%20Tour%20in%20La%20Fortuna.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
     },
     seoHighlights: [
       'This small-group cultural tour takes place at Casona Los Rodríguez, a 120-year-old historic farmhouse in La Fortuna, Costa Rica.',
@@ -361,8 +361,8 @@ export const experiences: Experience[] = [
     ],
     meetingPointUrl: 'https://maps.app.goo.gl/bQ1WB3Z3kpX2buMf9',
     whatsappBookingUrl: {
-      es: 'https://wa.me/50663901190?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20la%20Cooking%20Class%20con%20T%C3%ADa%20Yami.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
-      en: 'https://wa.me/50663901190?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Cooking%20Class%20with%20T%C3%ADa%20Yami.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
+      es: 'https://wa.me/50660817929?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20la%20Cooking%20Class%20con%20T%C3%ADa%20Yami.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
+      en: 'https://wa.me/50660817929?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Cooking%20Class%20with%20T%C3%ADa%20Yami.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
     },
     seoHighlights: [
       'This hands-on traditional Costa Rican cooking class takes place in a 100% wood-fired kitchen at Casona Los Rodríguez, La Fortuna.',
@@ -545,8 +545,8 @@ export const experiences: Experience[] = [
     ],
     meetingPointUrl: 'https://maps.app.goo.gl/bQ1WB3Z3kpX2buMf9',
     whatsappBookingUrl: {
-      es: 'https://wa.me/50663901190?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20La%20Casona%20%26%20Farm%20Day%20Pass.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
-      en: 'https://wa.me/50663901190?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Casona%20%26%20Farm%20Day%20Pass.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
+      es: 'https://wa.me/50660817929?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20La%20Casona%20%26%20Farm%20Day%20Pass.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
+      en: 'https://wa.me/50660817929?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Casona%20%26%20Farm%20Day%20Pass.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
     },
     seoHighlights: [
       'This self-guided day pass allows visitors to freely explore the organic farm, garden, and grounds of Casona Los Rodríguez in La Fortuna.',

@@ -25,16 +25,16 @@ export default function Footer({ locale, dict }: FooterProps) {
 
   const featuredExperiences = [
     {
-      href: `/${locale}/${isEs ? 'experiencias/experiencia-cultural-completa' : 'experiences/complete-cultural-experience'}`,
-      label: isEs ? 'Experiencia Cultural Completa' : 'Complete Cultural Experience'
+      href: `/${locale}/${isEs ? 'experiencias/tour-historico-cultural-la-fortuna' : 'experiences/cultural-heritage-tour-la-fortuna'}`,
+      label: isEs ? 'Tour Histórico Cultural' : 'Cultural Heritage Tour'
     },
     {
-      href: `/${locale}/${isEs ? 'experiencias/noche-campesina-premium' : 'experiences/premium-campesina-night'}`,
-      label: isEs ? 'Noche Campesina Premium' : 'Premium Campesina Night'
+      href: `/${locale}/${isEs ? 'experiencias/clase-cocina-tradicional-la-fortuna' : 'experiences/traditional-cooking-class-la-fortuna'}`,
+      label: isEs ? 'Cooking Class con Tía Yami' : 'Cooking Class with Tía Yami'
     },
     {
-      href: `/${locale}/${isEs ? 'experiencias/cocina-tradicional-familia-local' : 'experiences/traditional-cooking-local-family'}`,
-      label: isEs ? 'Cocina Tradicional' : 'Traditional Cooking'
+      href: `/${locale}/${isEs ? 'experiencias/casona-farm-day-pass-la-fortuna' : 'experiences/casona-farm-day-pass-la-fortuna'}`,
+      label: isEs ? 'Pase del Día en La Casona' : 'Casona & Farm Day Pass'
     },
   ];
 
@@ -149,7 +149,7 @@ export default function Footer({ locale, dict }: FooterProps) {
                 <svg className="w-5 h-5 text-gold shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.244 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.464L0 24zm6.59-4.846c1.6.95 3.498 1.45 5.435 1.451h.005c5.904 0 10.708-4.805 10.71-10.71.002-2.859-1.113-5.547-3.141-7.57C17.583 4.298 14.896 3.18 12.03 3.18c-5.902 0-10.707 4.807-10.71 10.714-.001 2.019.528 3.993 1.533 5.727L1.876 22.3l4.771-1.252zM17.5 14.326c-.29-.145-1.716-.848-1.982-.944-.265-.097-.459-.145-.651.145-.192.29-.747.945-.916 1.139-.168.193-.337.217-.627.072-1.085-.544-1.92-1.006-2.673-2.298-.198-.339-.395-.733-.072-1.055.288-.288.627-.728.94-.966.145-.108.193-.18.29-.363.095-.18.047-.339-.024-.483-.072-.145-.651-1.569-.892-2.148-.234-.564-.47-.488-.651-.498-.168-.009-.362-.01-.554-.01-.193 0-.507.073-.77.363-.266.29-1.013.99-1.013 2.417 0 1.426 1.038 2.804 1.182 2.998.145.193 2.042 3.12 4.948 4.376.69.299 1.23.477 1.65.612.704.224 1.345.192 1.851.117.565-.084 1.716-.701 1.958-1.378.24-.677.24-1.258.17-1.377-.072-.119-.265-.193-.554-.338z" />
                 </svg>
-                <a href={`https://wa.me/50688094163`} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                <a href={`https://wa.me/50660817929`} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
                   {dict.contact.phone}
                 </a>
               </li>

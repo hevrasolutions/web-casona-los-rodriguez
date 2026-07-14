@@ -26,7 +26,7 @@ export default function LocationBrief({ locale, dict }: LocationBriefProps) {
   const wazeUrl = 'https://ul.waze.com/ul?place=ChIJL8VyNzpzoI8RMGWSa0vr8eY&ll=10.46365560%2C-84.59485400&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location';
   
   // WhatsApp link configuration
-  const phoneNumber = '50688094163';
+  const phoneNumber = '50660817929';
   const defaultMessage = isEs
     ? 'Hola, me gustaría saber cómo llegar a Casona Los Rodríguez desde mi ubicación actual.'
     : 'Hello, I would like to know how to get to Casona Los Rodríguez from my current location.';

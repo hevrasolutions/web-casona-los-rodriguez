@@ -23,8 +23,8 @@ export const en: Dictionary = {
   },
   contact: {
     address: 'Sona Fluca, La Fortuna, Costa Rica',
-    phone: '+506 8809-4163',
-    whatsapp: '+506 8809-4163',
+    phone: '+506 6081-7929',
+    whatsapp: '+506 6081-7929',
     email: 'info@casonalosrodriguez.cr',
     scheduleTitle: 'Opening Hours',
     schedule: 'Monday to Sunday, 7:00 a.m. to 10:00 p.m.'
@@ -235,7 +235,7 @@ export const en: Dictionary = {
     processTitle: 'How to Request a Cancellation or Change',
     processSteps: [
       'Send a formal email to info@casonalosrodriguez.cr with your reservation number and details.',
-      'Or contact us directly via our official WhatsApp support channel at +506 8809-4163 indicating your information.',
+      'Or contact us directly via our official WhatsApp support channel at +506 6081-7929 indicating your information.',
       'Approved refunds are processed to the original payment method and may take 5 to 10 business days depending on your bank.'
     ],
     weatherTitle: 'Tropical Rain and Weather Policy',

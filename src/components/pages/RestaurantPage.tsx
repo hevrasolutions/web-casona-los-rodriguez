@@ -178,8 +178,8 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
               size="lg"
               href={
                 isEs
-                  ? 'https://wa.me/50688094163?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20propuesta%20gastron%C3%B3mica%20de%20Casona%20Los%20Rodr%C3%ADguez.'
-                  : 'https://wa.me/50688094163?text=Hello,%20I%20would%20like%20to%20request%20more%20information%20about%20the%20culinary%20proposal%20at%20Casona%20Los%20Rodr%C3%ADguez.'
+                  ? 'https://wa.me/50660817929?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20propuesta%20gastron%C3%B3mica%20de%20Casona%20Los%20Rodr%C3%ADguez.'
+                  : 'https://wa.me/50660817929?text=Hello,%20I%20would%20like%20to%20request%20more%20information%20about%20the%20culinary%20proposal%20at%20Casona%20Los%20Rodr%C3%ADguez.'
               }
               external={true}
               className="shadow-md min-w-[220px]"

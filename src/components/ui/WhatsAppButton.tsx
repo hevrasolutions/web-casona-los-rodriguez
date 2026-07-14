@@ -11,7 +11,7 @@ interface WhatsAppButtonProps {
 
 export default function WhatsAppButton({ locale, dict }: WhatsAppButtonProps) {
   const pathname = usePathname();
-  const phoneNumber = '50688094163';
+  const phoneNumber = '50660817929';
   const defaultMessage =
     locale === 'es'
       ? 'Hola, me gustaría solicitar más información sobre las experiencias en Casona Los Rodríguez.'

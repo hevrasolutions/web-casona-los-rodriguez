@@ -17,7 +17,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 * **Dominio:** `casonalosrodriguez.cr`
 * **Ubicación:** Sona Fluca, La Fortuna, San Carlos, Costa Rica
 * **Contacto:** Celin Rodríguez López
-* **Teléfono/WhatsApp:** +506 8809-4163
+* **Teléfono/WhatsApp:** +506 6081-7929
 * **Correo de contacto:** `info@casonalosrodriguez.cr`
 * **Descripción:** Casona rural costarricense con más de 120 años de historia. Espacio cultural, gastronómico y turístico que ofrece cocina 100% a la leña, trapiche tradicional de bueyes, clases de cocina típica, bailes folclóricos, música en vivo, huerta de plantas medicinales y animales de granja. Atiende a turistas individuales, familias, parejas, grupos privados, agencias y operadores de turismo (DMCs).
 
@@ -86,7 +86,7 @@ Organizados en `/src/components/`:
   * [`TrustBar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/TrustBar.tsx): Sección bilingüe que destaca los pilares de unicidad de la experiencia (Historia Viva, Sabores Auténticos e Inmersión Rural) en un diseño claro premium.
   * [`WhyChooseUs.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/WhyChooseUs.tsx): Razones principales para elegir la experiencia de la casona.
 * **`experiences/` (Lógica e interfaz del catálogo de experiencias)**
-  * [`BookingSidebar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/BookingSidebar.tsx): Sidebar de reserva de la plantilla nueva (sticky en desktop, tarjeta en flujo en mobile): 3 precios con rangos de edad, horarios, CTA "Reservar ahora" a WhatsApp y el número +506 6390-1190 como botón secundario.
+  * [`BookingSidebar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/BookingSidebar.tsx): Sidebar de reserva de la plantilla nueva (sticky en desktop, tarjeta en flujo en mobile): 3 precios con rangos de edad, horarios, CTA "Reservar ahora" a WhatsApp y el número +506 6081-7929 como botón secundario.
   * [`MobileBookingBar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/MobileBookingBar.tsx): Barra sticky inferior de mobile (`lg:hidden`) con precio "desde" + botón Reservar — el mecanismo primario de conversión en mobile de la plantilla nueva.
   * [`ExperienceCard.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/ExperienceCard.tsx): Tarjeta de experiencia individual en el catálogo.
   * [`ExperienceFilter.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/ExperienceFilter.tsx): Barra de pestañas para filtrar por categoría.
@@ -114,7 +114,7 @@ Organizados en `/src/components/`:
   * [`Container.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/Container.tsx): Envoltorio contenedor alineado.
   * [`LanguageSwitcher.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/LanguageSwitcher.tsx): Selector interactivo de idioma (ES / EN).
   * [`SectionTitle.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/SectionTitle.tsx): Título estilizado para secciones.
-  * [`WhatsAppButton.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/WhatsAppButton.tsx): Botón flotante directo para chat de soporte (+506 8809-4163). En las páginas de detalle de experiencia se oculta en mobile (`hidden lg:flex`) porque la barra sticky de reserva ocupa el borde inferior.
+  * [`WhatsAppButton.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/WhatsAppButton.tsx): Botón flotante directo para chat de soporte (+506 6081-7929). En las páginas de detalle de experiencia se oculta en mobile (`hidden lg:flex`) porque la barra sticky de reserva ocupa el borde inferior.
 
 ---
 
@@ -225,7 +225,7 @@ Las imágenes reales del sitio se organizan en:
 
 ### Reserva temporal por WhatsApp (mientras no exista motor externo)
 
-En la plantilla nueva de detalle, los botones "Reservar ahora" redirigen a **WhatsApp +506 6390-1190** en pestaña nueva, con un **mensaje precargado distinto por actividad y por idioma**. Los 6 URLs vienen literales del cliente y se guardan en el campo `whatsappBookingUrl: { es, en }` de cada experiencia en `experiences.ts` — no construir estos links a mano ni hardcodearlos en componentes. (Este número es solo para reservas; el flotante de soporte general sigue usando +506 8809-4163.)
+En la plantilla nueva de detalle, los botones "Reservar ahora" redirigen a **WhatsApp +506 6081-7929** en pestaña nueva, con un **mensaje precargado distinto por actividad y por idioma**. Los 6 URLs vienen literales del cliente y se guardan en el campo `whatsappBookingUrl: { es, en }` de cada experiencia en `experiences.ts` — no construir estos links a mano ni hardcodearlos en componentes. (Tanto las reservas como el soporte general utilizan el nuevo número unificado +506 6081-7929.)
 
 ---
 
