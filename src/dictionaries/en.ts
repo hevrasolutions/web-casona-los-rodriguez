@@ -188,7 +188,7 @@ export const en: Dictionary = {
         title: '1. Bookings & Payments',
         content: [
           'All individual or agency reservations must be made through our official channels or accredited external booking engines.',
-          'Rates are displayed in United States Dollars (USD) and include applicable taxes under Costa Rican law.',
+          'Rates are displayed in United States Dollars (USD) and do not include applicable taxes under Costa Rican law.',
           'Booking confirmation is subject to full payment of the selected tour amount, unless special commercial agreements are in place with travel operators.'
         ]
       },

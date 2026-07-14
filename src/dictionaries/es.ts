@@ -186,7 +186,7 @@ export const es = {
         title: '1. Reservas y Pagos',
         content: [
           'Todas las reservas individuales o de agencias deben realizarse a través de nuestros canales oficiales o motor de reservas externo acreditado.',
-          'Las tarifas se muestran en dólares de los Estados Unidos (USD) e incluyen los impuestos aplicables de ley en Costa Rica.',
+          'Las tarifas se muestran en dólares de los Estados Unidos (USD) y no incluyen los impuestos aplicables de ley en Costa Rica.',
           'La confirmación de la reserva está sujeta al pago total del importe del tour seleccionado, salvo acuerdos comerciales especiales con operadores turísticos.'
         ]
       },
