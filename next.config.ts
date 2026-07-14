@@ -9,6 +9,17 @@ const nextConfig: NextConfig = {
         destination: "/:locale/experiences/cultural-heritage-tour-la-fortuna",
         permanent: true,
       },
+      // Slugs renombrados en Fase 2 (Cooking Class)
+      {
+        source: "/:locale/experiencias/clase-cocina-tia-yami",
+        destination: "/:locale/experiencias/clase-cocina-tradicional-la-fortuna",
+        permanent: true,
+      },
+      {
+        source: "/:locale/experiences/cooking-class-aunt-yami",
+        destination: "/:locale/experiences/traditional-cooking-class-la-fortuna",
+        permanent: true,
+      },
     ];
   },
 };

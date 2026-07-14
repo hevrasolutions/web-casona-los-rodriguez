@@ -198,47 +198,71 @@ export const experiences: Experience[] = [
     ]
   },
   {
-    slug: 'clase-cocina-tia-yami',
-    slugEN: 'cooking-class-aunt-yami',
+    slug: 'clase-cocina-tradicional-la-fortuna',
+    slugEN: 'traditional-cooking-class-la-fortuna',
     title: 'Cooking Class con Tía Yami',
-    titleEN: 'Cooking Class with Aunt Yami',
+    titleEN: 'Cooking Class with Tía Yami',
     category: 'gastronomia',
     tagline: 'Aprenda los secretos de la gastronomía ancestral costarricense cocinada a la leña.',
     taglineEN: 'Learn the secrets of ancestral Costa Rican gastronomy cooked over a wood fire.',
     duration: '2 horas',
-    durationEN: '2 hours',
+    durationEN: '2 hrs',
+    minPersons: 2,
+    maxPersons: 30,
+    schedule: '8:00 AM, 11:00 AM y 5:00 PM',
+    scheduleEN: '8:00 AM, 11:00 AM & 5:00 PM',
     pricing: {
-      adult: 39,
-      child: 29,
+      adult: 70,
+      child: 38,
       infant: 0
     },
+    difficulty: 'Fácil',
+    difficultyEN: 'Easy',
+    tourType: 'Compartido',
+    tourTypeEN: 'Shared',
     includes: [
-      'Preparación de recetas típicas costarricenses',
-      'Participación activa del visitante',
+      'Bienvenida por Tía Yami',
+      'Clase práctica de cocina tradicional costarricense',
+      'Preparación de Arroz con Pollo o Arroz con Siempre',
+      'Elaboración de picadillo de chayote',
+      'Preparación de tortillas palmeadas y empanadas caseras',
+      'Cocina tradicional de leña',
+      'Todos los ingredientes y utensilios',
+      'Degustación de los platillos preparados',
       'Bebida natural',
-      'Café o té',
-      'Postre casero'
+      'Recetario digital para que los participantes puedan recrear la experiencia en casa'
     ],
     includesEN: [
-      'Preparation of typical Costa Rican recipes',
-      'Active participation of the visitor',
+      'Welcome by Tía Yami',
+      'Hands-on traditional Costa Rican cooking class',
+      'Preparation of Arroz con Pollo or Arroz con Siempre',
+      'Chayote picadillo preparation',
+      'Hand-pressed tortillas and homemade empanadas',
+      'Traditional wood-fired cooking',
+      'All ingredients and utensils included',
+      'Tasting of the prepared dishes',
       'Natural drink',
-      'Coffee or tea',
-      'Homemade dessert'
+      'Digital recipe booklet so you can recreate the experience at home'
     ],
+    notIncludes: ['Transporte', 'IVA 13%'],
+    notIncludesEN: ['Transportation', '13% VAT'],
     heroImage: '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp',
     images: [
       '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp',
       '/images/gallery/restaurant-kitchen/casona-los-rodriguez-woodfire-cooking-001.webp',
-      '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-002.webp'
+      '/images/gallery/restaurant-kitchen/casona-los-rodriguez-cooking-over-wood-fire-001.webp',
+      '/images/gallery/restaurant-kitchen/casona-los-rodriguez-cooking-over-wood-fire-002.webp',
+      '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-002.webp',
+      '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-003.webp',
+      '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-001.webp',
+      '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp'
     ],
-    description: 'Descubra los secretos de la cocina criolla costarricense de la mano de nuestra familia en una cocina tradicional con fogón de leña. En este taller 100% práctico, aprenderá a palmear tortillas de maíz, a sazonar picadillos locales y a preparar recetas transmitidas de generación en generación. Al finalizar la lección, disfrutaremos juntos de las preparaciones acompañadas de café chorreado y postre artesanal.',
-    descriptionEN: 'Discover the secrets of Creole Costa Rican cooking hands-on with our family in a traditional wood-fired kitchen. In this 100% interactive workshop, you will learn to make handmade corn tortillas, season local hash (picadillos), and prepare recipes passed down through generations. After the lesson, we will enjoy the dishes together, accompanied by pour-over coffee and artisanal dessert.',
-    bookingUrl: 'TODO_BOOKING_URL',
-    seoTitle: 'Cooking Class con Tía Yami | Casona Los Rodríguez',
-    seoTitleEN: 'Cooking Class with Aunt Yami in La Fortuna | Casona Los Rodríguez',
-    seoDescription: 'Clase de cocina típica costarricense en fogón de leña en La Fortuna con Tía Yami. Aprenda a palmear tortillas y cocine recetas tradicionales.',
-    seoDescriptionEN: 'Traditional Costa Rican cooking class over wood fire in La Fortuna with Aunt Yami. Learn to make tortillas and cook authentic recipes.',
+    description: 'Tía Yami no enseña una receta, enseña una tradición. En su cocina de leña dentro de La Casona Los Rodríguez, aprenderás a preparar arroz con pollo (o el icónico "arroz con siempre") y picadillo de chayote con técnicas que pasaron de abuela en abuela. Al final, te sientas a la mesa a comer lo que tú mismo cocinaste — y te llevas la receta digital para repetirlo en casa.',
+    descriptionEN: 'Tía Yami doesn\'t just teach a recipe, she teaches a tradition. In her wood-fired kitchen at Casona Los Rodríguez, you\'ll learn to prepare Arroz con Pollo (or the iconic "Arroz con Siempre") and chayote picadillo using techniques passed down from grandmother to grandmother. At the end, you\'ll sit down to eat what you cooked yourself — and take home the digital recipe to make it again.',
+    seoTitle: 'Clase de Cocina Tradicional en La Fortuna | Casona Los Rodríguez',
+    seoTitleEN: 'Traditional Costa Rican Cooking Class in La Fortuna | Cook with Tía Yami',
+    seoDescription: 'Clase de cocina 100% práctica en cocina de leña. Aprende a preparar arroz con pollo y tortillas con una familia local en La Fortuna.',
+    seoDescriptionEN: 'Hands-on cooking class in a real wood-fired kitchen. Learn to make tortillas, arroz con pollo, and picadillo with a local family in La Fortuna.',
     keywords: [
       'clase de cocina costarricense',
       'cocina a la leña costa rica',
@@ -250,6 +274,114 @@ export const experiences: Experience[] = [
       'wood fired kitchen tour',
       'traditional gastronomy la fortuna',
       'tortilla making class'
+    ],
+    h1: 'Clase de Cocina Tradicional en La Fortuna: cocine, comparta y disfrute los auténticos sabores de la tradición costarricense',
+    h1EN: 'Hands-On Cooking Class in La Fortuna: Cook Real Costa Rican Recipes',
+    overview: [
+      'Tía Yami no enseña una receta, enseña una tradición. En su cocina de leña dentro de La Casona Los Rodríguez, aprenderás a preparar arroz con pollo (o el icónico "arroz con siempre") y picadillo de chayote con técnicas que pasaron de abuela en abuela. Al final, te sientas a la mesa a comer lo que tú mismo cocinaste — y te llevas la receta digital para repetirlo en casa.'
+    ],
+    overviewEN: [
+      'Tía Yami doesn\'t just teach a recipe, she teaches a tradition. In her wood-fired kitchen at Casona Los Rodríguez, you\'ll learn to prepare Arroz con Pollo (or the iconic "Arroz con Siempre") and chayote picadillo using techniques passed down from grandmother to grandmother. At the end, you\'ll sit down to eat what you cooked yourself — and take home the digital recipe to make it again.'
+    ],
+    highlights: [
+      { icon: '👩‍🍳', text: 'Clase 100% práctica en cocina de leña auténtica' },
+      { icon: '🍚', text: 'Preparas arroz con pollo o "arroz con siempre", símbolo de la cocina tica' },
+      { icon: '🫓', text: 'Tortillas palmeadas a mano y empanadas caseras' },
+      { icon: '☕', text: 'Degustación con bebida natural y café/té' },
+      { icon: '📖', text: 'Recetario digital para llevar a casa' },
+      { icon: '👨‍👩‍👧', text: 'Clase pequeña, ambiente familiar' }
+    ],
+    highlightsEN: [
+      { icon: '👩‍🍳', text: 'A fully hands-on class in an authentic wood-fired kitchen' },
+      { icon: '🍚', text: 'You\'ll prepare Arroz con Pollo or "Arroz con Siempre," a symbol of Costa Rican cuisine' },
+      { icon: '🫓', text: 'Hand-pressed tortillas and homemade empanadas' },
+      { icon: '☕', text: 'Tasting with a natural drink and coffee or tea' },
+      { icon: '📖', text: 'Digital recipe booklet to take home' },
+      { icon: '👨‍👩‍👧', text: 'Small class size, family atmosphere' }
+    ],
+    itinerary: [
+      'Bienvenida a La Casona por "Tía" Yami',
+      'Recorrido por las instalaciones de La Casona',
+      'Explicación y preparación práctica de alimentos tradicionales',
+      'Degustación de los platillos preparados por los participantes'
+    ],
+    itineraryEN: [
+      'Welcome to La Casona by "Tía" Yami',
+      'Tour of the Casona grounds',
+      'Hands-on explanation and preparation of traditional dishes',
+      'Tasting of the dishes prepared by participants'
+    ],
+    brandIdentity: {
+      title: 'Recetas de familia, cocinadas con el corazón.',
+      text: 'Tía Yami aprendió estas recetas de su madre y las cocina hoy al calor de la leña, con la misma dedicación de siempre. Esa es la receta que realmente te llevas a casa.'
+    },
+    brandIdentityEN: {
+      title: 'Family recipes, cooked with heart.',
+      text: 'Tía Yami learned these recipes from her mother, and cooks them today over a wood fire with the same care as always. That\'s the recipe you really take home.'
+    },
+    faq: [
+      {
+        q: '¿Incluye transporte?',
+        a: 'No, el transporte no está incluido — los visitantes deben llegar por su cuenta a La Casona Los Rodríguez.'
+      },
+      {
+        q: '¿Necesito experiencia previa en cocina?',
+        a: 'No, esta es una clase práctica guiada, ideal para principiantes.'
+      },
+      {
+        q: '¿Qué como durante la clase?',
+        a: 'Disfrutarás de los platillos que tú mismo ayudes a preparar, junto con una bebida natural y postre casero.'
+      },
+      {
+        q: '¿Atienden restricciones alimentarias?',
+        a: 'Sí, solo avísanos con anticipación para ajustes vegetarianos, veganos o sin gluten.'
+      }
+    ],
+    faqEN: [
+      {
+        q: 'Is transportation included?',
+        a: 'No, transportation is not included — guests are responsible for getting to Casona Los Rodríguez.'
+      },
+      {
+        q: 'Do I need previous cooking experience?',
+        a: 'No, this is a beginner-friendly, fully guided hands-on class.'
+      },
+      {
+        q: 'What do I eat during the class?',
+        a: 'You\'ll enjoy the dishes you personally help prepare, along with a natural drink and homemade dessert.'
+      },
+      {
+        q: 'Can you accommodate dietary restrictions?',
+        a: 'Yes, just let us know in advance for vegetarian, vegan, or gluten-free adjustments.'
+      }
+    ],
+    whatToBring: [
+      'Ropa cómoda',
+      'Zapato cerrado',
+      'Repelente de insectos (preferiblemente natural o eco-friendly)',
+      'Cámara'
+    ],
+    whatToBringEN: [
+      'Comfortable clothing',
+      'Closed-toe shoes',
+      'Insect repellent (preferably natural or eco-friendly)',
+      'Camera'
+    ],
+    meetingPointUrl: 'https://maps.app.goo.gl/bQ1WB3Z3kpX2buMf9',
+    whatsappBookingUrl: {
+      es: 'https://wa.me/50663901190?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20la%20Cooking%20Class%20con%20T%C3%ADa%20Yami.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
+      en: 'https://wa.me/50663901190?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Cooking%20Class%20with%20T%C3%ADa%20Yami.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
+    },
+    seoHighlights: [
+      'This hands-on traditional Costa Rican cooking class takes place in a 100% wood-fired kitchen at Casona Los Rodríguez, La Fortuna.',
+      'Participants prepare classic Costa Rican dishes such as Arroz con Pollo or the traditional "Arroz con Siempre" from scratch.',
+      'The class also includes hand-pressed corn tortillas, chayote picadillo, and homemade empanadas.',
+      'This is a fully interactive cooking class in La Fortuna — every participant cooks, not just watches.',
+      'A digital recipe booklet is included so guests can recreate the dishes at home.',
+      'The class is taught by a local family member, offering a genuine meet-the-locals cooking experience.',
+      'Duration is approximately 2 hours, with departures at 8 AM, 11 AM, and 5 PM.',
+      'This is one of the few traditional, farm-to-table cooking classes available near Arenal Volcano.',
+      'Ideal for travelers searching for an authentic cooking class in Costa Rica rather than a generic tourist cooking demo.'
     ]
   },
   {

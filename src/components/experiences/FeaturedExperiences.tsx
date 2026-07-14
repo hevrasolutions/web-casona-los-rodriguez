@@ -21,7 +21,7 @@ export default function FeaturedExperiences({
   // Filter the 3 experiences
   const featuredSlugs = [
     'tour-historico-cultural-la-fortuna',
-    'clase-cocina-tia-yami',
+    'clase-cocina-tradicional-la-fortuna',
     'day-pass-casona-finca',
   ];
 
