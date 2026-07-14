@@ -435,16 +435,13 @@ export default function ExperienceDetailV2({
                   )}
                 </div>
 
-                {/* Practical info */}
-                <div className="bg-cream/40 border border-sand/35 rounded-lg p-6 sm:p-8">
-                  <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-4">
-                    {isEs ? 'Información práctica' : 'Practical Information'}
-                  </h3>
+                {/* Meeting point */}
+                <div className="bg-white-warm border border-sand/25 rounded-lg p-6 sm:p-8">
                   {experience.meetingPointUrl && (
                     <div>
-                      <p className="text-sm text-primary/85 font-body font-semibold mb-3">
-                        {isEs ? 'Punto de encuentro:' : 'Meeting point:'}
-                      </p>
+                      <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-4">
+                        {isEs ? 'Punto de encuentro' : 'Meeting point'}
+                      </h3>
                       <div className="rounded-lg overflow-hidden border border-sand/30 mb-3">
                         <iframe
                           src={MAPS_EMBED_URL}
