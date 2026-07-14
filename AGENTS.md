@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-06-13
-**Fase Activa:** Fase 7 — SEO Técnico y Optimización (En Progreso)
+**Última Actualización:** 2026-07-13
+**Fase Activa:** Rediseño de Páginas de Detalle de Experiencias — Fase 1 de 3 COMPLETA (Tour Histórico Cultural); Fases 2-3 pendientes. En paralelo: Fase 7 — SEO Técnico y Optimización (En Progreso)
 
 ---
 
@@ -28,9 +28,12 @@ This version has breaking changes — APIs, conventions, and file structure may 
 Turistas internacionales (EE.UU., Canadá, Europa, LATAM), familias, parejas, grupos pequeños, agencias de turismo receptivo, coordinadores educativos y corporativos.
 
 ### Catálogo de Experiencias Reales (Precios Confirmados)
-1. **Tour Histórico Cultural en La Fortuna:** $69 adulto / $55 niño | Duración: 4.5 – 5 horas | **BESTSELLER**
-2. **Cooking Class con Tía Yami:** $39 adulto / $29 niño | Duración: 2 horas
-3. **La Casona and Farm Day Pass with Traditional Wood-Fired Lunch:** $59 adulto / $49 niño | Duración: 4 horas
+
+**Rangos de edad oficiales para precios (desde jul 2026):** Adultos (11+) · Niños (5–10) · Infantes (0–4) gratis.
+
+1. **Tour Histórico Cultural en La Fortuna / Cultural Heritage Tour in La Fortuna:** $75 adulto / $45 niño / infantes gratis | Duración: 3 horas | Horarios: 10:30 AM y 4:30 PM | Mín 2 · Máx 100 personas | Dificultad: Fácil | Tipo: Compartido | **BESTSELLER** *(actualizado en Fase 1 del rediseño con el Excel del cliente, jul 2026)*
+2. **Cooking Class con Tía Yami:** $39 adulto / $29 niño | Duración: 2 horas *(precios/datos se actualizarán en la Fase 2 del rediseño)*
+3. **La Casona and Farm Day Pass with Traditional Wood-Fired Lunch:** $59 adulto / $49 niño | Duración: 4 horas *(precios/datos se actualizarán en la Fase 3 del rediseño)*
 
 ---
 
@@ -83,11 +86,13 @@ Organizados en `/src/components/`:
   * [`TrustBar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/TrustBar.tsx): Sección bilingüe que destaca los pilares de unicidad de la experiencia (Historia Viva, Sabores Auténticos e Inmersión Rural) en un diseño claro premium.
   * [`WhyChooseUs.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/WhyChooseUs.tsx): Razones principales para elegir la experiencia de la casona.
 * **`experiences/` (Lógica e interfaz del catálogo de experiencias)**
-  * [`BookingCard.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/BookingCard.tsx): Tarjeta lateral para reservas individuales en los detalles.
+  * [`BookingCard.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/BookingCard.tsx): Tarjeta lateral para reservas individuales en la plantilla legacy de detalles (usada por Cooking Class y Day Pass hasta las Fases 2-3).
+  * [`BookingSidebar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/BookingSidebar.tsx): Sidebar de reserva de la plantilla nueva (sticky en desktop, tarjeta en flujo en mobile): 3 precios con rangos de edad, horarios, CTA "Reservar ahora" a WhatsApp y el número +506 6390-1190 como botón secundario.
+  * [`MobileBookingBar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/MobileBookingBar.tsx): Barra sticky inferior de mobile (`lg:hidden`) con precio "desde" + botón Reservar — el mecanismo primario de conversión en mobile de la plantilla nueva.
   * [`ExperienceCard.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/ExperienceCard.tsx): Tarjeta de experiencia individual en el catálogo.
   * [`ExperienceFilter.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/ExperienceFilter.tsx): Barra de pestañas para filtrar por categoría.
   * [`ExperienceGrid.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/ExperienceGrid.tsx): Rejilla responsiva para renderizar el catálogo.
-  * [`FeaturedExperiences.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/FeaturedExperiences.tsx): Carrusel o rejilla de experiencias destacadas en el Home.
+  * [`FeaturedExperiences.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/FeaturedExperiences.tsx): Carrusel o rejilla de experiencias destacadas en el Home (contiene el array hardcodeado `featuredSlugs` con slugs ES — actualizarlo si cambian).
 * **`forms/` (Formularios validados con react-hook-form + zod)**
   * [`AgencyQuoteForm.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/forms/AgencyQuoteForm.tsx): Formulario de cotización personalizado para agencias.
   * [`ContactForm.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/forms/ContactForm.tsx): Formulario de contacto general.
@@ -99,7 +104,8 @@ Organizados en `/src/components/`:
   * [`AgenciesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AgenciesPage.tsx): Vista de la sección de agencias.
   * [`CancellationPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/CancellationPage.tsx): Políticas de cancelación.
   * [`ContactPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ContactPage.tsx): Vista de contacto.
-  * [`ExperienceDetailPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailPage.tsx): Detalle dinámico para experiencias.
+  * [`ExperienceDetailPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailPage.tsx): Plantilla **legacy** de detalle de experiencias — solo la usan Cooking Class y Day Pass hasta que sus fases del rediseño les carguen el contenido extendido; luego podrá eliminarse.
+  * [`ExperienceDetailV2.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailV2.tsx): Plantilla **nueva** de detalle (server component, mobile-first). Se activa automáticamente cuando la experiencia tiene el campo `overview` en la data. Estructura: hero full-width con overlay `bg-primary/85`, migas + badges, recuadros de datos rápidos con iconos dorados (duración/grupo/dificultad/tipo), overview, highlights en tarjetas, galería con scroll horizontal snap en mobile, franja de identidad de marca, itinerario timeline sin horas, opciones de alimentación, tarjeta Incluye (✓ verdes) / No incluye (✗ terracota) / Qué llevar (checklist) con títulos congruentes y listas en columnas de 3, bloque Punto de encuentro (mapa embebido + link), FAQ en acordeón nativo con JSON-LD `FAQPage`, y experiencias relacionadas.
   * [`ExperiencesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperiencesPage.tsx): Catálogo de experiencias.
   * [`GalleryPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/GalleryPage.tsx): Visualización de fotos con filtro y lightbox.
   * [`RestaurantPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/RestaurantPage.tsx): Menú de propuesta gastronómica personalizada (2 columnas en escritorio, 1 en móvil con iconos de llama dorados, CTA de reserva directa a WhatsApp) y cierre de página en parallax.
@@ -110,7 +116,7 @@ Organizados en `/src/components/`:
   * [`Container.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/Container.tsx): Envoltorio contenedor alineado.
   * [`LanguageSwitcher.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/LanguageSwitcher.tsx): Selector interactivo de idioma (ES / EN).
   * [`SectionTitle.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/SectionTitle.tsx): Título estilizado para secciones.
-  * [`WhatsAppButton.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/WhatsAppButton.tsx): Botón flotante directo para chat de soporte.
+  * [`WhatsAppButton.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/WhatsAppButton.tsx): Botón flotante directo para chat de soporte (+506 8809-4163). En las páginas de detalle de experiencia se oculta en mobile (`hidden lg:flex`) porque la barra sticky de reserva ocupa el borde inferior.
 
 ---
 
@@ -131,16 +137,29 @@ El enrutamiento está segmentado dinámicamente según el locale en `/src/app/[l
 | `/es/terminos-y-condiciones` | `/en/terms-and-conditions` | [`terminos-y-condiciones`](file:///c:/Proyectos/casona_los_rodriguez/src/app/[locale]/terminos-y-condiciones/page.tsx) / [`terms-and-conditions`](file:///c:/Proyectos/casona_los_rodriguez/src/app/[locale]/terms-and-conditions/page.tsx) |
 | `/es/politica-de-cancelacion` | `/en/cancellation-policy` | [`politica-de-cancelacion`](file:///c:/Proyectos/casona_los_rodriguez/src/app/[locale]/politica-de-cancelacion/page.tsx) / [`cancellation-policy`](file:///c:/Proyectos/casona_los_rodriguez/src/app/[locale]/cancellation-policy/page.tsx) |
 
+### Slugs de experiencias y redirects (rediseño de detalle)
+
+Las páginas `[slug]` resuelven la experiencia por locale (`exp.slug` para ES, `exp.slugEN` para EN), tienen `generateMetadata` propio (vía `src/lib/experienceSeo.ts`) y bifurcan entre la plantilla nueva (`ExperienceDetailV2`, si la experiencia tiene `overview`) y la legacy (`ExperienceDetailPage`).
+
+| Experiencia | Slug ES | Slug EN | Estado |
+| :--- | :--- | :--- | :--- |
+| Tour Histórico Cultural | `tour-historico-cultural-la-fortuna` (sin cambio) | `cultural-heritage-tour-la-fortuna` (**nuevo**; redirect permanente 308 desde `historical-cultural-tour-la-fortuna` en `next.config.ts`) | ✅ Fase 1 completa |
+| Cooking Class | `clase-cocina-tia-yami` → `clase-cocina-tradicional-la-fortuna` (acordado) | `cooking-class-aunt-yami` → `traditional-cooking-class-la-fortuna` (acordado) | ⏳ Fase 2 (ambos con redirect) |
+| Day Pass | `day-pass-casona-finca` → `casona-farm-day-pass-la-fortuna` (acordado) | `day-pass-casona-farm` → `casona-farm-day-pass-la-fortuna` (acordado) | ⏳ Fase 3 (ambos con redirect) |
+
+Los enlaces internos a detalles se generan dinámicamente desde la data (`experiences.ts`), salvo `featuredSlugs` en `FeaturedExperiences.tsx` (slugs ES hardcodeados).
+
 ---
 
 ## 6. Archivos de Datos y Tipos
 
-* **`src/types/experience.ts`**: Define los tipos para modelar experiencias (`Experience`, `ExperienceCategory`, `ExperienceBadge`, `ExperiencePricing`).
-* **`src/data/experiences.ts`**: Array de objetos con toda la información localizada para las 3 experiencias oficiales.
+* **`src/types/experience.ts`**: Define los tipos para modelar experiencias (`Experience`, `ExperienceCategory`, `ExperienceBadge`, `ExperiencePricing`, `ExperienceHighlight`, `ExperienceFaqItem`, `ExperienceBrandIdentity`). Desde la Fase 1 del rediseño, `Experience` tiene campos extendidos **opcionales** cuya presencia (en concreto `overview`) activa la plantilla nueva: `h1/h1EN`, `overview/overviewEN`, `highlights/highlightsEN`, `itinerary/itineraryEN` (+ `itineraryNote`), `foodOptions/foodOptionsEN`, `brandIdentity/brandIdentityEN`, `faq/faqEN`, `maxPersons`, `difficulty`, `tourType`, `whatToBring/whatToBringEN` (arrays), `meetingPointUrl`, `whatsappBookingUrl` (URLs literales ES/EN) y `seoHighlights`.
+* **`src/data/experiences.ts`**: Array de objetos con toda la información localizada para las 3 experiencias oficiales. La experiencia 1 (Tour Histórico Cultural) ya tiene el contenido extendido completo de la Fase 1.
+* **`src/lib/experienceSeo.ts`**: Helpers `findExperience(locale, slug)` y `getExperienceMetadata(locale, slug)` — generan los metadatos únicos por página de detalle (title, description, keywords, canonical, OG y Twitter) desde los campos `seoTitle*`/`seoDescription*` de la data.
 * **`src/lib/gallery.ts`**: Helper de Node.js para escanear y cargar dinámicamente las imágenes de la galería del File System.
-* **`src/data/gallery-metadata.ts`**: Diccionario de metadatos de las fotos de la galería para alt texts bilingües.
+* **`src/data/gallery-metadata.ts`**: Diccionario de metadatos de las fotos de la galería para alt texts bilingües (también lo usa `ExperienceDetailV2` para los alt de su galería).
 * **`src/data/heroSlides.ts`**: Contenido e imágenes del carrusel Hero en el inicio.
-* **`src/dictionaries/es.ts` y `src/dictionaries/en.ts`**: Diccionarios estáticos que definen los textos comunes del sitio (botones, banners, navegación, secciones de contacto).
+* **`src/dictionaries/es.ts` y `src/dictionaries/en.ts`**: Diccionarios estáticos que definen los textos comunes del sitio (botones, banners, navegación, secciones de contacto). Incluyen los labels de rangos de edad para precios: `common.adultsRange` ("Adultos (11+)"), `common.childrenRange` ("Niños (5–10)"), `common.infantsRange` ("Infantes (0–4)").
 
 ---
 
@@ -154,7 +173,7 @@ Las imágenes reales del sitio se organizan en:
   * `restaurant-kitchen/` (Fogón de leña, ollas de barro y preparación)
   * `typical-food/` (Platillos tradicionales costarricenses)
   * `farm-trapiche/` (Finca, huerto y molienda de caña)
-  * `culture/` (Bailes folclóricos y cultura)
+  * `traditional-events/` (Eventos culturales y bailes folclóricos)
   * `customer-experiences/` (Fotos y vivencias de clientes)
 
 ---
@@ -206,6 +225,10 @@ Las imágenes reales del sitio se organizan en:
 * `NEXT_PUBLIC_BOOKING_URL`: URL base del motor de reserva externo.
   * Si la variable no está definida o equivale a `'TODO_BOOKING_URL'`, el sistema resolverá de forma segura hacia `#` y prevendrá errores de redirección, controlada mediante [`src/lib/booking.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/lib/booking.ts).
 
+### Reserva temporal por WhatsApp (mientras no exista motor externo)
+
+En la plantilla nueva de detalle, los botones "Reservar ahora" redirigen a **WhatsApp +506 6390-1190** en pestaña nueva, con un **mensaje precargado distinto por actividad y por idioma**. Los 6 URLs vienen literales del cliente y se guardan en el campo `whatsappBookingUrl: { es, en }` de cada experiencia en `experiences.ts` — no construir estos links a mano ni hardcodearlos en componentes. (Este número es solo para reservas; el flotante de soporte general sigue usando +506 8809-4163.)
+
 ---
 
 ## 11. Marcadores TODO Activos en el Código
@@ -223,8 +246,11 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 1. **Datos oficiales:** Nunca inventar testimonios, tarifas, coordenadas de GPS, logos ni horarios de atención. Usar siempre los placeholders `TODO_*` si no están disponibles.
 2. **Jerarquía HTML:** Máximo un único elemento `<h1>` en cada página para SEO técnico.
 3. **Optimización de imágenes:** Todas las imágenes sin excepción deben tener una etiqueta `alt` descriptiva y usar el componente `Image` de `next/image` para optimización automática.
-4. **Motor de reservas:** Todos los botones de reserva deben redirigir en una nueva pestaña (`target="_blank"` con `rel="noopener noreferrer"`) agregando parámetros UTM dinámicos (`utm_source=website`, `utm_medium=booking_cta`).
+4. **Motor de reservas:** Todos los botones de reserva deben redirigir en una nueva pestaña (`target="_blank"` con `rel="noopener noreferrer"`). Cuando exista el motor externo, agregar parámetros UTM dinámicos (`utm_source=website`, `utm_medium=booking_cta`); mientras tanto, la reserva va por WhatsApp con los URLs literales de `whatsappBookingUrl` (ver §10).
 5. **Transacciones:** El sitio no procesa pagos directamente. Todo se delega al motor externo configurado.
+6. **Desarrollo mobile-first (estricto):** El layout mobile se diseña primero y es la base; desktop es la escala, no al revés. Las clases Tailwind sin prefijo definen mobile; `sm:`/`md:`/`lg:` significan "a partir de" ese breakpoint. Nunca diseñar en desktop y "arreglar" mobile con overrides. En las páginas de detalle, la barra sticky inferior con precio + Reservar es el mecanismo primario de conversión en mobile; el sidebar sticky de reserva es la adaptación desktop. Verificar cada cambio primero en viewport ~375px.
+7. **Restricción factual — familia Rodríguez:** La familia Rodríguez (Selim Rodríguez y Yamileth Arias) **NO son herederos ni dueños ancestrales de la casona: la alquilan para operar las experiencias**. El copy nunca debe implicar herencia, propiedad ancestral o "generaciones familiares" de los Rodríguez actuales sobre el inmueble. Los textos de identidad de marca de las páginas de detalle vienen aprobados por el cliente — no generar copy nuevo para ese bloque.
+8. **Copy bilingüe aprobado:** El contenido de las páginas de detalle (overview, highlights, itinerario, FAQ, identidad de marca) proviene del brief del cliente; no reescribirlo ni traducirlo por cuenta propia salvo indicación explícita del usuario.
 
 ---
 
@@ -234,6 +260,12 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * **Fases 1 a 6 (COMPLETAS):** Configuración base, componentes comunes, página de inicio, detalles dinámicos, restaurante, galería, formularios de contacto/cotización de agencias y políticas base.
 * **Pre-Fase 7 - Reestructuración y Dinamismo (COMPLETA):** Reorganización física de imágenes en carpetas en inglés, carga dinámica de la galería desde el sistema de archivos de Node.js, reducción del catálogo a 3 experiencias oficiales en el Home.
 * **Fase 7 (PENDIENTE):** SEO técnico, metadatos y optimización final de rendimiento y animaciones.
+
+### Track paralelo: Rediseño de Páginas de Detalle de Experiencias (jul 2026, brief del cliente)
+* **Fase 1 — Tour Histórico Cultural / Cultural Heritage Tour (COMPLETA, jul 2026):** plantilla nueva `ExperienceDetailV2` mobile-first con todo el contenido bilingüe del brief; slug EN nuevo con redirect 308; metadatos únicos por página de detalle (corrigió que las 3 compartían el title del homepage — aplica también a las que aún usan la plantilla legacy); JSON-LD `FAQPage` por idioma; reserva por WhatsApp; precios/duración/horarios actualizados; sidebar y barra de datos sin duplicación; itinerario timeline sin horas; tarjeta Incluye/No incluye/Qué llevar con títulos congruentes.
+* **Fase 2 — Cooking Class con Tía Yami (PENDIENTE):** slug EN → `traditional-cooking-class-la-fortuna`, slug ES → `clase-cocina-tradicional-la-fortuna` (ambos con redirect); contenido del brief; **sin** bloque de opciones de alimentación (la comida es la actividad). Actualizar `featuredSlugs` en `FeaturedExperiences.tsx`.
+* **Fase 3 — Casona & Farm Day Pass (PENDIENTE):** slug EN → `casona-farm-day-pass-la-fortuna`, slug ES → `casona-farm-day-pass-la-fortuna` (ambos con redirect); contenido del brief; **sin mencionar mariposario ni ranario** (no operativos); mínimo 1 persona; nota de itinerario variable.
+* **Reglas del track:** sin ratings/estrellas ni testimonios; itinerarios sin horas fijas; precios solo en el bloque de reserva (no en copy narrativo); todo bilingüe con el copy exacto del brief.
 
 ### Tareas Pendientes para la Fase 7:
 * [] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
@@ -252,3 +284,8 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * Endpoint del proveedor del formulario de contacto / cotizaciones (`TODO_FORM_PROVIDER`).
 * Fotografías y recursos faltantes para trapiche, huerto y bailes folclóricos (`TODO_IMAGE`).
 * Textos revisados legalmente para Términos de Servicio y Políticas de Cancelación (`TODO_VALIDAR_LEGALMENTE`).
+
+### Discrepancias abiertas del rediseño de detalle (a confirmar con el cliente)
+* **Duración del Day Pass (Fase 3):** el Excel del cliente dice 3 horas, el sitio actual muestra 4 horas. Se usará 3 h (Excel como fuente de verdad), dejando nota en el commit. (La misma discrepancia del Tour Cultural ya se resolvió en Fase 1 usando 3 h.)
+* **Cooking Class (Fase 2):** tensión entre "edad mínima para participar: 4 años" y el precio "Infants (0–4): Free" — verificar si aplica alguna excepción.
+* **FAQ del catálogo (`ExperiencesPage.tsx`):** dice "infantes (menores de 3 años) entran gratis" (contradice el rango oficial 0–4) y menciona el "motor de reservas externo" cuando hoy la reserva va por WhatsApp. Pendiente de decisión del usuario para alinearlo.
