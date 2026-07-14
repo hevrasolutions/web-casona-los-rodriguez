@@ -377,47 +377,58 @@ export const experiences: Experience[] = [
     ]
   },
   {
-    slug: 'day-pass-casona-finca',
-    slugEN: 'day-pass-casona-farm',
-    title: 'Pase del Día en La Casona y Finca con Almuerzo Tradicional a la Leña',
-    titleEN: 'La Casona and Farm Day Pass with Traditional Wood-Fired Lunch',
+    slug: 'casona-farm-day-pass-la-fortuna',
+    slugEN: 'casona-farm-day-pass-la-fortuna',
+    title: 'Pase del Día en La Casona y Finca con una Comida Tradicional a la Leña',
+    titleEN: 'La Casona and Farm Day Pass with Traditional Wood-Fired Meal',
     category: 'cultural',
     tagline: 'Conecte con la vida del campo costarricense y la hospitalidad rural auténtica.',
     taglineEN: 'Connect with Costa Rican countryside life and authentic rural hospitality.',
-    duration: '4 horas',
-    durationEN: '4 hours',
+    duration: '3 horas',
+    durationEN: '3 hrs',
+    minPersons: 1,
+    schedule: '11:00 AM y 4:00 PM',
+    scheduleEN: '11:00 AM & 4:00 PM',
     pricing: {
-      adult: 59,
-      child: 49,
+      adult: 40,
+      child: 25,
       infant: 0
     },
+    difficulty: 'Fácil',
+    difficultyEN: 'Easy',
+    tourType: 'Compartido',
+    tourTypeEN: 'Shared',
     includes: [
-      'Recorrido por finca local',
-      'Trapiche artesanal',
-      'Interacción cultural',
-      'Almuerzo típico cocinado a la leña',
-      'Presentación folclórica'
+      'Entrada a las instalaciones de La Casona, la Huerta y la Granja',
+      'Almuerzo o cena típico con opciones a escoger',
+      'Bebida natural',
+      'Agua'
     ],
     includesEN: [
-      'Local farm tour',
-      'Artisanal sugar mill (trapiche)',
-      'Cultural interaction',
-      'Typical local wood-fired lunch',
-      'Folkloric show'
+      'Access to the Casona grounds, Garden, and Farm',
+      'Traditional lunch or dinner with menu options',
+      'Natural drink',
+      'Water'
     ],
+    notIncludes: ['Transporte', 'IVA 13%'],
+    notIncludesEN: ['Transportation', '13% VAT'],
     heroImage: '/images/gallery/farmhouse/casona-los-rodriguez-colonial-blue-facade-001.webp',
     images: [
       '/images/gallery/farmhouse/casona-los-rodriguez-colonial-blue-facade-001.webp',
       '/images/gallery/farm-trapiche/casona-los-rodriguez-rural-farm-experience-001.webp',
-      '/images/gallery/farm-trapiche/casona-los-rodriguez-rural-farm-experience-002.webp'
+      '/images/gallery/farm-trapiche/casona-los-rodriguez-rural-farm-experience-002.webp',
+      '/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp',
+      '/images/gallery/farmhouse/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp',
+      '/images/gallery/farmhouse/casona-los-rodriguez-traditional-house-la-fortuna-001.webp',
+      '/images/gallery/customer-experiences/casona-los-rodriguez-family-cultural-experience-002.webp',
+      '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-002.webp'
     ],
-    description: 'Una inmersión auténtica en la vida campesina de La Fortuna. Descubra los secretos de la agricultura tradicional de la zona norte de Costa Rica, conozca nuestro huerto medicinal y presencie la molienda artesanal de caña en el trapiche. Cerramos con un sabroso almuerzo típico cocinado a la leña, amenizado con bailes tradicionales que narran la historia de nuestra herencia campesina.',
-    descriptionEN: 'An authentic immersion into farmhouse life in La Fortuna. Discover the secrets of traditional agriculture in northern Costa Rica, explore our medicinal garden, and watch artisanal sugar cane milling at the trapiche. We finish with a flavorful local wood-fired lunch, accompanied by traditional folk dances that tell the story of our rural heritage.',
-    bookingUrl: 'TODO_BOOKING_URL',
-    seoTitle: 'Day Pass en La Casona y Finca | Casona Los Rodríguez',
-    seoTitleEN: 'La Casona and Farm Day Pass in La Fortuna | Casona Los Rodríguez',
-    seoDescription: 'Conecte con la vida del campo tico. Tour de finca local, trapiche artesanal, almuerzo cocinado 100% a la leña y bailes folclóricos en La Fortuna.',
-    seoDescriptionEN: 'Connect with local farmhouse life. Local farm tour, traditional trapiche, wood-fired typical lunch, and folk dancing presentation in La Fortuna.',
+    description: 'A diferencia de nuestros tours guiados, este es un pase libre para explorar La Casona Los Rodríguez a tu propio ritmo. Camina por la huerta orgánica, visita la granja de animales y recorre las instalaciones históricas sin horarios fijos ni prisa. Según el horario que elijas, tu pase incluye almuerzo o cena típica con opciones a escoger — la forma más relajada de vivir la vida de campo costarricense.',
+    descriptionEN: 'Unlike our guided tours, this is a free pass to explore Casona Los Rodríguez at your own pace. Walk through the organic garden, visit the animal farm, and explore the historic grounds with no fixed schedule and no rush. Depending on the time slot you choose, your pass includes a traditional lunch or dinner with menu options — the most relaxed way to experience Costa Rican countryside life.',
+    seoTitle: 'Casona & Farm Day Pass en La Fortuna | Casona Los Rodríguez',
+    seoTitleEN: 'Casona & Farm Day Pass La Fortuna | Organic Farm Tour & Traditional Meal',
+    seoDescription: 'Explora la Casona Los Rodríguez a tu propio ritmo: finca orgánica, huerta y un almuerzo o cena típica con opciones a elegir.',
+    seoDescriptionEN: 'Explore Casona Los Rodríguez at your own pace: organic farm and garden, historic grounds, and a traditional wood-fired lunch or dinner with menu options included.',
     keywords: [
       'experiencia rural costarricense',
       'vida del campo costa rica',
@@ -429,6 +440,125 @@ export const experiences: Experience[] = [
       'countryside life costa rica',
       'sugar mill tour la fortuna',
       'traditional lunch la fortuna'
+    ],
+    h1: 'Explora La Casona Los Rodríguez: finca, huerta y una comida típica a tu propio ritmo',
+    h1EN: 'Explore Casona Los Rodríguez: Farm, Garden & a Traditional Meal at Your Own Pace',
+    overview: [
+      'A diferencia de nuestros tours guiados, este es un pase libre para explorar La Casona Los Rodríguez a tu propio ritmo. Camina por la huerta orgánica, visita la granja de animales y recorre las instalaciones históricas sin horarios fijos ni prisa. Según el horario que elijas, tu pase incluye almuerzo o cena típica con opciones a escoger — la forma más relajada de vivir la vida de campo costarricense.'
+    ],
+    overviewEN: [
+      'Unlike our guided tours, this is a free pass to explore Casona Los Rodríguez at your own pace. Walk through the organic garden, visit the animal farm, and explore the historic grounds with no fixed schedule and no rush. Depending on the time slot you choose, your pass includes a traditional lunch or dinner with menu options — the most relaxed way to experience Costa Rican countryside life.'
+    ],
+    highlights: [
+      { icon: '🚶', text: 'Acceso libre a las instalaciones, la huerta y la granja' },
+      { icon: '🍽️', text: 'Almuerzo o cena típica (según horario seleccionado) con opciones a escoger' },
+      { icon: '🥤', text: 'Bebida natural y agua incluidas' },
+      { icon: '⏱️', text: 'Sin horarios fijos dentro del pase — explora a tu ritmo' },
+      { icon: '👨‍👩‍👧‍👦', text: 'Ideal para familias y grupos que buscan flexibilidad' }
+    ],
+    highlightsEN: [
+      { icon: '🚶', text: 'Free access to the grounds, garden, and farm' },
+      { icon: '🍽️', text: 'Traditional lunch or dinner (depending on time slot) with menu options' },
+      { icon: '🥤', text: 'Natural drink and water included' },
+      { icon: '⏱️', text: 'No fixed schedule within the pass — explore at your own pace' },
+      { icon: '👨‍👩‍👧‍👦', text: 'Ideal for families and groups looking for flexibility' }
+    ],
+    itinerary: [
+      'Bienvenida a la Casona',
+      'Tour por las instalaciones de la casona',
+      'Visita por la huerta y la granja',
+      'Almuerzo o cena (según horario seleccionado)'
+    ],
+    itineraryEN: [
+      'Welcome to the Casona',
+      'Tour of the Casona grounds',
+      'Visit to the garden and farm',
+      'Lunch or dinner (depending on time slot selected)'
+    ],
+    itineraryNote: 'El orden puede variar según ocupación y operación del día.',
+    itineraryNoteEN: 'Order may vary depending on daily occupancy and operations.',
+    foodOptions: 'Se ofrece el Casado tradicional costarricense con una proteína a escoger (pollo, cerdo o pescado), además de opciones veganas y vegetarianas.',
+    foodOptionsEN: 'We offer the traditional Costa Rican Casado with a choice of protein (chicken, pork, or fish), as well as vegan and vegetarian options.',
+    brandIdentity: {
+      title: 'Un pedazo de la Costa Rica de antes.',
+      text: 'Antes de La Fortuna turística, ya existía esta finca. Hoy, la familia Rodríguez la mantiene viva para que puedas caminar por la misma tierra que ha sido testigo de más de un siglo de vida rural costarricense.'
+    },
+    brandIdentityEN: {
+      title: 'A piece of the Costa Rica that once was.',
+      text: 'Before tourist La Fortuna, this farm was already here. Today, the Rodríguez family keeps it alive so you can walk the same land that has witnessed over a century of Costa Rican rural life.'
+    },
+    faq: [
+      {
+        q: '¿Es un tour guiado?',
+        a: 'No, es un pase de acceso libre — explorás la finca, la huerta y las instalaciones a tu propio ritmo.'
+      },
+      {
+        q: '¿El pase incluye el show folclórico nocturno?',
+        a: 'No, la presentación de música y baile nocturna es exclusiva del horario vespertino del Tour Histórico Cultural.'
+      },
+      {
+        q: '¿Qué comida incluye?',
+        a: 'Almuerzo o cena típica, según el horario que selecciones, con opciones de proteína o alternativas veganas/vegetarianas.'
+      },
+      {
+        q: '¿Cuál es el mínimo de personas?',
+        a: 'Solo 1 persona — viajeros solos son bienvenidos.'
+      },
+      {
+        q: '¿Incluye transporte?',
+        a: 'No, el transporte no está incluido en el day pass.'
+      }
+    ],
+    faqEN: [
+      {
+        q: 'Is this a guided tour?',
+        a: 'No, this is a self-guided pass — you explore the farm, garden, and grounds at your own pace.'
+      },
+      {
+        q: 'Does the pass include the evening folkloric show?',
+        a: "No, the evening music and dance show is exclusive to the Historical Cultural Tour's evening time slot."
+      },
+      {
+        q: 'What meal is included?',
+        a: 'A traditional lunch or dinner, depending on the time slot you select, with a choice of protein or vegan/vegetarian options.'
+      },
+      {
+        q: "What's the minimum group size?",
+        a: 'Just 1 person — solo travelers are welcome.'
+      },
+      {
+        q: 'Is transportation included?',
+        a: 'No, transportation is not included with the day pass.'
+      }
+    ],
+    whatToBring: [
+      'Ropa cómoda',
+      'Zapato cerrado',
+      'Repelente de insectos (preferiblemente natural o eco-friendly)',
+      'Cámara'
+    ],
+    whatToBringEN: [
+      'Comfortable clothing',
+      'Closed-toe shoes',
+      'Insect repellent (preferably natural or eco-friendly)',
+      'Camera'
+    ],
+    meetingPointUrl: 'https://maps.app.goo.gl/bQ1WB3Z3kpX2buMf9',
+    whatsappBookingUrl: {
+      es: 'https://wa.me/50663901190?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20La%20Casona%20%26%20Farm%20Day%20Pass.%20%C2%BFPodr%C3%ADan%20ayudarme%20con%20disponibilidad%20y%20detalles%3F',
+      en: 'https://wa.me/50663901190?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Casona%20%26%20Farm%20Day%20Pass.%20Could%20you%20help%20me%20with%20availability%20and%20details%3F'
+    },
+    seoHighlights: [
+      'This self-guided day pass allows visitors to freely explore the organic farm, garden, and grounds of Casona Los Rodríguez in La Fortuna.',
+      'Unlike guided tours, this experience has no fixed schedule, letting visitors explore the property at their own pace.',
+      'The pass includes either a traditional wood-fired lunch or dinner, depending on the time slot selected, with a choice of protein or vegan/vegetarian options.',
+      'Visitors can walk through farmland that has been part of Costa Rican rural life in La Fortuna for over a century.',
+      'This is a low-key, flexible alternative for travelers who prefer independent exploration over a structured guided tour.',
+      'Entrance includes access to the farm, organic garden, and the historic Casona grounds.',
+      'Available at 11:00 AM and 4:00 PM, with a minimum of 1 person per booking.',
+      'A good option for families or groups looking for a relaxed cultural experience near Arenal Volcano.',
+      'Supports small-scale, community-based tourism rather than large commercial attractions.',
+      'Ideal for travelers who already know they want an authentic farm experience in Costa Rica without a fixed itinerary.'
     ]
   }
 ];

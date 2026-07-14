@@ -22,7 +22,7 @@ export default function FeaturedExperiences({
   const featuredSlugs = [
     'tour-historico-cultural-la-fortuna',
     'clase-cocina-tradicional-la-fortuna',
-    'day-pass-casona-finca',
+    'casona-farm-day-pass-la-fortuna',
   ];
 
   // Keep them in the specific order we want

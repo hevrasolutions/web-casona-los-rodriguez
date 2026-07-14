@@ -20,6 +20,17 @@ const nextConfig: NextConfig = {
         destination: "/:locale/experiences/traditional-cooking-class-la-fortuna",
         permanent: true,
       },
+      // Slugs renombrados en Fase 3 (Day Pass)
+      {
+        source: "/:locale/experiencias/day-pass-casona-finca",
+        destination: "/:locale/experiencias/casona-farm-day-pass-la-fortuna",
+        permanent: true,
+      },
+      {
+        source: "/:locale/experiences/day-pass-casona-farm",
+        destination: "/:locale/experiences/casona-farm-day-pass-la-fortuna",
+        permanent: true,
+      },
     ];
   },
 };
