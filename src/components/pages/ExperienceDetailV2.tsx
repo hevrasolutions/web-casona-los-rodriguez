@@ -8,6 +8,7 @@ import { galleryMetadata } from '@/data/gallery-metadata';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import ExperienceCard from '../experiences/ExperienceCard';
+import ExperienceGallery from '../experiences/ExperienceGallery';
 import BookingSidebar from '../experiences/BookingSidebar';
 import MobileBookingBar from '../experiences/MobileBookingBar';
 
@@ -288,28 +289,19 @@ export default function ExperienceDetailV2({
                 </div>
               )}
 
-              {/* 6. Gallery: horizontal snap strip on mobile, grid from sm */}
+              {/* 6. Gallery: clickable strip with lightbox (client component) */}
               {experience.images.length > 0 && (
                 <div>
                   <h2 className={sectionHeading}>
                     {isEs ? 'Galería de la experiencia' : 'Experience Gallery'}
                   </h2>
-                  <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:overflow-visible sm:pb-0">
-                    {experience.images.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="relative aspect-[4/3] w-60 shrink-0 snap-start rounded-lg overflow-hidden border border-sand/20 shadow-sm bg-sand/10 sm:w-auto sm:shrink"
-                      >
-                        <Image
-                          src={img}
-                          alt={galleryAlt(img, idx)}
-                          fill
-                          sizes="(max-width: 640px) 60vw, (max-width: 1024px) 33vw, 17vw"
-                          className="object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  <ExperienceGallery
+                    items={experience.images.map((img, idx) => ({
+                      src: img,
+                      alt: galleryAlt(img, idx),
+                    }))}
+                    locale={locale}
+                  />
                 </div>
               )}
 
