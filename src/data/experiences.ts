@@ -221,11 +221,7 @@ export const experiences: Experience[] = [
     tourType: 'Compartido',
     tourTypeEN: 'Shared',
     includes: [
-      'Bienvenida por Tía Yami',
       'Clase práctica de cocina tradicional costarricense',
-      'Preparación de Arroz con Pollo o Arroz con Siempre',
-      'Elaboración de picadillo de chayote',
-      'Preparación de tortillas palmeadas y empanadas caseras',
       'Cocina tradicional de leña',
       'Todos los ingredientes y utensilios',
       'Degustación de los platillos preparados',
@@ -233,11 +229,7 @@ export const experiences: Experience[] = [
       'Recetario digital para que los participantes puedan recrear la experiencia en casa'
     ],
     includesEN: [
-      'Welcome by Tía Yami',
       'Hands-on traditional Costa Rican cooking class',
-      'Preparation of Arroz con Pollo or Arroz con Siempre',
-      'Chayote picadillo preparation',
-      'Hand-pressed tortillas and homemade empanadas',
       'Traditional wood-fired cooking',
       'All ingredients and utensils included',
       'Tasting of the prepared dishes',
