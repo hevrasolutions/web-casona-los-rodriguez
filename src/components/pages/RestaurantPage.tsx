@@ -6,6 +6,7 @@ import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
 import BookingCTA from '../ui/BookingCTA';
+import FullViewportParallax from '../ui/FullViewportParallax';
 
 interface RestaurantPageProps {
   locale: Locale;
@@ -321,17 +322,13 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         </Container>
       </section>
 
-      {/* CTA final con efecto Parallax igual al del Home */}
-      <section className="relative py-24 sm:py-32 bg-primary text-white-warm overflow-hidden text-center border-t border-wood/50">
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-scroll lg:bg-fixed pointer-events-none"
-          style={{
-            backgroundImage: "url('/images/gallery/restaurant-kitchen/authentic-costa-rican-food-experience.webp')"
-          }}
-        />
-        <div className="absolute inset-0 bg-primary/80 z-10 pointer-events-none" />
-
-        <Container className="relative z-20 flex flex-col items-center select-none">
+      {/* CTA final con FullViewportParallax activo en móviles y computadoras */}
+      <FullViewportParallax
+        bgImageSrc="/images/gallery/restaurant-kitchen/authentic-costa-rican-food-experience.webp"
+        bgImageAlt={isEs ? 'Experiencia gastronómica tradicional costarricense' : 'Traditional Costa Rican culinary experience'}
+        overlayOpacityClass="bg-primary/80"
+      >
+        <Container className="flex flex-col items-center select-none">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl leading-tight text-white-warm mb-6">
             {isEs ? '¿Listo para degustar la sazón tradicional?' : 'Ready to taste traditional seasoning?'}
           </h2>
@@ -348,7 +345,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             {isEs ? 'Reservar experiencia gastronómica' : 'Book culinary experience'}
           </BookingCTA>
         </Container>
-      </section>
+      </FullViewportParallax>
     </>
   );
 }

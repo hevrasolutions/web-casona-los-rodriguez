@@ -2,6 +2,7 @@ import React from 'react';
 import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import BookingCTA from '../ui/BookingCTA';
+import FullViewportParallax from '../ui/FullViewportParallax';
 
 interface FinalCTAProps {
   locale: Locale;
@@ -18,16 +19,12 @@ export default function FinalCTA({ locale }: FinalCTAProps) {
   const buttonLabel = isEs ? 'Reservar experiencia' : 'Book experience';
 
   return (
-    <section className="relative py-24 sm:py-32 bg-primary text-white-warm overflow-hidden text-center border-t border-wood/50">
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-scroll lg:bg-fixed"
-        style={{
-          backgroundImage: "url('/images/gallery/farmhouse/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp')"
-        }}
-      />
-      <div className="absolute inset-0 bg-primary/80 z-10" />
-
-      <Container className="relative z-20 flex flex-col items-center select-none">
+    <FullViewportParallax
+      bgImageSrc="/images/gallery/farmhouse/casona-los-rodriguez-rural-farmhouse-costa-rica-001.webp"
+      bgImageAlt={isEs ? 'Fachada rústica de Casona Los Rodríguez' : 'Rustic facade of Casona Los Rodríguez'}
+      overlayOpacityClass="bg-primary/80"
+    >
+      <Container className="flex flex-col items-center select-none">
         <span className="font-subheading text-lg sm:text-xl text-gold font-medium uppercase tracking-wider mb-4 block">
           {isEs ? 'El Campo le Espera' : 'The Countryside Awaits'}
         </span>
@@ -45,6 +42,6 @@ export default function FinalCTA({ locale }: FinalCTAProps) {
           {buttonLabel}
         </BookingCTA>
       </Container>
-    </section>
+    </FullViewportParallax>
   );
 }
