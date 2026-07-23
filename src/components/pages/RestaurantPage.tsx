@@ -44,8 +44,15 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
   return (
     <>
       {/* Hero Header */}
-      <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')] pointer-events-none" />
+      <section className="relative bg-primary text-white-warm py-24 overflow-hidden text-center border-b border-wood/50">
+        <Image
+          src="/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-dining-room-004.webp"
+          alt={isEs ? 'Ambiente rústico y acogedor del comedor de La Casona' : 'Cozy rustic atmosphere in the dining room of La Casona'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
 
         <Container className="relative z-10 py-6">
@@ -314,15 +321,15 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         </Container>
       </section>
 
-      {/* CTA final con efecto Parallax en Desktop y Mobile */}
+      {/* CTA final con efecto Parallax igual al del Home */}
       <section className="relative py-24 sm:py-32 bg-primary text-white-warm overflow-hidden text-center border-t border-wood/50">
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 z-0 bg-cover bg-center bg-scroll lg:bg-fixed pointer-events-none"
           style={{
-            backgroundImage: "url('/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp')"
+            backgroundImage: "url('/images/gallery/restaurant-kitchen/authentic-costa-rican-food-experience.webp')"
           }}
         />
-        <div className="absolute inset-0 bg-primary/80 z-10" />
+        <div className="absolute inset-0 bg-primary/80 z-10 pointer-events-none" />
 
         <Container className="relative z-20 flex flex-col items-center select-none">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl leading-tight text-white-warm mb-6">

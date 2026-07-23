@@ -23,7 +23,7 @@ export default function HomeGallery({ locale }: HomeGalleryProps) {
       alt: isEs ? 'Fachada exterior de Casona Los Rodríguez' : 'Exterior facade of Casona Los Rodríguez',
     },
     {
-      src: '/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp',
+      src: '/images/gallery/restaurant-kitchen/casona-los-rodriguez-woodfire-cooking-001.webp',
       alt: isEs ? 'Clase de cocina típica costarricense' : 'Typical Costa Rican cooking class',
     },
     {

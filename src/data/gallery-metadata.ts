@@ -95,10 +95,6 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
     altES: 'Ambiente rústico y acogedor del comedor de La Casona',
     altEN: 'Cozy rustic atmosphere in the dining room of La Casona'
   },
-  'casona-los-rodriguez-traditional-kitchen-la-fortuna-001.webp': {
-    altES: 'Cocina tradicional de leña con fogón encendido',
-    altEN: 'Traditional wood-fired kitchen with burning stove'
-  },
   'casona-los-rodriguez-traditional-kitchen-la-fortuna-002.webp': {
     altES: 'Tortillas de maíz artesanal cociéndose en sartén de hierro al fuego de leña',
     altEN: 'Handmade corn tortillas cooking on a cast-iron skillet over a wood fire'
