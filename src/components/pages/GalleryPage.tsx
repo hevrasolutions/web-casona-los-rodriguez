@@ -52,6 +52,54 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
     setLightboxIndex((prevIndex) => (prevIndex! - 1 + filteredItems.length) % filteredItems.length);
   }, [lightboxIndex, filteredItems.length]);
 
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
+  const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
+
+  // Reset image loading state whenever lightboxIndex changes to synchronize image & caption
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      setIsImageLoading(true);
+    }
+  }, [lightboxIndex]);
+
+  // Minimum swipe distance in px required to trigger navigation
+  const minSwipeDistance = 40;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    });
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    });
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distanceX = touchStart.x - touchEnd.x;
+    const distanceY = touchStart.y - touchEnd.y;
+
+    const isHorizontalSwipe = Math.abs(distanceX) > Math.abs(distanceY);
+
+    if (isHorizontalSwipe && Math.abs(distanceX) > minSwipeDistance) {
+      if (distanceX > 0) {
+        // Swiped left -> next image
+        nextImage();
+      } else {
+        // Swiped right -> prev image
+        prevImage();
+      }
+    }
+  };
+
   // Keyboard navigation for Lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -168,9 +216,14 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
         </Container>
       </section>
 
-      {/* Accessible Interactive Lightbox */}
+      {/* Accessible Interactive Lightbox with Touch Swipe */}
       {lightboxIndex !== null && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4 select-none">
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4 select-none touch-pan-y"
+        >
           {/* Close button */}
           <button
             onClick={closeLightbox}
@@ -205,6 +258,13 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
 
           {/* Display image wrapper */}
           <div className="relative max-w-4xl w-full max-h-[75vh] flex items-center justify-center p-2">
+            {/* Loading spinner indicator */}
+            {isImageLoading && filteredItems[lightboxIndex].src !== 'TODO_IMAGE' && (
+              <div className="absolute inset-0 flex items-center justify-center z-52 pointer-events-none">
+                <div className="w-10 h-10 border-4 border-gold/30 border-t-gold rounded-full animate-spin" />
+              </div>
+            )}
+
             {filteredItems[lightboxIndex].src !== 'TODO_IMAGE' ? (
               <div className="relative w-full h-[60vh]">
                 <Image
@@ -212,7 +272,10 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
                   alt={isEs ? filteredItems[lightboxIndex].altES : filteredItems[lightboxIndex].altEN}
                   fill
                   sizes="(max-width: 1024px) 100vw, 80vw"
-                  className="object-contain"
+                  onLoad={() => setIsImageLoading(false)}
+                  className={`object-contain transition-opacity duration-300 ease-in-out ${
+                    isImageLoading ? 'opacity-0' : 'opacity-100'
+                  }`}
                   priority
                 />
               </div>
@@ -231,8 +294,10 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
             )}
           </div>
 
-          {/* Footer bar with caption */}
-          <div className="absolute bottom-4 left-0 right-0 z-55 text-center text-white-warm px-4 max-w-2xl mx-auto">
+          {/* Synchronized Footer bar with caption */}
+          <div className={`absolute bottom-4 left-0 right-0 z-55 text-center text-white-warm px-4 max-w-2xl mx-auto transition-opacity duration-300 ease-in-out ${
+            isImageLoading ? 'opacity-0' : 'opacity-100'
+          }`}>
             <span className="text-xs text-gold uppercase tracking-wider font-semibold">
               {categories.find((c) => c.id === filteredItems[lightboxIndex].category)?.label}
             </span>
@@ -242,6 +307,28 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
             <span className="text-xs text-white-warm/50 block mt-2 font-mono">
               {lightboxIndex + 1} / {filteredItems.length}
             </span>
+          </div>
+
+          {/* Silent Preloader for Next & Prev Images */}
+          <div className="hidden" aria-hidden="true">
+            {filteredItems[(lightboxIndex + 1) % filteredItems.length]?.src !== 'TODO_IMAGE' && (
+              <Image
+                src={filteredItems[(lightboxIndex + 1) % filteredItems.length].src}
+                alt=""
+                width={10}
+                height={10}
+                priority
+              />
+            )}
+            {filteredItems[(lightboxIndex - 1 + filteredItems.length) % filteredItems.length]?.src !== 'TODO_IMAGE' && (
+              <Image
+                src={filteredItems[(lightboxIndex - 1 + filteredItems.length) % filteredItems.length].src}
+                alt=""
+                width={10}
+                height={10}
+                priority
+              />
+            )}
           </div>
         </div>
       )}

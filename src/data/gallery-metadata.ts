@@ -158,62 +158,62 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
 
   // Farm & Trapiche
   'casona-los-rodriguez-farm-to-table-experience.webp': {
-    altES: 'Experiencia de la huerta a la mesa con ingredientes frescos',
-    altEN: 'Farm-to-table experience with fresh organic ingredients'
+    altES: 'Chayote verde fresco creciendo en la enredadera de la huerta orgánica',
+    altEN: 'Fresh green chayote squash growing on the vine in the organic garden'
   },
   'casona-los-rodriguez-rural-farm-experience-001.webp': {
-    altES: 'Recorrido guiado por el huerto de plantas medicinales y cultivos',
-    altEN: 'Guided tour through the medicinal herb garden and crops'
+    altES: 'Jinete costarricense montando a caballo en los senderos de la finca rural',
+    altEN: 'Costa Rican rider on horseback along the rural farm trails'
   },
   'casona-los-rodriguez-rural-farm-experience-002.webp': {
-    altES: 'Visitantes interactuando con los animales en la granja rural',
-    altEN: 'Visitors interacting with animals at the rural farm'
+    altES: 'Guía de campo acompañando al jinete a caballo junto a La Casona',
+    altEN: 'Farm guide accompanying the rider on horseback next to La Casona'
   },
   'farm-to-table-cooking-experience-la-fortuna.webp': {
-    altES: 'Cosecha de vegetales frescos en la finca orgánica para la clase de cocina',
-    altEN: 'Harvesting fresh vegetables in the organic farm for the cooking class'
+    altES: 'Cosecha de piña fresca dorada directamente de la planta en la finca orgánica',
+    altEN: 'Harvesting a fresh golden pineapple directly from the plant in the organic farm'
   },
   'local-farm-products-costa-rican-cooking.webp': {
-    altES: 'Productos y cosechas locales de la finca de La Casona',
-    altEN: 'Local farm produce and crops from La Casona farm'
+    altES: 'Papayas verdes grandes creciendo en el árbol de papayo de la finca',
+    altEN: 'Large green papayas growing on the papaya tree in the farm'
   },
   'organic-ingredients-costa-rican-cuisine.webp': {
-    altES: 'Ingredientes orgánicos y hierbas medicinales cosechadas en la finca',
-    altEN: 'Organic ingredients and medicinal herbs harvested on the farm'
+    altES: 'Planta de piña tropical creciendo en la finca orgánica de La Casona',
+    altEN: 'Tropical pineapple plant growing in La Casona organic farm'
   },
   'chickens-traditional-farm-casona-los-rodriguez.webp': {
     altES: 'Gallinas de campo en el corral de la finca tradicional',
     altEN: 'Farmhouse chickens in the pen of the traditional farm'
   },
   'fresh-organic-vegetables-farm-to-table-costa-rica.webp': {
-    altES: 'Cosecha de vegetales orgánicos frescos de la finca a la mesa',
-    altEN: 'Harvest of fresh organic vegetables farm-to-table'
+    altES: 'Frutos tropicales verdes creciendo en los árboles del huerto orgánico',
+    altEN: 'Green tropical fruits growing on trees in the organic orchard'
   },
   'horses-costa-rican-farm-la-fortuna.webp': {
-    altES: 'Caballos de la finca de Casona Los Rodríguez',
-    altEN: 'Horses of Casona Los Rodríguez farm'
+    altES: 'Caballos negro y castaño alimentándose en el establo de la finca',
+    altEN: 'Black and brown horses feeding in the covered wooden barn'
   },
   'organic-garden-casona-los-rodriguez-la-fortuna.webp': {
-    altES: 'Huerta orgánica y jardín de plantas medicinales de La Casona',
-    altEN: 'Organic vegetable garden and medicinal plant section at La Casona'
+    altES: 'Capullo de mariposa natural colgando entre las hojas verdes del jardín',
+    altEN: 'Natural butterfly cocoon hanging among the green leaves of the garden'
   },
   'pigs-rural-farm-in-casona-los-rodriguez.webp': {
-    altES: 'Cerditos en el corral de la granja rural de La Casona',
-    altEN: 'Piglets in the pen at the rural farm of La Casona'
+    altES: 'Dos cerditos negros alimentándose en su corral de la granja rural',
+    altEN: 'Two black piglets feeding in their pen at the rural farm'
   },
   'pigs-rural-farm-la-fortuna-costa-rica.webp': {
-    altES: 'Animales de granja en el entorno rural de La Fortuna',
-    altEN: 'Farm animals in the rural setting of La Fortuna'
+    altES: 'Primer plano de dos cerditos negros en el corral de la granja rural',
+    altEN: 'Close-up of two black piglets in the pen at the rural farm'
   },
 
   // Traditional Events & Culture
   'casona-los-rodriguez-costa-rican-cultural-event-001.webp': {
-    altES: 'Presentación interactiva de bailes típicos folclóricos costarricenses',
-    altEN: 'Interactive performance of typical Costa Rican folk dances'
+    altES: 'Escenario cultural con marimba de madera tradicional e instrumentos musicales típicos',
+    altEN: 'Cultural stage with traditional wooden marimba and typical musical instruments'
   },
   'costa-rica-folklore-dance-cultural-experience.webp': {
-    altES: 'Bailarines vistiendo trajes folclóricos tradicionales costarricenses',
-    altEN: 'Dancers wearing traditional Costa Rican folkloric costumes'
+    altES: 'Parejas de bailarines con trajes folclóricos costarricenses realizando una presentación con marimba en vivo',
+    altEN: 'Couples of dancers in Costa Rican folkloric costumes performing with live marimba music'
   },
 
   // Typical Food
@@ -260,11 +260,11 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
 
   // Customer Experiences
   'casona-los-rodriguez-family-cultural-experience-001.webp': {
-    altES: 'Grupo de turistas sonriendo durante el taller de tortillas a la leña',
-    altEN: 'Group of tourists smiling during the wood-fired tortilla workshop'
+    altES: 'Familia celebrando un cumpleaños con pastel tradicional en el comedor de La Casona',
+    altEN: 'Family celebrating a birthday with a traditional cake in La Casona dining room'
   },
   'casona-los-rodriguez-family-cultural-experience-002.webp': {
-    altES: 'Familia compartiendo un almuerzo típico tradicional en el comedor de madera',
-    altEN: 'Family sharing a traditional typical lunch in the wooden dining room'
+    altES: 'Retrato familiar de visitantes sonriendo junto a su pastel de cumpleaños',
+    altEN: 'Family portrait of visitors smiling next to their birthday cake'
   }
 };
