@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Locale, getDictionary } from '@/lib/i18n';
-import { experiences } from '@/data/experiences';
+import { countries, getCountryByCode, getSortedCountries, getCountriesSortedByDialCode } from '@/data/countries';
 
 interface AgencyQuoteFormProps {
   locale: Locale;
@@ -14,6 +14,8 @@ interface AgencyQuoteFormProps {
 export default function AgencyQuoteForm({ locale }: AgencyQuoteFormProps) {
   const dict = getDictionary(locale);
   const isEs = locale === 'es';
+  const sortedCountries = getSortedCountries(locale);
+  const sortedDialCodes = getCountriesSortedByDialCode();
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
   const [isSubmitError, setIsSubmitError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,14 +24,12 @@ export default function AgencyQuoteForm({ locale }: AgencyQuoteFormProps) {
   const agencySchema = z.object({
     agencyName: z.string().min(1, dict.agencyForm.validation.agencyRequired),
     contactName: z.string().min(1, dict.agencyForm.validation.contactRequired),
+    country: z.string().min(1, dict.agencyForm.validation.countryRequired),
     email: z.string().email(dict.agencyForm.validation.emailInvalid),
+    phonePrefix: z.string().optional(),
     phone: z.string().min(1, dict.agencyForm.validation.phoneRequired),
-    date: z.string().min(1, dict.agencyForm.validation.dateRequired),
-    adults: z.number({ message: dict.agencyForm.validation.adultsMin })
-      .min(1, dict.agencyForm.validation.adultsMin),
-    children: z.number().min(0),
-    infants: z.number().min(0),
-    experience: z.string().min(1, dict.agencyForm.validation.experienceRequired),
+    paxRange: z.array(z.string()).optional(),
+    preferredContact: z.array(z.string()).optional(),
     comments: z.string().optional(),
   });
 
@@ -39,17 +39,30 @@ export default function AgencyQuoteForm({ locale }: AgencyQuoteFormProps) {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<AgencyFormData>({
     resolver: zodResolver(agencySchema),
     defaultValues: {
-      adults: 1,
-      children: 0,
-      infants: 0,
-      experience: '',
+      agencyName: '',
+      contactName: '',
+      country: '',
+      email: '',
+      phonePrefix: '+506',
+      phone: '',
+      paxRange: [],
+      preferredContact: [],
       comments: '',
     }
   });
+
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedCode = e.target.value;
+    const countryObj = getCountryByCode(selectedCode);
+    if (countryObj) {
+      setValue('phonePrefix', countryObj.dialCode);
+    }
+  };
 
   const onSubmit = async (data: AgencyFormData) => {
     setIsSubmitting(true);
@@ -133,23 +146,56 @@ export default function AgencyQuoteForm({ locale }: AgencyQuoteFormProps) {
           )}
         </div>
 
-        {/* Contact Person Name */}
-        <div>
-          <label htmlFor="contactName" className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-1.5 font-heading">
-            {dict.agencyForm.contactName} <span className="text-terracotta">*</span>
-          </label>
-          <input
-            id="contactName"
-            type="text"
-            disabled={isSubmitting}
-            className={`w-full px-4 py-2.5 rounded border bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 ${
-              errors.contactName ? 'border-terracotta/60 focus:border-terracotta' : 'border-sand/30 focus:border-gold'
-            } disabled:opacity-55`}
-            {...register('contactName')}
-          />
-          {errors.contactName && (
-            <p className="mt-1 text-xs text-terracotta font-medium font-body">{errors.contactName.message}</p>
-          )}
+        {/* Grid Contact Person / Country */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {/* Contact Person Name */}
+          <div>
+            <label htmlFor="contactName" className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-1.5 font-heading">
+              {dict.agencyForm.contactName} <span className="text-terracotta">*</span>
+            </label>
+            <input
+              id="contactName"
+              type="text"
+              disabled={isSubmitting}
+              className={`w-full px-4 py-2.5 rounded border bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 ${
+                errors.contactName ? 'border-terracotta/60 focus:border-terracotta' : 'border-sand/30 focus:border-gold'
+              } disabled:opacity-55`}
+              {...register('contactName')}
+            />
+            {errors.contactName && (
+              <p className="mt-1 text-xs text-terracotta font-medium font-body">{errors.contactName.message}</p>
+            )}
+          </div>
+
+          {/* Agency Country Dropdown */}
+          <div>
+            <label htmlFor="country" className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-1.5 font-heading">
+              {dict.agencyForm.country} <span className="text-terracotta">*</span>
+            </label>
+            <select
+              id="country"
+              disabled={isSubmitting}
+              className={`w-full px-4 py-2.5 rounded border bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 ${
+                errors.country ? 'border-terracotta/60 focus:border-terracotta' : 'border-sand/30 focus:border-gold'
+              } disabled:opacity-55`}
+              {...register('country', {
+                onChange: handleCountryChange
+              })}
+            >
+              <option value="">{dict.agencyForm.selectCountry}</option>
+              {sortedCountries.map((c) => {
+                const name = isEs ? c.nameES : c.nameEN;
+                return (
+                  <option key={c.code} value={c.code}>
+                    {name}
+                  </option>
+                );
+              })}
+            </select>
+            {errors.country && (
+              <p className="mt-1 text-xs text-terracotta font-medium font-body">{errors.country.message}</p>
+            )}
+          </div>
         </div>
 
         {/* Grid Email / Phone */}
@@ -173,127 +219,86 @@ export default function AgencyQuoteForm({ locale }: AgencyQuoteFormProps) {
             )}
           </div>
 
-          {/* Phone */}
+          {/* Phone with dialCode prefix dropdown */}
           <div>
             <label htmlFor="phone" className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-1.5 font-heading">
               {dict.agencyForm.phone} <span className="text-terracotta">*</span>
             </label>
-            <input
-              id="phone"
-              type="tel"
-              disabled={isSubmitting}
-              className={`w-full px-4 py-2.5 rounded border bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 ${
-                errors.phone ? 'border-terracotta/60 focus:border-terracotta' : 'border-sand/30 focus:border-gold'
-              } disabled:opacity-55`}
-              {...register('phone')}
-            />
+            <div className={`flex rounded border bg-white-warm transition-colors focus-within:ring-2 focus-within:ring-gold/50 ${
+              errors.phone ? 'border-terracotta/60 focus-within:border-terracotta' : 'border-sand/30 focus-within:border-gold'
+            }`}>
+              <select
+                disabled={isSubmitting}
+                aria-label="Phone Prefix"
+                className="px-2.5 py-2.5 bg-sand/15 border-r border-sand/30 text-xs font-bold text-primary rounded-l focus:outline-none cursor-pointer disabled:opacity-55 shrink-0 max-w-[120px] text-ellipsis"
+                {...register('phonePrefix')}
+              >
+                {sortedDialCodes.map((c) => (
+                  <option key={c.code} value={c.dialCode}>
+                    {c.dialCode} ({c.code})
+                  </option>
+                ))}
+              </select>
+              <input
+                id="phone"
+                type="tel"
+                disabled={isSubmitting}
+                placeholder="8888-8888"
+                className="w-full px-3 py-2.5 bg-transparent text-sm text-primary font-body focus:outline-none disabled:opacity-55"
+                {...register('phone')}
+              />
+            </div>
             {errors.phone && (
               <p className="mt-1 text-xs text-terracotta font-medium font-body">{errors.phone.message}</p>
             )}
           </div>
         </div>
 
-        {/* Grid Date / Experience Dropdown */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {/* Date of Visit */}
-          <div>
-            <label htmlFor="date" className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-1.5 font-heading">
-              {dict.agencyForm.date} <span className="text-terracotta">*</span>
-            </label>
-            <input
-              id="date"
-              type="date"
-              disabled={isSubmitting}
-              className={`w-full px-4 py-2.5 rounded border bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 ${
-                errors.date ? 'border-terracotta/60 focus:border-terracotta' : 'border-sand/30 focus:border-gold'
-              } disabled:opacity-55`}
-              {...register('date')}
-            />
-            {errors.date && (
-              <p className="mt-1 text-xs text-terracotta font-medium font-body">{errors.date.message}</p>
-            )}
-          </div>
-
-          {/* Experience selection */}
-          <div>
-            <label htmlFor="experience" className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-1.5 font-heading">
-              {dict.agencyForm.experience} <span className="text-terracotta">*</span>
-            </label>
-            <select
-              id="experience"
-              disabled={isSubmitting}
-              className={`w-full px-4 py-2.5 rounded border bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 ${
-                errors.experience ? 'border-terracotta/60 focus:border-terracotta' : 'border-sand/30 focus:border-gold'
-              } disabled:opacity-55`}
-              {...register('experience')}
-            >
-              <option value="">{dict.agencyForm.selectExperience}</option>
-              {experiences.map((exp) => (
-                <option key={exp.slug} value={exp.slug}>
-                  {isEs ? exp.title : exp.titleEN}
-                </option>
-              ))}
-              <option value="custom_event">{isEs ? 'Evento / Buffet Especial' : 'Custom Event / Special Buffet'}</option>
-            </select>
-            {errors.experience && (
-              <p className="mt-1 text-xs text-terracotta font-medium font-body">{errors.experience.message}</p>
-            )}
+        {/* Multi-select: Client range per reservation */}
+        <div>
+          <label className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-2 font-heading">
+            {dict.agencyForm.paxRangeLabel}
+          </label>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+            {dict.agencyForm.paxRangeOptions.map((option: string) => (
+              <label
+                key={option}
+                className="flex items-center gap-2 px-3 py-2 rounded border border-sand/30 bg-sand/10 text-xs text-primary font-body cursor-pointer hover:border-gold hover:bg-cream/40 transition-colors select-none"
+              >
+                <input
+                  type="checkbox"
+                  value={option}
+                  disabled={isSubmitting}
+                  className="rounded border-sand/40 text-terracotta focus:ring-gold"
+                  {...register('paxRange')}
+                />
+                <span>{option}</span>
+              </label>
+            ))}
           </div>
         </div>
 
-        {/* Pax details: Adults / Children / Infants */}
+        {/* Multi-select: Preferred contact method */}
         <div>
           <label className="block text-xs font-bold text-primary/85 uppercase tracking-wider mb-2 font-heading">
-            {dict.agencyForm.pax}
+            {dict.agencyForm.preferredContactLabel}
           </label>
-          <div className="grid grid-cols-3 gap-4 border border-sand/15 p-4 rounded-lg bg-sand/5">
-            {/* Adults */}
-            <div>
-              <label htmlFor="adults" className="block text-[10px] font-bold text-primary/70 uppercase tracking-wider mb-1 font-body">
-                {dict.agencyForm.adults} <span className="text-terracotta">*</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            {dict.agencyForm.preferredContactOptions.map((option: string) => (
+              <label
+                key={option}
+                className="flex items-center gap-2 px-3.5 py-2 rounded border border-sand/30 bg-sand/10 text-xs text-primary font-body cursor-pointer hover:border-gold hover:bg-cream/40 transition-colors select-none"
+              >
+                <input
+                  type="checkbox"
+                  value={option}
+                  disabled={isSubmitting}
+                  className="rounded border-sand/40 text-terracotta focus:ring-gold"
+                  {...register('preferredContact')}
+                />
+                <span>{option}</span>
               </label>
-              <input
-                id="adults"
-                type="number"
-                min={1}
-                disabled={isSubmitting}
-                className="w-full px-3 py-1.5 rounded border border-sand/30 bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 disabled:opacity-55"
-                {...register('adults', { valueAsNumber: true })}
-              />
-              {errors.adults && (
-                <p className="mt-1 text-[10px] text-terracotta font-semibold font-body">{errors.adults.message}</p>
-              )}
-            </div>
-
-            {/* Children */}
-            <div>
-              <label htmlFor="children" className="block text-[10px] font-bold text-primary/70 uppercase tracking-wider mb-1 font-body">
-                {dict.agencyForm.children}
-              </label>
-              <input
-                id="children"
-                type="number"
-                min={0}
-                disabled={isSubmitting}
-                className="w-full px-3 py-1.5 rounded border border-sand/30 bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 disabled:opacity-55"
-                {...register('children', { valueAsNumber: true })}
-              />
-            </div>
-
-            {/* Infants */}
-            <div>
-              <label htmlFor="infants" className="block text-[10px] font-bold text-primary/70 uppercase tracking-wider mb-1 font-body">
-                {dict.agencyForm.infants}
-              </label>
-              <input
-                id="infants"
-                type="number"
-                min={0}
-                disabled={isSubmitting}
-                className="w-full px-3 py-1.5 rounded border border-sand/30 bg-white-warm text-sm text-primary font-body transition-colors focus:outline-none focus:ring-2 focus:ring-gold/50 disabled:opacity-55"
-                {...register('infants', { valueAsNumber: true })}
-              />
-            </div>
+            ))}
           </div>
         </div>
 

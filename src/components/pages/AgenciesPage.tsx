@@ -97,7 +97,7 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
               {/* Additional B2B Contact Sidebar */}
               <div className="border border-sand/30 rounded-lg overflow-hidden bg-primary text-white-warm p-6 shadow-sm">
                 <h4 className="font-heading text-lg font-bold text-gold mb-2">
-                  {isEs ? 'Atención Exclusiva B2B' : 'B2B Dedicated Support'}
+                  {isEs ? 'Atención Directa para Operadores' : 'Dedicated Operator Support'}
                 </h4>
                 <p className="text-xs text-white-warm/75 font-body leading-relaxed mb-4">
                   {isEs 
@@ -107,7 +107,7 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
                 <div className="space-y-2 font-body text-xs font-semibold">
                   <p className="flex items-center gap-2">
                     <span className="text-gold">Email:</span>
-                    <a href={`mailto:${dict.contact.email}`} className="hover:text-gold transition-colors">{dict.contact.email}</a>
+                    <a href={`mailto:${dict.contact.agencyEmail}`} className="hover:text-gold transition-colors">{dict.contact.agencyEmail}</a>
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="text-gold">WhatsApp:</span>

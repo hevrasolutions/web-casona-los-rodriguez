@@ -26,6 +26,7 @@ export const en: Dictionary = {
     phone: '+506 6081-7929',
     whatsapp: '+506 6081-7929',
     email: 'info@casonalosrodriguez.cr',
+    agencyEmail: 'agencias@casonalosrodriguez.cr',
     scheduleTitle: 'Opening Hours',
     schedule: 'Monday to Sunday, 7:00 a.m. to 10:00 p.m.'
   },
@@ -79,26 +80,33 @@ export const en: Dictionary = {
     }
   },
   agencyForm: {
-    title: 'B2B Quote Request',
-    agencyName: 'Agency Name',
+    title: 'Agency & Group Quote Request',
+    agencyName: 'Agency / Tour Operator Name',
     contactName: 'Contact Person',
+    country: 'Agency Country',
+    selectCountry: 'Select a country...',
     email: 'Email Address',
     phone: 'Phone Number',
     date: 'Date of Visit',
     pax: 'Number of Passengers',
-    adults: 'Adults (12+ years)',
-    children: 'Children (3-11 years)',
-    infants: 'Infants (0-2 years)',
+    adults: 'Adults (11+ years)',
+    children: 'Children (5-10 years)',
+    infants: 'Infants (0-4 years - Free)',
     experience: 'Experience of Interest',
     comments: 'Notes / Special Requirements',
-    send: 'Send Request',
+    paxRangeLabel: 'Client Range per Reservation',
+    paxRangeOptions: ['5-10', '11-20', '21-30', '31-40', '41-50', '+50'],
+    preferredContactLabel: 'Preferred Response Channel',
+    preferredContactOptions: ['WhatsApp', 'Email', 'Phone Call'],
+    send: 'Send Quote Request',
     sending: 'Processing...',
     selectExperience: 'Select an experience...',
     successTitle: 'Request Received!',
-    successDesc: 'We have received your quote request. Our booking department will respond within 24 business hours.',
+    successDesc: 'We have received your quote request. Our agency support team will respond promptly.',
     validation: {
       agencyRequired: 'Agency name is required.',
       contactRequired: 'Contact person name is required.',
+      countryRequired: 'Agency country is required.',
       emailRequired: 'Email is required.',
       emailInvalid: 'Please enter a valid email address.',
       phoneRequired: 'Phone is required.',
@@ -114,11 +122,11 @@ export const en: Dictionary = {
     },
     {
       q: 'What happens if it rains during the experience?',
-      a: 'No problem! All our key activities (wood-fired cooking, oxen-driven trapiche, traditional dining room, dances) are carried out under safe, covered structures. Rain does not stop the traditional experience.'
+      a: 'No problem! All our key activities (wood-fired cooking, hands-on sugarcane mill, traditional dining room, dances) are carried out under safe, covered structures. Rain does not stop the traditional experience.'
     },
     {
       q: 'Do you have special rates for groups and agencies?',
-      a: 'Yes, we offer preferential net rates and complimentary policies for accredited guides and drivers. Please fill out the form in our Agencies section to receive the rate manual.'
+      a: 'Yes, we offer preferential net rates and complimentary (FOC) policies for accredited guides and drivers. Please fill out the form in our Agencies section to receive the rate manual.'
     },
     {
       q: 'What are the cancellation policies?',
@@ -126,30 +134,30 @@ export const en: Dictionary = {
     }
   ],
   agenciesPage: {
-    title: 'Travel Partners & Operators',
-    subtitle: 'B2B Partnerships & Net Rates',
-    desc: 'We offer authentic, high-quality, and meticulously coordinated experiences for your clients in La Fortuna. Discover our special benefits for travel agencies and tour operators.',
+    title: 'Partner Agencies & Tour Operators',
+    subtitle: 'Commercial Agreements & Preferential Rates',
+    desc: 'Welcome your visitor groups with the authenticity, punctuality, and warmth of La Fortuna’s most iconic rural farmhouse. We offer special rates and personalized coordination for travel agencies and tour operators.',
     benefitsTitle: 'Benefits for Partner Agencies',
     benefits: [
       {
-        title: 'Preferential Net Rates',
-        desc: 'Access to competitive net rates and commissions structure for all our tours and dining services.'
+        title: 'Preferential Rates',
+        desc: 'Access to competitive special rates and commission structures for all our tours and dining services.'
       },
       {
-        title: 'FOC Policies (Free of Charge)',
-        desc: 'We offer complimentary entries/meals for tour guides and drivers on all activities and buffet services.'
+        title: 'Complimentary Spots (FOC)',
+        desc: 'We offer complimentary entries and meals for tour guides and drivers on all activities and buffet services.'
       },
       {
         title: 'Traditional Wood-Fired Buffet',
-        desc: 'Typical lunch setup served in clay pots over a wood stove, ideal for groups of up to 80 guests.'
+        desc: 'Typical lunch or dinner setup prepared over a wood stove, ideal for small, medium, or large groups.'
       },
       {
-        title: 'Schedule Flexibility & Coordination',
-        desc: 'Priority blocking of allocations and direct communication via WhatsApp or email with fast response times.'
+        title: 'Schedule Flexibility & Direct Coordination',
+        desc: 'Priority booking and direct communication via WhatsApp or email to resolve itineraries in record time.'
       }
     ],
     quoteTitle: 'Request Group Quote',
-    quoteDesc: 'Complete this form to request a special quotation for your group of passengers. We will reply on the same day.'
+    quoteDesc: 'Fill out this form to request a tailored quote for your group. We will respond the same day.'
   },
   aboutPage: {
     title: 'Our History & Family',

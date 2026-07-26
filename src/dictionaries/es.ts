@@ -24,6 +24,7 @@ export const es = {
     phone: '+506 6081-7929',
     whatsapp: '+506 6081-7929',
     email: 'info@casonalosrodriguez.cr',
+    agencyEmail: 'agencias@casonalosrodriguez.cr',
     scheduleTitle: 'Horario de Atención',
     schedule: 'De Lunes a Domingo, 7:00 a.m. a 10:00 p.m.'
   },
@@ -77,26 +78,33 @@ export const es = {
     }
   },
   agencyForm: {
-    title: 'Solicitud de Cotización B2B',
-    agencyName: 'Nombre de la Agencia',
+    title: 'Solicitud de Cotización para Agencias',
+    agencyName: 'Nombre de la Agencia / Operador',
     contactName: 'Persona de Contacto',
+    country: 'País de la Agencia',
+    selectCountry: 'Selecciona un país...',
     email: 'Correo Electrónico',
     phone: 'Teléfono',
     date: 'Fecha de la Visita',
     pax: 'Número de Pasajeros',
-    adults: 'Adultos (12+ años)',
-    children: 'Niños (3-11 años)',
-    infants: 'Infantes (0-2 años)',
+    adults: 'Adultos (11+ años)',
+    children: 'Niños (5-10 años)',
+    infants: 'Infantes (0-4 años - Gratis)',
     experience: 'Experiencia de Interés',
     comments: 'Notas / Requisitos Especiales',
-    send: 'Enviar Solicitud',
+    paxRangeLabel: 'Rango de Clientes por reservación',
+    paxRangeOptions: ['5-10', '11-20', '21-30', '31-40', '41-50', '+50'],
+    preferredContactLabel: 'Canal Preferido de Respuesta',
+    preferredContactOptions: ['WhatsApp', 'Correo Electrónico', 'Llamada Telefónica'],
+    send: 'Enviar Solicitud de Cotización',
     sending: 'Procesando...',
     selectExperience: 'Selecciona una experiencia...',
     successTitle: '¡Solicitud Recibida!',
-    successDesc: 'Hemos recibido su solicitud de cotización. Nuestro departamento de reservas responderá en un plazo máximo de 24 horas hábiles.',
+    successDesc: 'Hemos recibido su solicitud de cotización. Nuestro equipo de atención a agencias le responderá a la brevedad.',
     validation: {
       agencyRequired: 'El nombre de la agencia es obligatorio.',
       contactRequired: 'El nombre de contacto es obligatorio.',
+      countryRequired: 'El país de la agencia es obligatorio.',
       emailRequired: 'El correo electrónico es obligatorio.',
       emailInvalid: 'Por favor, introduce un correo electrónico válido.',
       phoneRequired: 'El teléfono es obligatorio.',
@@ -112,11 +120,11 @@ export const es = {
     },
     {
       q: '¿Qué pasa si llueve durante la experiencia?',
-      a: '¡No hay problema! Todas nuestras actividades clave (cocina a la leña, trapiche de bueyes, comedor tradicional, danzas) se realizan bajo estructuras techadas y seguras. La lluvia no detiene la experiencia tradicional.'
+      a: '¡No hay problema! Todas nuestras actividades clave (cocina a la leña, trapiche interactivo, comedor tradicional, danzas) se realizan bajo estructuras techadas y seguras. La lluvia no detiene la experiencia tradicional.'
     },
     {
       q: '¿Tienen tarifas especiales para grupos y agencias?',
-      a: 'Sí, ofrecemos tarifas netas preferenciales y políticas de gratuidades para guías y choferes acreditados. Por favor, complete el formulario en nuestra sección de Agencias para recibir el manual tarifario.'
+      a: 'Sí, ofrecemos tarifas preferenciales y políticas de gratuidades (FOC) para guías y choferes acreditados. Por favor, complete el formulario en nuestra sección de Agencias para recibir el tarifario.'
     },
     {
       q: '¿Cuáles son las políticas de cancelación?',
@@ -124,30 +132,30 @@ export const es = {
     }
   ],
   agenciesPage: {
-    title: 'Socios de Viajes y Operadores',
-    subtitle: 'Alianzas B2B y Tarifas Netas',
-    desc: 'Ofrecemos experiencias auténticas, de alta calidad y coordinadas al detalle para sus clientes en La Fortuna. Conozca nuestros beneficios especiales para agencias de viajes y operadores turísticos.',
+    title: 'Alianzas para Agencias y Turoperadores',
+    subtitle: 'Convenios Comerciales y Tarifas Preferenciales',
+    desc: 'Reciba a sus grupos de visitantes con la autenticidad, puntualidad y calidez de la casona rural más emblemática de La Fortuna. Ofrecemos tarifas especializadas y atención personalizada para agencias de viajes y guías de turismo.',
     benefitsTitle: 'Beneficios para Agencias Asociadas',
     benefits: [
       {
-        title: 'Tarifas Netas Preferenciales',
-        desc: 'Acceso a un esquema de comisiones y tarifas netas competitivas para todos nuestros tours y servicios gastronómicos.'
+        title: 'Tarifas Preferenciales',
+        desc: 'Acceso a un esquema competitivo de tarifas especiales y comisiones para todos nuestros tours y servicios gastronómicos.'
       },
       {
-        title: 'Políticas de Liberados (Gratuidades)',
-        desc: 'Ofrecemos espacios de cortesía para el guía acompañante y el conductor del grupo en todas las actividades y buffet.'
+        title: 'Espacios de Cortesía (FOC)',
+        desc: 'Ofrecemos entradas y alimentación de cortesía para el guía acompañante y el conductor del grupo en todas las actividades y servicio buffet.'
       },
       {
         title: 'Servicio Buffet Tradicional a la Leña',
-        desc: 'Montaje de almuerzo típico servido en ollas de barro sobre fogón de leña, ideal para grupos de hasta 80 personas.'
+        desc: 'Montaje de almuerzo o cena típica preparado sobre fogón de leña, ideal para grupos pequeños, medianos o grandes.'
       },
       {
-        title: 'Flexibilidad de Horarios y Coordinación',
-        desc: 'Bloqueos de espacio prioritarios y coordinación directa a través de WhatsApp o correo electrónico con respuesta rápida.'
+        title: 'Flexibilidad de Horarios y Coordinación Directa',
+        desc: 'Prioridad de reserva y comunicación directa vía WhatsApp o correo electrónico para resolver itinerarios en tiempo récord.'
       }
     ],
     quoteTitle: 'Solicitar Cotización de Grupo',
-    quoteDesc: 'Complete este formulario para solicitar una cotización especial para su grupo de pasajeros. Le responderemos el mismo día.'
+    quoteDesc: 'Complete este formulario para solicitar una tarifa adaptada para su grupo. Le responderemos el mismo día.'
   },
   aboutPage: {
     title: 'Nuestra Historia y Familia',

@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-07-14
-**Fase Activa:** Rediseño de Páginas de Detalle de Experiencias — COMPLETO (3 de 3 fases, jul 2026). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
+**Última Actualización:** 2026-07-26
+**Fase Activa:** Rediseño de Páginas de Detalle de Experiencias — COMPLETO. Rediseño y Optimización de la Página de Agencias y Formulario de Cotización — COMPLETO (jul 2026). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
 
 ---
 
@@ -93,7 +93,7 @@ Organizados en `/src/components/`:
   * [`ExperienceGrid.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/ExperienceGrid.tsx): Rejilla responsiva para renderizar el catálogo.
   * [`FeaturedExperiences.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/experiences/FeaturedExperiences.tsx): Carrusel o rejilla de experiencias destacadas en el Home (contiene el array hardcodeado `featuredSlugs` con slugs ES — actualizarlo si cambian).
 * **`forms/` (Formularios validados con react-hook-form + zod)**
-  * [`AgencyQuoteForm.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/forms/AgencyQuoteForm.tsx): Formulario de cotización personalizado para agencias.
+  * [`AgencyQuoteForm.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/forms/AgencyQuoteForm.tsx): Formulario de cotización personalizado para agencias y operadores. Incluye validación Zod, campo de correo `type="email"`, grid de 2 columnas para Nombre de Contacto + País de la Agencia (dropdown bilingüe con el estándar ISO 3166-1 y type-to-select), selector de prefijo telefónico internacional (`phonePrefix`) ordenado numéricamente con USA (`+1 (US)`) de primero y sincronizado automáticamente según el país seleccionado, y campos de selección múltiple (casillas) para rango estimado de clientes por reservación y canal preferido de respuesta.
   * [`ContactForm.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/forms/ContactForm.tsx): Formulario de contacto general.
 * **`navigation/` (Barras de navegación y pie de página)**
   * [`Footer.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/navigation/Footer.tsx): Pie de página bilingüe.
@@ -158,7 +158,8 @@ Los enlaces internos a detalles se generan dinámicamente desde la data (`experi
 * **`src/lib/gallery.ts`**: Helper de Node.js para escanear y cargar dinámicamente las imágenes de la galería del File System.
 * **`src/data/gallery-metadata.ts`**: Diccionario de metadatos de las fotos de la galería para alt texts bilingües (también lo usa `ExperienceDetailV2` para los alt de su galería).
 * **`src/data/heroSlides.ts`**: Contenido e imágenes del carrusel Hero en el inicio.
-* **`src/dictionaries/es.ts` y `src/dictionaries/en.ts`**: Diccionarios estáticos que definen los textos comunes del sitio (botones, banners, navegación, secciones de contacto). Incluyen los labels de rangos de edad para precios: `common.adultsRange` ("Adultos (11+)"), `common.childrenRange` ("Niños (5–10)"), `common.infantsRange` ("Infantes (0–4)").
+* **`src/data/countries.ts`**: Dataset completo basado en el estándar ISO 3166-1 (240+ países y territorios del mundo) con atributos `code`, `nameES`, `nameEN`, `dialCode` y `flag`. Incluye las funciones helper `getSortedCountries(locale)` (ordena alfabéticamente según el idioma activo para búsqueda type-to-select con el teclado) y `getCountriesSortedByDialCode()` (ordena numéricamente por código telefónico con USA `+1` fijado al inicio).
+* **`src/dictionaries/es.ts` y `src/dictionaries/en.ts`**: Diccionarios estáticos que definen los textos comunes del sitio (botones, banners, navegación, secciones de contacto, formulario de agencias con correo `agencias@casonalosrodriguez.cr`). Incluyen los labels de rangos de edad para precios: `common.adultsRange` ("Adultos (11+)"), `common.childrenRange` ("Niños (5–10)"), `common.infantsRange` ("Infantes (0–4)").
 
 ---
 
@@ -265,6 +266,12 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * **Fase 2 — Cooking Class con Tía Yami (COMPLETA, jul 2026):** contenido bilingüe completo del brief cargado en la data (activa `ExperienceDetailV2`); slugs nuevos ES `clase-cocina-tradicional-la-fortuna` y EN `traditional-cooking-class-la-fortuna` con redirects 308; `featuredSlugs` actualizado; precios $70/$38/gratis (antes $39/$29); **sin** bloque de opciones de alimentación (la comida es la actividad); sin edad mínima (FAQ y seoHighlight de "4 años" eliminados por decisión del usuario); término corregido a "Arroz con Siempre".
 * **Fase 3 — Casona & Farm Day Pass (COMPLETA, jul 2026):** contenido bilingüe completo del brief; slug único `casona-farm-day-pass-la-fortuna` para ambos idiomas con redirects 308 desde `day-pass-casona-finca` (ES) y `day-pass-casona-farm` (EN); precios $40/$25/gratis (antes $59/$49); duración 3 h (antes 4 h; Excel como fuente de verdad); mínimo 1 persona; nota de itinerario variable (`itineraryNote`); sin mención de mariposario/ranario; el show folclórico nocturno queda explícitamente excluido (FAQ). Al cerrar esta fase se eliminó la plantilla legacy (`ExperienceDetailPage.tsx` + `BookingCard.tsx`) y `featuredSlugs` quedó con los 3 slugs nuevos.
 * **Reglas del track:** sin ratings/estrellas ni testimonios; itinerarios sin horas fijas; precios solo en el bloque de reserva (no en copy narrativo); todo bilingüe con el copy exacto del brief.
+
+### Track paralelo: Rediseño y Optimización de la Página de Agencias y Formulario de Cotización (COMPLETA, jul 2026)
+* **Copy y Tono:** Reescrito el copy de la página y formulario eliminando acrónimos técnicos (*B2B*) y adoptando una redacción natural (*"Alianzas para Agencias y Turoperadores"*, *"Convenios Comerciales y Tarifas Preferenciales"*).
+* **Contacto Exclusivo:** Integrado correo especializado `agencias@casonalosrodriguez.cr` para el canal de operadores.
+* **Formulario Simplificado:** Removidos campos que generaban fricción (fecha, experiencia, conteo exacto de pax) y agregados campos de selección múltiple (casillas) para *Rango de clientes por reservación* y *Canal preferido de respuesta*.
+* **Catálogo de Países e i18n:** Creado `src/data/countries.ts` (240+ países ISO 3166-1) con type-to-select navegable por teclado en el idioma activo, y selector de prefijo telefónico internacional (`phonePrefix`) ordenado numéricamente con USA (`+1 (US)`) de primero y sincronización automática según el país de la agencia.
 
 ### Tareas Pendientes para la Fase 7:
 * [] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
