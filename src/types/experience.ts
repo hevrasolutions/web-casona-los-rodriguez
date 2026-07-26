@@ -1,6 +1,7 @@
 export type ExperienceCategory =
   | 'cultural'
   | 'gastronomia'
+  | 'daypass'
   | 'nocturna'
   | 'express';
 

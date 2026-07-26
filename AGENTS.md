@@ -19,7 +19,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 * **Contacto:** Celin Rodríguez López
 * **Teléfono/WhatsApp:** +506 6081-7929
 * **Correo de contacto:** `info@casonalosrodriguez.cr`
-* **Descripción:** Casona rural costarricense con más de 120 años de historia. Espacio cultural, gastronómico y turístico que ofrece cocina 100% a la leña, trapiche tradicional de bueyes, clases de cocina típica, bailes folclóricos, música en vivo, huerta de plantas medicinales y animales de granja. Atiende a turistas individuales, familias, parejas, grupos privados, agencias y operadores de turismo (DMCs).
+* **Descripción:** Casona rural costarricense con más de 120 años de historia. Espacio cultural, gastronómico y turístico que ofrece cocina 100% a la leña, trapiche artesanal de madera interactivo (participativo y 100% amigable con los animales, sin tracción animal por protección y bienestar), clases de cocina típica, bailes folclóricos, música en vivo, huerta de plantas medicinales y animales de granja. Atiende a turistas individuales, familias, parejas, grupos privados, agencias y operadores de turismo (DMCs).
 
 ### Propuesta de Valor Central
 > "Una experiencia cultural costarricense en una casona rural de más de 120 años, donde el visitante cocina, come, aprende, baila y revive las tradiciones del campo tico."
@@ -76,7 +76,7 @@ Organizados en `/src/components/`:
 
 * **`content/` (Secciones de contenido de página)**
   * [`AgencyCTA.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/AgencyCTA.tsx): Llamado a la acción específico para agencias de viajes.
-  * [`FinalCTA.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/FinalCTA.tsx): Llamado a la acción general final.
+  * [`FinalCTA.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/FinalCTA.tsx): Llamado a la acción general final de la portada con `<FullViewportParallax>` sobre la foto rústica de la Casona.
   * [`HeroBasic.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/HeroBasic.tsx): Banner superior estático con imagen de fondo y título.
   * [`HeroCarousel.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/HeroCarousel.tsx): Carrusel dinámico para la página de inicio.
   * [`HomeGallery.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/HomeGallery.tsx): Vista previa de fotos en la página principal.
@@ -105,13 +105,14 @@ Organizados en `/src/components/`:
   * [`ContactPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ContactPage.tsx): Vista de contacto.
   * [`ExperienceDetailV2.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailV2.tsx): Plantilla **nueva** de detalle (server component, mobile-first). Se activa automáticamente cuando la experiencia tiene el campo `overview` en la data. Estructura: hero full-width con overlay `bg-primary/85`, migas + badges, recuadros de datos rápidos con iconos dorados (duración/grupo/dificultad/tipo), overview, highlights en tarjetas, galería con scroll horizontal snap en mobile, franja de identidad de marca, itinerario timeline sin horas, opciones de alimentación, tarjeta Incluye (✓ verdes) / No incluye (✗ terracota) / Qué llevar (checklist) con títulos congruentes y listas en columnas de 3, bloque Punto de encuentro (mapa embebido + link), FAQ en acordeón nativo con JSON-LD `FAQPage`, y experiencias relacionadas.
   * [`ExperiencesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperiencesPage.tsx): Catálogo de experiencias.
-  * [`GalleryPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/GalleryPage.tsx): Visualización de fotos con filtro y lightbox.
-  * [`RestaurantPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/RestaurantPage.tsx): Menú de propuesta gastronómica personalizada (2 columnas en escritorio, 1 en móvil con iconos de llama dorados, CTA de reserva directa a WhatsApp) y cierre de página en parallax.
+  * [`GalleryPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/GalleryPage.tsx): Visualización de fotos con filtro y lightbox con gestos táctiles de deslizamiento (swipe left/right), estado de sincronización `isImageLoading` para evitar mostrar alt preliminar, spinner dorado y precarga silenciosa de imágenes adyacentes.
+  * [`RestaurantPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/RestaurantPage.tsx): Menú de propuesta gastronómica personalizada (2 columnas en escritorio, 1 en móvil con iconos de llama dorados, CTA de reserva directa a WhatsApp), foto de hero corregida (`casona-los-rodriguez-traditional-dining-room-004.webp`) y cierre de página con `<FullViewportParallax>` (`authentic-costa-rican-food-experience.webp`).
   * [`TermsPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/TermsPage.tsx): Términos y condiciones legales.
 * **`ui/` (Componentes atómicos)**
   * [`BookingCTA.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/BookingCTA.tsx): Botón estándar de reserva.
   * [`Button.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/Button.tsx): Botón genérico configurable.
   * [`Container.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/Container.tsx): Envoltorio contenedor alineado.
+  * [`FullViewportParallax.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/FullViewportParallax.tsx): Componente reutilizable de Parallax de Ventana Fija recortado por CSS nativo (`[clip-path:inset(0)]` + `position: fixed inset-0 h-screen w-screen`). Mantiene la imagen 100% fija en el fondo de la pantalla (`100vh`) mientras la sección actúa como una ventana transparente que se desplaza por encima ("pasando por la foto completa"). Funciona con 0% JavaScript en el scroll, 0ms de retraso, 0 brincos a 120Hz ProMotion en celulares (iOS Safari y Android Chrome) y 0 franjas marrones superiores.
   * [`LanguageSwitcher.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/LanguageSwitcher.tsx): Selector interactivo de idioma (ES / EN).
   * [`SectionTitle.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/SectionTitle.tsx): Título estilizado para secciones.
   * [`WhatsAppButton.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/WhatsAppButton.tsx): Botón flotante directo para chat de soporte (+506 6081-7929). En las páginas de detalle de experiencia se oculta en mobile (`hidden lg:flex`) porque la barra sticky de reserva ocupa el borde inferior.
@@ -271,7 +272,7 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * [ ] **Archivos SEO:** Configurar sitemap dinámico (`sitemap.xml`) y el archivo estático `robots.txt`.
 * [ ] **Hreflang Tags:** Declarar etiquetas hreflang cruzadas entre las páginas localizadas `/es` y `/en` para evitar penalizaciones por contenido duplicado.
 * [/] **Core Web Vitals:** Auditoría de velocidad y optimización de rendimiento (Lazy loading, optimización de fuentes y tamaños de imágenes WebP). *Completado: Estabilización de altura del Hero Carousel utilizando CSS Grid para eliminar por completo el Cumulative Layout Shift (CLS) en Desktop y Mobile.*
-* [/] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento. *Completado: Efecto parallax global (Desktop y Mobile) con overlay de contraste en el CTA final de la página del Restaurante.*
+* [/] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento. *Completado: Componente reutilizable `FullViewportParallax` de Ventana Fija nativa (`clip-path: inset(0)`) implementado en el Home (`FinalCTA.tsx`) y Restaurante (`RestaurantPage.tsx`), ofreciendo movimiento continuo de ventana fija sin brincos a 120Hz ni franjas marrones en móviles (iOS/Android) y escritorio. Gestos táctiles de deslizamiento (swipe left/right) y sincronización de carga de imágenes sin alt preliminar en los lightboxes de la Galería y Galería de Experiencias.*
 * [ ] **Google Analytics 4:** Añadir los scripts de GA4 vinculando la variable de medición correspondiente.
 
 ---

@@ -46,8 +46,21 @@ export default function FeaturedExperiences({
               experience={exp}
               locale={locale}
               dict={dict}
+              variant="home"
             />
           ))}
+        </div>
+
+        {/* Section Bottom CTA to Explore All Experiences */}
+        <div className="mt-14 text-center">
+          <Button
+            href={isEs ? '/es/experiencias' : '/en/experiences'}
+            variant="secondary"
+            size="lg"
+            className="px-8 shadow-md hover:scale-[1.02] transition-transform duration-200"
+          >
+            {isEs ? 'Explorar todas las experiencias' : 'Explore all experiences'}
+          </Button>
         </div>
       </Container>
     </section>

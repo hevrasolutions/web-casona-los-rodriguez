@@ -10,12 +10,14 @@ interface ExperienceCardProps {
   experience: Experience;
   locale: Locale;
   dict: Dictionary;
+  variant?: 'home' | 'catalog';
 }
 
 export default function ExperienceCard({
   experience,
   locale,
   dict,
+  variant = 'catalog',
 }: ExperienceCardProps) {
   const isEs = locale === 'es';
   const title = isEs ? experience.title : experience.titleEN;
@@ -44,6 +46,7 @@ export default function ExperienceCard({
   const categoryLabels = {
     cultural: isEs ? 'Cultura' : 'Culture',
     gastronomia: isEs ? 'Gastronomía' : 'Gastronomy',
+    daypass: isEs ? 'Pase del Día' : 'Day Pass',
     nocturna: isEs ? 'Nocturna' : 'Night Experience',
     express: 'Express',
   };
@@ -51,6 +54,7 @@ export default function ExperienceCard({
   const categoryColors = {
     cultural: 'text-blue-colonial',
     gastronomia: 'text-terracotta',
+    daypass: 'text-jungle',
     nocturna: 'text-wood',
     express: 'text-jungle',
   };
@@ -119,14 +123,26 @@ export default function ExperienceCard({
             {title}
           </h3>
           
-          <p className="text-sm text-primary/75 font-body line-clamp-3 mb-6">
+          <p className="text-sm text-primary/75 font-body line-clamp-3 mb-4">
             {tagline}
           </p>
+
+          {/* Highlights checklist for catalog view */}
+          {variant === 'catalog' && (
+            <ul className="mb-5 space-y-1.5 text-xs text-primary/80 border-t border-sand/15 pt-3">
+              {(isEs ? experience.includes : experience.includesEN).slice(0, 3).map((item, idx) => (
+                <li key={idx} className="flex items-start gap-1.5">
+                  <span className="text-jungle font-bold">✓</span>
+                  <span className="line-clamp-1">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* Pricing & CTAs */}
         <div className="mt-auto pt-4 border-t border-sand/15">
-          <div className="flex items-baseline justify-between mb-4">
+          <div className="flex items-baseline justify-between mb-2">
             <span className="text-xs text-primary/60 font-semibold uppercase">
               {isEs ? 'Precio desde' : 'Price from'}
             </span>
@@ -138,19 +154,37 @@ export default function ExperienceCard({
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            <Button variant="ghost" size="sm" href={detailHref} className="text-center w-full text-xs">
-              {isEs ? 'Ver detalles' : 'View details'}
-            </Button>
-            <BookingCTA
-              experienceSlug={experience.slug}
-              variant="primary"
+          {variant === 'catalog' && (
+            <div className="text-[11px] text-primary/70 mb-3 flex items-center justify-between bg-sand/10 px-2.5 py-1 rounded">
+              <span>{isEs ? 'Niños (5–10):' : 'Children (5–10):'} <strong className="text-primary">{experience.pricing.child ? `$${experience.pricing.child}` : '-'}</strong></span>
+              <span className="text-jungle font-medium">{isEs ? 'Infantes (0–4): Gratis' : 'Infants (0–4): Free'}</span>
+            </div>
+          )}
+
+          {variant === 'home' ? (
+            <Button
+              variant="ghost"
               size="sm"
-              className="text-center w-full text-xs"
+              href={detailHref}
+              className="w-full text-center text-xs py-2.5 font-semibold"
             >
-              {dict.common.bookingLabel}
-            </BookingCTA>
-          </div>
+              {isEs ? 'Ver detalle e itinerario' : 'View details & itinerary'}
+            </Button>
+          ) : (
+            <div className="grid grid-cols-2 gap-2">
+              <Button variant="ghost" size="sm" href={detailHref} className="text-center w-full text-xs">
+                {isEs ? 'Ver detalles' : 'View details'}
+              </Button>
+              <BookingCTA
+                experienceSlug={experience.slug}
+                variant="primary"
+                size="sm"
+                className="text-center w-full text-xs"
+              >
+                {dict.common.bookingLabel}
+              </BookingCTA>
+            </div>
+          )}
         </div>
       </div>
     </article>

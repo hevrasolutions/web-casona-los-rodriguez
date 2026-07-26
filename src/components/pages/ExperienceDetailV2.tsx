@@ -50,6 +50,7 @@ export default function ExperienceDetailV2({
   const categoryLabels = {
     cultural: isEs ? 'Cultura' : 'Culture',
     gastronomia: isEs ? 'Gastronomía' : 'Gastronomy',
+    daypass: isEs ? 'Pase del Día' : 'Day Pass',
     nocturna: isEs ? 'Nocturna' : 'Night Experience',
     express: 'Express',
   };

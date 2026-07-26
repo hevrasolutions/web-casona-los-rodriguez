@@ -7,7 +7,6 @@ import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import ExperienceFilter from '../experiences/ExperienceFilter';
 import ExperienceGrid from '../experiences/ExperienceGrid';
-import BookingCTA from '../ui/BookingCTA';
 
 interface ExperiencesPageProps {
   locale: Locale;
@@ -30,25 +29,87 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
     ? experiences
     : experiences.filter((exp) => exp.category === activeCategory);
 
-  // FAQ contents
+  // 7 Strategic SEO/GEO FAQs
   const faqs = [
     {
-      q: isEs ? '¿Cómo reservo una experiencia?' : 'How do I book an experience?',
+      q: isEs ? '¿Los precios de las experiencias incluyen impuestos (IVA)?' : 'Do experience prices include sales tax (VAT)?',
       a: isEs
-        ? 'Para reservar, haga clic en el botón "Reservar ahora" de cualquier experiencia. Será redirigido a nuestro motor de reservas externo oficial para seleccionar fecha, hora y realizar el pago de forma segura.'
-        : 'To book, click the "Book Now" button on any experience. You will be redirected to our official external booking engine to select your date, time, and complete the payment securely.',
+        ? 'No, las tarifas publicadas no incluyen el 13% de IVA costarricense. Este se calculará a la hora de confirmar su reserva.'
+        : 'No, published rates do not include the 13% Costa Rican VAT (IVA). This will be calculated upon confirming your booking.',
     },
     {
-      q: isEs ? '¿Las actividades incluyen alimentación?' : 'Are meals included in the activities?',
+      q: isEs ? '¿Dónde se ubica Casona Los Rodríguez y qué tan cerca está del centro de La Fortuna?' : 'Where is Casona Los Rodríguez located and how far is it from downtown La Fortuna?',
       a: isEs
-        ? 'Sí, la mayoría de nuestras experiencias completas incluyen un almuerzo o cena campesina preparado 100% en fogón de leña con ingredientes frescos de nuestra huerta.'
-        : 'Yes, most of our full experiences include a farmhouse lunch or dinner prepared 100% on a wood-fired stove using fresh ingredients from our organic garden.',
+        ? 'Nos encontramos en Sona Fluca, La Fortuna de San Carlos, a solo 15 minutos en vehículo del parque central y muy cerca de las principales zonas de hoteles y termales del Volcán Arenal.'
+        : 'We are located in Sona Fluca, La Fortuna, San Carlos — just a 15-minute drive from the central park and close to major Arenal Volcano hot springs and hotels.',
     },
     {
-      q: isEs ? '¿Es adecuado para niños e infantes?' : 'Is it suitable for children and infants?',
+      q: isEs ? '¿Ofrecen opciones vegetarianas, veganas o libres de gluten en la comida a la leña?' : 'Do you offer vegetarian, vegan, or gluten-free options for the wood-fired meals?',
       a: isEs
-        ? '¡Totalmente! Casona Los Rodríguez es una experiencia familiar. Los niños tienen tarifas con descuento y los infantes (menores de 3 años) entran gratis en todas las actividades.'
-        : 'Absolutely! Casona Los Rodríguez is a family-friendly experience. Children have discounted rates, and infants (under 3 years old) join for free on all activities.',
+        ? '¡Sí! Todas nuestras comidas tradicionales a la leña cuentan con alternativas vegetarianas, veganas y libres de gluten adaptadas. Solo solicítelo al momento de reservar o por WhatsApp.'
+        : 'Yes! All our traditional wood-fired meals can be adapted with delicious vegetarian, vegan, and gluten-free alternatives. Simply inform us when booking or via WhatsApp.',
+    },
+    {
+      q: isEs ? '¿Qué ropa se recomienda usar y qué sucede si llueve durante la experiencia?' : 'What clothing is recommended and what happens if it rains during the tour?',
+      a: isEs
+        ? 'Recomendamos ropa cómoda y fresca, calzado cerrado para caminar y capote o sombrilla. Nuestras áreas culturales y comedores son techados y protegidos, por lo que las actividades se disfrutan cómodamente bajo cualquier clima.'
+        : 'We recommend comfortable lightweight clothing, closed walking shoes, and a rain jacket or umbrella. Our cultural spaces and dining areas are fully covered and protected, so activities run comfortably in all weather.',
+    },
+    {
+      q: isEs ? '¿Las experiencias se ofrecen en inglés para visitantes internacionales?' : 'Are the experiences conducted in English for international visitors?',
+      a: isEs
+        ? 'Sí, contamos con guías locales 100% bilingües (español e inglés) que acompañan y facilitan cada momento de la experiencia histórica, culinaria y cultural.'
+        : 'Yes, we have 100% bilingual local guides (Spanish & English) who facilitate and translate every part of the historical, culinary, and cultural experience.',
+    },
+    {
+      q: isEs ? '¿Cómo reservo y confirmo mi espacio?' : 'How do I book and confirm my spot?',
+      a: isEs
+        ? 'Puede reservar por WhatsApp dando clic en el botón de la experiencia de su elección. Atendemos de forma directa y personalizada para coordinar fecha, hora y dietas especiales.'
+        : 'You can book via WhatsApp by clicking the button on your chosen experience. We assist you directly and personally to coordinate date, time, and special diets.',
+    },
+    {
+      q: isEs ? '¿Es adecuado para familias con niños e infantes?' : 'Is it suitable for families with small children and infants?',
+      a: isEs
+        ? '¡Totalmente! Es una experiencia 100% familiar. Los niños (5 a 10 años) tienen tarifa reducida y los infantes (0 a 4 años) entran gratis en todas las actividades.'
+        : 'Absolutely! It is a 100% family-friendly experience. Children (5 to 10 years old) have discounted rates, and infants (0 to 4 years old) join for free on all activities.',
+    },
+  ];
+
+  // FAQ Schema JSON-LD for SEO/GEO
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  };
+
+  // Trust pillars
+  const pillars = [
+    {
+      icon: '🪵',
+      title: isEs ? '100% Cocina a la Leña' : '100% Wood-Fired Cooking',
+      desc: isEs ? 'Gastronomía campesina sin procesados' : 'Traditional non-industrial seasoning',
+    },
+    {
+      icon: '🎋',
+      title: isEs ? 'Trapiche Interactivo' : 'Hands-On Sugarcane Mill',
+      desc: isEs ? '100% amigable con los animales (sin tracción animal)' : 'Animal-friendly hands-on experience',
+    },
+    {
+      icon: '👨‍👩‍👧‍👦',
+      title: isEs ? 'Experiencia Familiar' : 'Family-Friendly Hub',
+      desc: isEs ? 'Tarifas reducidas y niños 0-4 años gratis' : 'Discounted kids rates, ages 0-4 free',
+    },
+    {
+      icon: '📍',
+      title: isEs ? 'A 15 Min del Centro' : '15 Min from Downtown',
+      desc: isEs ? 'Ubicación accesible en Sona Fluca, La Fortuna' : 'Easy access in Sona Fluca, La Fortuna',
     },
   ];
 
@@ -72,6 +133,21 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         </Container>
       </section>
 
+      {/* Trust Pillars Bar */}
+      <section className="bg-cream-dark/60 py-8 border-b border-sand/20">
+        <Container>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {pillars.map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center">
+                <span className="text-2xl mb-1">{item.icon}</span>
+                <h3 className="font-heading text-sm font-bold text-primary">{item.title}</h3>
+                <p className="text-xs text-primary/70 font-body">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Catalog Grid Section */}
       <section className="py-16 sm:py-24 bg-cream">
         <Container>
@@ -91,12 +167,12 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         </Container>
       </section>
 
-      {/* Quick Comparison Section */}
+      {/* Decision Matrix / Quick Comparison Section */}
       <section className="py-16 sm:py-24 bg-cream/40 border-t border-b border-sand/15">
         <Container>
           <SectionTitle
-            title={isEs ? 'Comparativa Rápida' : 'Quick Comparison'}
-            subtitle={isEs ? 'Encuentre su experiencia ideal' : 'Find your ideal experience'}
+            title={isEs ? 'Encuentre su Experiencia Ideal' : 'Find Your Ideal Experience'}
+            subtitle={isEs ? 'Compare de un vistazo la actividad perfecta para su viaje' : 'At-a-glance comparison to pick the perfect activity for your trip'}
             className="mb-12"
           />
 
@@ -105,10 +181,10 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
               <thead>
                 <tr className="bg-primary text-white-warm font-heading text-base border-b border-wood">
                   <th className="p-4 font-semibold">{isEs ? 'Experiencia' : 'Experience'}</th>
-                  <th className="p-4 font-semibold">{isEs ? 'Duración' : 'Duration'}</th>
-                  <th className="p-4 font-semibold">{isEs ? 'Precio Adulto' : 'Adult Price'}</th>
-                  <th className="p-4 font-semibold">{isEs ? 'Precio Niño' : 'Child Price'}</th>
-                  <th className="p-4 font-semibold">{isEs ? 'Destacado' : 'Highlights'}</th>
+                  <th className="p-4 font-semibold text-center">{isEs ? 'Duración' : 'Duration'}</th>
+                  <th className="p-4 font-semibold text-center">{isEs ? 'Alimentación' : 'Meals'}</th>
+                  <th className="p-4 font-semibold text-center">{isEs ? 'Precios (Adulto / Niño)' : 'Prices (Adult / Child)'}</th>
+                  <th className="p-4 font-semibold">{isEs ? 'Ideal para...' : 'Best for...'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-sand/20">
@@ -117,17 +193,21 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
                     <td className="p-4 font-bold text-primary font-heading">
                       {isEs ? exp.title : exp.titleEN}
                     </td>
-                    <td className="p-4 text-primary/80">
+                    <td className="p-4 text-primary/80 text-center">
                       {isEs ? exp.duration : exp.durationEN}
                     </td>
-                    <td className="p-4 text-terracotta font-semibold">
-                      ${exp.pricing.adult}
+                    <td className="p-4 text-primary/80 text-center">
+                      {exp.slug.includes('cocina') || exp.slug.includes('cooking')
+                        ? (isEs ? 'Clase de Cocina (Incluye Comida)' : 'Cooking Class (Meal Included)')
+                        : (isEs ? 'Almuerzo o Cena a la Leña' : 'Wood-Fired Lunch or Dinner')}
                     </td>
-                    <td className="p-4 text-primary/80">
-                      {exp.pricing.child ? `$${exp.pricing.child}` : '-'}
+                    <td className="p-4 text-terracotta font-semibold text-center whitespace-nowrap">
+                      ${exp.pricing.adult} / ${exp.pricing.child || 0}
                     </td>
-                    <td className="p-4 text-xs text-primary/70 max-w-xs truncate md:max-w-md md:whitespace-normal">
-                      {isEs ? exp.includes.slice(0, 3).join(', ') : exp.includesEN.slice(0, 3).join(', ')}...
+                    <td className="p-4 text-xs text-primary/70 max-w-xs truncate md:max-w-md md:whitespace-normal font-medium">
+                      {exp.slug.includes('historico') && (isEs ? 'Familias, grupos y amantes de la cultura' : 'Families, groups & culture lovers')}
+                      {(exp.slug.includes('cocina') || exp.slug.includes('cooking')) && (isEs ? 'Aficionados a la gastronomía costarricense' : 'Foodies & culinary enthusiasts')}
+                      {exp.slug.includes('day-pass') && (isEs ? 'Viajeros independientes a su propio ritmo' : 'Independent travellers at own pace')}
                     </td>
                   </tr>
                 ))}
@@ -137,45 +217,63 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         </Container>
       </section>
 
+      {/* Group & Agency Inquiry Banner */}
+      <section className="py-12 bg-primary/5 border-b border-sand/20 text-center">
+        <Container className="max-w-3xl">
+          <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-2">
+            {isEs ? '¿Viaja en un grupo grande o representa una agencia de viajes?' : 'Travelling with a large group or representing a travel agency?'}
+          </h3>
+          <p className="text-sm text-primary/75 font-body mb-6">
+            {isEs
+              ? 'Ofrecemos paquetes especiales, horarios personalizados y cotizaciones a la medida para grupos de más de 10 personas y operadores de turismo.'
+              : 'We offer special packages, custom schedules, and tailored quotes for groups over 10 people and tour operators.'}
+          </p>
+          <a
+            href={isEs ? '/es/agencias' : '/en/agencies'}
+            className="inline-flex items-center gap-2 text-xs font-bold text-terracotta hover:text-terracotta/80 uppercase tracking-wider underline decoration-gold underline-offset-4"
+          >
+            {isEs ? 'Solicitar cotización para grupos y agencias →' : 'Request group & agency quote →'}
+          </a>
+        </Container>
+      </section>
+
+      {/* FAQ Schema JSON-LD Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* FAQ Section */}
       <section className="py-16 sm:py-24 bg-cream">
         <Container className="max-w-3xl">
           <SectionTitle
             title={isEs ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
-            subtitle={isEs ? 'Resolviendo sus dudas' : 'Answering your questions'}
+            subtitle={isEs ? 'Todo lo que necesita saber antes de visitar' : 'Everything you need to know before visiting'}
             className="mb-14"
           />
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-white-warm border border-sand/20 p-6 rounded-lg shadow-sm">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-2 flex gap-2">
-                  <span className="text-gold">Q:</span> {faq.q}
-                </h3>
-                <p className="text-sm text-primary/80 font-body leading-relaxed pl-6">
+              <details
+                key={idx}
+                className="group bg-white-warm border border-sand/25 rounded-lg shadow-sm overflow-hidden transition-all duration-200"
+                open={idx === 0}
+              >
+                <summary className="font-heading text-base sm:text-lg font-bold text-primary p-5 cursor-pointer flex items-center justify-between list-none hover:text-terracotta transition-colors select-none">
+                  <span className="flex items-start gap-2.5 pr-4">
+                    <span className="text-gold font-bold">Q.</span>
+                    <span>{faq.q}</span>
+                  </span>
+                  <span className="text-gold font-bold text-xl transition-transform duration-300 group-open:rotate-180 flex-shrink-0">
+                    ▾
+                  </span>
+                </summary>
+                <div className="px-5 pb-5 pt-1 text-sm text-primary/80 font-body leading-relaxed border-t border-sand/15 bg-cream/20">
                   {faq.a}
-                </p>
-              </div>
+                </div>
+              </details>
             ))}
           </div>
-        </Container>
-      </section>
-
-      {/* Final Call to Action */}
-      <section className="py-20 bg-wood text-white-warm text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-wood/30 opacity-60 pointer-events-none" />
-        <Container className="relative z-10 flex flex-col items-center">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold mb-4 tracking-wide">
-            {isEs ? '¿Listo para vivir la cultura tica?' : 'Ready to experience Tico culture?'}
-          </h2>
-          <p className="text-sm sm:text-base text-white-warm/85 max-w-xl mb-8 font-body">
-            {isEs
-              ? 'Reserve en línea de forma segura y asegure su espacio en nuestra casona tradicional hoy mismo.'
-              : 'Book online securely and secure your spot at our traditional farmhouse today.'}
-          </p>
-          <BookingCTA variant="secondary" size="lg" className="min-w-[220px]">
-            {dict.common.bookingLabel}
-          </BookingCTA>
         </Container>
       </section>
     </>

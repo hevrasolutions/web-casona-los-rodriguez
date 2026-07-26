@@ -381,7 +381,7 @@ export const experiences: Experience[] = [
     slugEN: 'casona-farm-day-pass-la-fortuna',
     title: 'Pase del Día en La Casona y Finca con una Comida Tradicional a la Leña',
     titleEN: 'La Casona and Farm Day Pass with Traditional Wood-Fired Meal',
-    category: 'cultural',
+    category: 'daypass',
     tagline: 'Conecte con la vida del campo costarricense y la hospitalidad rural auténtica.',
     taglineEN: 'Connect with Costa Rican countryside life and authentic rural hospitality.',
     duration: '3 horas',

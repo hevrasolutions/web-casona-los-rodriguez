@@ -16,10 +16,9 @@ export default function ExperienceFilter({
 
   const categories = [
     { id: 'all', label: isEs ? 'Todas' : 'All' },
-    { id: 'cultural', label: isEs ? 'Cultural' : 'Cultural' },
-    { id: 'gastronomia', label: isEs ? 'Gastronomía' : 'Gastronomy' },
-    { id: 'nocturna', label: isEs ? 'Nocturnas' : 'Night Tours' },
-    { id: 'express', label: 'Express' },
+    { id: 'cultural', label: isEs ? 'Tours Culturales' : 'Cultural Tours' },
+    { id: 'gastronomia', label: isEs ? 'Gastronomía & Cocina' : 'Culinary & Cooking' },
+    { id: 'daypass', label: isEs ? 'Pases de Día' : 'Day Passes' },
   ];
 
   return (
