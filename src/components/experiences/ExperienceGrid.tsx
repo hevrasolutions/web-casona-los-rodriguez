@@ -3,6 +3,7 @@ import { Locale } from '@/lib/i18n';
 import { Dictionary } from '@/dictionaries/es';
 import { Experience } from '@/types/experience';
 import ExperienceCard from './ExperienceCard';
+import FadeIn from '../ui/FadeIn';
 
 interface ExperienceGridProps {
   experiences: Experience[];
@@ -34,13 +35,14 @@ export default function ExperienceGrid({
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {experiences.map((exp) => (
-        <ExperienceCard
-          key={exp.slug}
-          experience={exp}
-          locale={locale}
-          dict={dict}
-        />
+      {experiences.map((exp, idx) => (
+        <FadeIn key={exp.slug} direction="up" delay={idx * 150}>
+          <ExperienceCard
+            experience={exp}
+            locale={locale}
+            dict={dict}
+          />
+        </FadeIn>
       ))}
     </div>
   );

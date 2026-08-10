@@ -2,6 +2,7 @@ import React from 'react';
 import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
+import FadeIn from '../ui/FadeIn';
 
 interface WhyChooseUsProps {
   locale: Locale;
@@ -58,30 +59,31 @@ export default function WhyChooseUs({ locale }: WhyChooseUsProps) {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-cream/40">
+    <section className="py-20 sm:py-28 bg-cream/40 overflow-hidden">
       <Container>
-        <SectionTitle
-          title={isEs ? 'Cuatro razones para vivir esta experiencia.' : 'Four reasons to live this experience.'}
-          subtitle={isEs ? 'Lo que nos hace únicos' : 'What makes us unique'}
-          className="mb-16"
-        />
+        <FadeIn direction="up">
+          <SectionTitle
+            title={isEs ? 'Cuatro razones para vivir esta experiencia.' : 'Four reasons to live this experience.'}
+            subtitle={isEs ? 'Lo que nos hace únicos' : 'What makes us unique'}
+            className="mb-16"
+          />
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="bg-white-warm border border-sand/20 rounded-lg p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
-            >
-              <div className="mb-5 p-3 bg-terracotta/5 rounded-lg text-terracotta">
-                {card.icon}
+            <FadeIn key={idx} direction="up" delay={idx * 120}>
+              <div className="bg-white-warm border border-sand/20 rounded-lg p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-start h-full">
+                <div className="mb-5 p-3 bg-terracotta/5 rounded-lg text-terracotta">
+                  {card.icon}
+                </div>
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-primary/75 font-body leading-relaxed">
+                  {card.desc}
+                </p>
               </div>
-              <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-3">
-                {card.title}
-              </h3>
-              <p className="text-sm text-primary/75 font-body leading-relaxed">
-                {card.desc}
-              </p>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </Container>

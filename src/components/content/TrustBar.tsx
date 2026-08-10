@@ -1,6 +1,7 @@
 import React from 'react';
 import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
+import FadeIn from '../ui/FadeIn';
 
 interface TrustBarProps {
   locale: Locale;
@@ -52,40 +53,41 @@ export default function TrustBar({ locale }: TrustBarProps) {
   ];
 
   return (
-    <section className="bg-cream/40 border-y border-sand/20 py-16 sm:py-24 text-center">
+    <section className="bg-cream/40 border-y border-sand/20 py-16 sm:py-24 text-center overflow-hidden">
       <Container>
-        {/* Section Heading */}
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary mb-4 tracking-tight">
-          {sectionTitle}
-        </h2>
+        <FadeIn direction="up">
+          {/* Section Heading */}
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary mb-4 tracking-tight">
+            {sectionTitle}
+          </h2>
 
-        {/* Divider with central leaf icon */}
-        <div className="flex items-center justify-center gap-4 max-w-xs mx-auto mb-16">
-          <div className="h-[1px] bg-gold/30 flex-1"></div>
-          <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3c-1.2 2-3 3.5-5 4.5 2 1 3.8 2.5 5 4.5 1.2-2 3-3.5 5-4.5-2-1-3.8-2.5-5-4.5z M12 12v9" />
-          </svg>
-          <div className="h-[1px] bg-gold/30 flex-1"></div>
-        </div>
+          {/* Divider with central leaf icon */}
+          <div className="flex items-center justify-center gap-4 max-w-xs mx-auto mb-16">
+            <div className="h-[1px] bg-gold/30 flex-1"></div>
+            <svg className="w-5 h-5 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3c-1.2 2-3 3.5-5 4.5 2 1 3.8 2.5 5 4.5 1.2-2 3-3.5 5-4.5-2-1-3.8-2.5-5-4.5z M12 12v9" />
+            </svg>
+            <div className="h-[1px] bg-gold/30 flex-1"></div>
+          </div>
+        </FadeIn>
 
         {/* 3-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-5xl mx-auto">
-          {items.map((item) => (
-            <div
-              key={item.title}
-              className="flex flex-col items-center group text-center"
-            >
-              {/* Circular Icon Container */}
-              <div className="w-16 h-16 rounded-full border border-gold bg-white-warm flex items-center justify-center text-gold mb-6 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                {item.icon}
+          {items.map((item, idx) => (
+            <FadeIn key={item.title} direction="up" delay={idx * 150}>
+              <div className="flex flex-col items-center group text-center">
+                {/* Circular Icon Container */}
+                <div className="w-16 h-16 rounded-full border border-gold bg-white-warm flex items-center justify-center text-gold mb-6 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="font-heading text-xl font-bold text-primary mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-primary/80 font-body leading-relaxed max-w-sm">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className="font-heading text-xl font-bold text-primary mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm text-primary/80 font-body leading-relaxed max-w-sm">
-                {item.desc}
-              </p>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </Container>

@@ -3,6 +3,7 @@ import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import BookingCTA from '../ui/BookingCTA';
 import FullViewportParallax from '../ui/FullViewportParallax';
+import FadeIn from '../ui/FadeIn';
 
 interface FinalCTAProps {
   locale: Locale;
@@ -25,22 +26,24 @@ export default function FinalCTA({ locale }: FinalCTAProps) {
       overlayOpacityClass="bg-primary/80"
     >
       <Container className="flex flex-col items-center select-none">
-        <span className="font-subheading text-lg sm:text-xl text-gold font-medium uppercase tracking-wider mb-4 block">
-          {isEs ? 'El Campo le Espera' : 'The Countryside Awaits'}
-        </span>
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl leading-tight text-white-warm mb-6">
-          {title}
-        </h2>
-        <p className="text-base sm:text-lg text-white-warm/80 font-body max-w-xl mb-10 leading-relaxed">
-          {desc}
-        </p>
-        <BookingCTA
-          variant="primary"
-          size="lg"
-          className="shadow-xl px-10 py-4 hover:scale-[1.03] transition-transform duration-200"
-        >
-          {buttonLabel}
-        </BookingCTA>
+        <FadeIn direction="none">
+          <span className="font-subheading text-lg sm:text-xl text-gold font-medium uppercase tracking-wider mb-4 block">
+            {isEs ? 'El Campo le Espera' : 'The Countryside Awaits'}
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl leading-tight text-white-warm mb-6">
+            {title}
+          </h2>
+          <p className="text-base sm:text-lg text-white-warm/80 font-body max-w-xl mb-10 leading-relaxed">
+            {desc}
+          </p>
+          <BookingCTA
+            variant="primary"
+            size="lg"
+            className="shadow-xl px-10 py-4 hover:scale-[1.03] transition-transform duration-200"
+          >
+            {buttonLabel}
+          </BookingCTA>
+        </FadeIn>
       </Container>
     </FullViewportParallax>
   );

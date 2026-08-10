@@ -2,6 +2,7 @@ import React from 'react';
 import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
+import FadeIn from '../ui/FadeIn';
 
 interface AgencyCTAProps {
   locale: Locale;
@@ -26,23 +27,25 @@ export default function AgencyCTA({ locale }: AgencyCTAProps) {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sand/5 via-transparent to-transparent pointer-events-none" />
       
       <Container className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
-        <span className="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">
-          {badge}
-        </span>
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary mb-4 leading-tight">
-          {title}
-        </h2>
-        <p className="font-body text-base text-primary/80 mb-8 max-w-2xl leading-relaxed">
-          {subtitle}
-        </p>
-        <Button
-          variant="primary"
-          size="lg"
-          href={isEs ? '/es/agencias' : '/en/agencies'}
-          className="shadow-lg hover:scale-[1.03] transition-all duration-300 px-8 py-3.5"
-        >
-          {buttonLabel}
-        </Button>
+        <FadeIn direction="up">
+          <span className="text-gold font-bold tracking-widest text-xs uppercase mb-3 block">
+            {badge}
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary mb-4 leading-tight">
+            {title}
+          </h2>
+          <p className="font-body text-base text-primary/80 mb-8 max-w-2xl leading-relaxed">
+            {subtitle}
+          </p>
+          <Button
+            variant="primary"
+            size="lg"
+            href={isEs ? '/es/agencias' : '/en/agencies'}
+            className="shadow-lg hover:scale-[1.03] transition-all duration-300 px-8 py-3.5"
+          >
+            {buttonLabel}
+          </Button>
+        </FadeIn>
       </Container>
     </section>
   );

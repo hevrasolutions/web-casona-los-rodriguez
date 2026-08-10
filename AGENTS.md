@@ -7,7 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
 **Última Actualización:** 2026-08-10
-**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo e Histórico de la Página Nosotros — COMPLETO (ago 2026). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
+**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo e Histórico de la Página Nosotros — COMPLETO (ago 2026). Sistema de Animaciones FadeIn (Scroll Reveal) Sutiles Bloque por Bloque — EN PROGRESO (Home, Experiencias, Detalle V2 y Restaurante COMPLETO; pendientes: Nosotros, Agencias, Galería, Contacto). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
 
 ---
 
@@ -112,6 +112,7 @@ Organizados en `/src/components/`:
   * [`BookingCTA.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/BookingCTA.tsx): Botón estándar de reserva.
   * [`Button.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/Button.tsx): Botón genérico configurable.
   * [`Container.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/Container.tsx): Envoltorio contenedor alineado.
+  * [`FadeIn.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/FadeIn.tsx): Componente reutilizable de Scroll Reveal sutil basado en `IntersectionObserver` con animación suave por bloques (`direction` configurables: `up`, `down`, `left`, `right`, `none`), retraso escalonado prudente y soporte de accesibilidad `prefers-reduced-motion`.
   * [`FullViewportParallax.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/FullViewportParallax.tsx): Componente reutilizable de Parallax de Ventana Fija recortado por CSS nativo (`[clip-path:inset(0)]` + `position: fixed inset-0 h-screen w-screen`). Mantiene la imagen 100% fija en el fondo de la pantalla (`100vh`) mientras la sección actúa como una ventana transparente que se desplaza por encima ("pasando por la foto completa"). Funciona con 0% JavaScript en el scroll, 0ms de retraso, 0 brincos a 120Hz ProMotion en celulares (iOS Safari y Android Chrome) y 0 franjas marrones superiores.
   * [`LanguageSwitcher.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/LanguageSwitcher.tsx): Selector interactivo de idioma (ES / EN).
   * [`SectionTitle.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/ui/SectionTitle.tsx): Título estilizado para secciones.
@@ -280,13 +281,20 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * **Corrección Factual:** Eliminada totalmente la palabra *"barro"* de todo el proyecto (reemplazada por *"maderas nativas"*, *"utensilios tradicionales"*, etc.).
 * **Sección Familiar:** Diseñada a ancho completo centrado (`max-w-4xl mx-auto`) sin imagen lateral.
 
+### Track paralelo: Sistema de Animaciones FadeIn (Scroll Reveal) Sutiles Bloque por Bloque (EN PROGRESO, ago 2026)
+* **Arquitectura de Animación (`FadeIn.tsx`):** Componente ligero basado en `IntersectionObserver` nativo (`threshold: 0.1`, `rootMargin: '0px 0px -40px 0px'`). Permite direcciones variadas (`up`, `down`, `left`, `right`, `none`), retraso configurable (`delay`), y respeta la preferencia de accesibilidad `prefers-reduced-motion`.
+* **Página de Inicio / Home (COMPLETA, ago 2026):** Animación por bloques e ítems en `TrustBar`, `StorySection`, `WhyChooseUs`, `FeaturedExperiences`, `RestaurantHighlight`, `HomeGallery`, `AgencyCTA`, `LocationBrief` y `FinalCTA`.
+* **Página de Experiencias Catálogo (`ExperiencesPage.tsx` - COMPLETA, ago 2026):** Animación por bloques en Hero, Pilares, Filtros, Matriz de Comparación y Banner de Agencias. Las tarjetas del catálogo en `ExperienceGrid.tsx` y las preguntas en acordeón de la FAQ aparecen **una por una en cascada escalonada**.
+* **Plantilla de Detalle V2 (`ExperienceDetailV2.tsx` - COMPLETA, ago 2026):** Animación en bloques y elementos individuales: tarjetas de Quick Facts, cards de Highlights, galería de fotos foto por foto (`ExperienceGallery.tsx`), Itinerario Timeline, Opciones de Alimentación, tarjeta práctica de Incluye / No incluye / Qué llevar (sub-bloque por sub-bloque `up`), Punto de Encuentro, FAQ acordeones (pregunta por pregunta) y Experiencias Relacionadas.
+* **Página del Restaurante (`RestaurantPage.tsx` - COMPLETA, ago 2026):** Hero (`up`), Cocina a la leña (Texto `left` + Foto `right`), Propuesta Culinaria (Texto `up` + Lista de platillos `left`/`right`), Opciones Especiales de Dieta (Texto `left` + 3 Tarjetas en cascada `up`), Servicios para Grupos (3 Tarjetas en cascada `up`), Galería del Sabor (4 fotos de platillos en cascada `up`) y Parallax CTA (`none`).
+
 ### Tareas Pendientes para la Fase 7:
-* [] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
+* [ ] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
 * [ ] **Schema Markup:** Integrar datos estructurados en formato JSON-LD para `LocalBusiness`, `TouristAttraction` (experiencias) y `Restaurant` para optimizar Rich Snippets en Google.
 * [ ] **Archivos SEO:** Configurar sitemap dinámico (`sitemap.xml`) y el archivo estático `robots.txt`.
 * [ ] **Hreflang Tags:** Declarar etiquetas hreflang cruzadas entre las páginas localizadas `/es` y `/en` para evitar penalizaciones por contenido duplicado.
 * [/] **Core Web Vitals:** Auditoría de velocidad y optimización de rendimiento (Lazy loading, optimización de fuentes y tamaños de imágenes WebP). *Completado: Estabilización de altura del Hero Carousel utilizando CSS Grid para eliminar por completo el Cumulative Layout Shift (CLS) en Desktop y Mobile.*
-* [/] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento. *Completado: Componente reutilizable `FullViewportParallax` de Ventana Fija nativa (`clip-path: inset(0)`) implementado en el Home (`FinalCTA.tsx`) y Restaurante (`RestaurantPage.tsx`), ofreciendo movimiento continuo de ventana fija sin brincos a 120Hz ni franjas marrones en móviles (iOS/Android) y escritorio. Gestos táctiles de deslizamiento (swipe left/right) y sincronización de carga de imágenes sin alt preliminar en los lightboxes de la Galería y Galería de Experiencias.*
+* [/] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento. *Completado: Componente reutilizable `FullViewportParallax` de Ventana Fija nativa (`clip-path: inset(0)`). Sistema `FadeIn` (scroll reveal) aplicado bloque por bloque y en cascada escalonada en Home, Catálogo de Experiencias, Detalle V2 y Restaurante. Pendiente aplicar a Nosotros, Agencias, Galería y Contacto.*
 * [ ] **Google Analytics 4:** Añadir los scripts de GA4 vinculando la variable de medición correspondiente.
 
 ---

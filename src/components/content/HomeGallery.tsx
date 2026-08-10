@@ -4,6 +4,7 @@ import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
+import FadeIn from '../ui/FadeIn';
 
 interface HomeGalleryProps {
   locale: Locale;
@@ -45,43 +46,43 @@ export default function HomeGallery({ locale }: HomeGalleryProps) {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-cream/40 border-t border-b border-sand/10">
+    <section className="py-20 sm:py-28 bg-cream/40 border-t border-b border-sand/10 overflow-hidden">
       <Container>
-        <SectionTitle
-          title={title}
-          subtitle={subtitle}
-          className="mb-14"
-        />
+        <FadeIn direction="up">
+          <SectionTitle
+            title={title}
+            subtitle={subtitle}
+            className="mb-14"
+          />
+        </FadeIn>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
           {galleryImages.map((img, idx) => (
-            <div
-              key={idx}
-              className="relative aspect-square w-full rounded-lg overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {/* Soft overlay on hover */}
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none" />
-            </div>
+            <FadeIn key={idx} direction="up" delay={idx * 100}>
+              <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </FadeIn>
           ))}
         </div>
-
-        <div className="mt-14 text-center">
-          <Button
-            variant="ghost"
-            size="lg"
-            href={isEs ? '/es/galeria' : '/en/gallery'}
-            className="min-w-[220px]"
-          >
-            {buttonLabel}
-          </Button>
-        </div>
+        <FadeIn direction="up" delay={400}>
+          <div className="mt-12 text-center">
+            <Button
+              href={isEs ? '/es/galeria' : '/en/gallery'}
+              variant="secondary"
+              size="md"
+              className="px-8 min-w-[200px]"
+            >
+              {buttonLabel}
+            </Button>
+          </div>
+        </FadeIn>
       </Container>
     </section>
   );

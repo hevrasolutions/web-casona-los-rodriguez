@@ -4,6 +4,7 @@ import { Locale } from '@/lib/i18n';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
+import FadeIn from '../ui/FadeIn';
 
 interface RestaurantHighlightProps {
   locale: Locale;
@@ -21,50 +22,56 @@ export default function RestaurantHighlight({ locale }: RestaurantHighlightProps
   const buttonLabel = isEs ? 'Conozca nuestro restaurante' : 'Discover our restaurant';
 
   return (
-    <section className="py-20 sm:py-28 bg-cream">
+    <section className="py-20 sm:py-28 bg-cream overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Image Column */}
-          <div className="grid grid-cols-2 gap-4 lg:col-span-6 order-2 lg:order-1">
-            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md">
-              <Image
-                src="/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp"
-                alt={isEs ? 'Comida típica costarricense' : 'Typical Costa Rican food'}
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md mt-6">
-              <Image
-                src="/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-006.webp"
-                alt={isEs ? 'Chicharrón con yuca en hoja de banano' : 'Pork chunks with cassava served on banana leaf'}
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+          <div className="lg:col-span-6 order-2 lg:order-1 w-full">
+            <FadeIn direction="left">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md">
+                  <Image
+                    src="/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp"
+                    alt={isEs ? 'Comida típica costarricense' : 'Typical Costa Rican food'}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md mt-6">
+                  <Image
+                    src="/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-006.webp"
+                    alt={isEs ? 'Chicharrón con yuca en hoja de banano' : 'Pork chunks with cassava served on banana leaf'}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+            </FadeIn>
           </div>
 
           {/* Text Column */}
           <div className="lg:col-span-6 flex flex-col items-start text-left order-1 lg:order-2">
-            <SectionTitle
-              title={title}
-              subtitle={subtitle}
-              align="left"
-              className="mb-6"
-            />
-            <p className="text-base sm:text-lg text-primary/80 font-body leading-relaxed mb-8">
-              {description}
-            </p>
-            <Button
-              variant="ghost"
-              size="md"
-              href={isEs ? '/es/restaurante' : '/en/restaurant'}
-              className="min-w-[220px]"
-            >
-              {buttonLabel}
-            </Button>
+            <FadeIn direction="right">
+              <SectionTitle
+                title={title}
+                subtitle={subtitle}
+                align="left"
+                className="mb-6"
+              />
+              <p className="text-base sm:text-lg text-primary/80 font-body leading-relaxed mb-8">
+                {description}
+              </p>
+              <Button
+                variant="ghost"
+                size="md"
+                href={isEs ? '/es/restaurante' : '/en/restaurant'}
+                className="min-w-[200px]"
+              >
+                {buttonLabel}
+              </Button>
+            </FadeIn>
           </div>
         </div>
       </Container>

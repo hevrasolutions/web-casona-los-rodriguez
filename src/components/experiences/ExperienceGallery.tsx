@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { Locale } from '@/lib/i18n';
+import FadeIn from '../ui/FadeIn';
 
 export interface ExperienceGalleryItem {
   src: string;
@@ -108,21 +109,22 @@ export default function ExperienceGallery({
       {/* Gallery: CSS masonry columns, all photos visible (2 cols on mobile) */}
       <div className="columns-2 gap-3 space-y-3 sm:columns-3 lg:columns-4">
         {items.map((item, idx) => (
-          <button
-            key={idx}
-            type="button"
-            onClick={() => setLightboxIndex(idx)}
-            aria-label={item.alt}
-            className="relative block w-full break-inside-avoid rounded-lg overflow-hidden border border-sand/20 shadow-sm bg-sand/10 cursor-pointer group focus:outline-none focus:ring-2 focus:ring-gold"
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={600}
-              height={450}
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          </button>
+          <FadeIn key={idx} direction="up" delay={idx * 70}>
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(idx)}
+              aria-label={item.alt}
+              className="relative block w-full break-inside-avoid rounded-lg overflow-hidden border border-sand/20 shadow-sm bg-sand/10 cursor-pointer group focus:outline-none focus:ring-2 focus:ring-gold"
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </button>
+          </FadeIn>
         ))}
       </div>
 

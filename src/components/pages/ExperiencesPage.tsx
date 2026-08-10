@@ -7,6 +7,7 @@ import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import ExperienceFilter from '../experiences/ExperienceFilter';
 import ExperienceGrid from '../experiences/ExperienceGrid';
+import FadeIn from '../ui/FadeIn';
 
 interface ExperiencesPageProps {
   locale: Locale;
@@ -115,50 +116,56 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
 
   return (
     <>
-      {/* Page Header Hero */}
+      {/* Bloque 1: Page Header Hero */}
       <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
         <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/traditional-events/casona-los-rodriguez-costa-rican-cultural-event-001.webp')] pointer-events-none" />
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
-          <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
-            {subtitle}
-          </span>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">
-            {title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
-            {description}
-          </p>
+          <FadeIn direction="up">
+            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+              {subtitle}
+            </span>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">
+              {title}
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
+              {description}
+            </p>
+          </FadeIn>
         </Container>
       </section>
 
-      {/* Trust Pillars Bar */}
-      <section className="bg-cream-dark/60 py-8 border-b border-sand/20">
+      {/* Bloque 2: Trust Pillars Bar */}
+      <section className="bg-cream-dark/60 py-8 border-b border-sand/20 overflow-hidden">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {pillars.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <span className="text-2xl mb-1">{item.icon}</span>
-                <h3 className="font-heading text-sm font-bold text-primary">{item.title}</h3>
-                <p className="text-xs text-primary/70 font-body">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <FadeIn direction="up">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {pillars.map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center">
+                  <span className="text-2xl mb-1">{item.icon}</span>
+                  <h3 className="font-heading text-sm font-bold text-primary">{item.title}</h3>
+                  <p className="text-xs text-primary/70 font-body">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </Container>
       </section>
 
-      {/* Catalog Grid Section */}
-      <section className="py-16 sm:py-24 bg-cream">
+      {/* Bloque 3: Catalog Grid Section */}
+      <section className="py-16 sm:py-24 bg-cream overflow-hidden">
         <Container>
           {/* Filters */}
-          <ExperienceFilter
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-            locale={locale}
-          />
+          <FadeIn direction="up">
+            <ExperienceFilter
+              activeCategory={activeCategory}
+              onCategoryChange={setActiveCategory}
+              locale={locale}
+            />
+          </FadeIn>
 
-          {/* Grid */}
+          {/* Grid with staggered card animation */}
           <ExperienceGrid
             experiences={filtered}
             locale={locale}
@@ -167,73 +174,77 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         </Container>
       </section>
 
-      {/* Decision Matrix / Quick Comparison Section */}
-      <section className="py-16 sm:py-24 bg-cream/40 border-t border-b border-sand/15">
+      {/* Bloque 4: Decision Matrix / Quick Comparison Section */}
+      <section className="py-16 sm:py-24 bg-cream/40 border-t border-b border-sand/15 overflow-hidden">
         <Container>
-          <SectionTitle
-            title={isEs ? 'Encuentre su Experiencia Ideal' : 'Find Your Ideal Experience'}
-            subtitle={isEs ? 'Compare de un vistazo la actividad perfecta para su viaje' : 'At-a-glance comparison to pick the perfect activity for your trip'}
-            className="mb-12"
-          />
+          <FadeIn direction="up">
+            <SectionTitle
+              title={isEs ? 'Encuentre su Experiencia Ideal' : 'Find Your Ideal Experience'}
+              subtitle={isEs ? 'Compare de un vistazo la actividad perfecta para su viaje' : 'At-a-glance comparison to pick the perfect activity for your trip'}
+              className="mb-12"
+            />
 
-          <div className="overflow-x-auto rounded-lg border border-sand/30 shadow-sm">
-            <table className="w-full text-left border-collapse bg-white-warm text-sm font-body">
-              <thead>
-                <tr className="bg-primary text-white-warm font-heading text-base border-b border-wood">
-                  <th className="p-4 font-semibold">{isEs ? 'Experiencia' : 'Experience'}</th>
-                  <th className="p-4 font-semibold text-center">{isEs ? 'Duración' : 'Duration'}</th>
-                  <th className="p-4 font-semibold text-center">{isEs ? 'Alimentación' : 'Meals'}</th>
-                  <th className="p-4 font-semibold text-center">{isEs ? 'Precios (Adulto / Niño)' : 'Prices (Adult / Child)'}</th>
-                  <th className="p-4 font-semibold">{isEs ? 'Ideal para...' : 'Best for...'}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-sand/20">
-                {experiences.map((exp) => (
-                  <tr key={exp.slug} className="hover:bg-cream/20 transition-colors">
-                    <td className="p-4 font-bold text-primary font-heading">
-                      {isEs ? exp.title : exp.titleEN}
-                    </td>
-                    <td className="p-4 text-primary/80 text-center">
-                      {isEs ? exp.duration : exp.durationEN}
-                    </td>
-                    <td className="p-4 text-primary/80 text-center">
-                      {exp.slug.includes('cocina') || exp.slug.includes('cooking')
-                        ? (isEs ? 'Clase de Cocina (Incluye Comida)' : 'Cooking Class (Meal Included)')
-                        : (isEs ? 'Almuerzo o Cena a la Leña' : 'Wood-Fired Lunch or Dinner')}
-                    </td>
-                    <td className="p-4 text-terracotta font-semibold text-center whitespace-nowrap">
-                      ${exp.pricing.adult} / ${exp.pricing.child || 0}
-                    </td>
-                    <td className="p-4 text-xs text-primary/70 max-w-xs truncate md:max-w-md md:whitespace-normal font-medium">
-                      {exp.slug.includes('historico') && (isEs ? 'Familias, grupos y amantes de la cultura' : 'Families, groups & culture lovers')}
-                      {(exp.slug.includes('cocina') || exp.slug.includes('cooking')) && (isEs ? 'Aficionados a la gastronomía costarricense' : 'Foodies & culinary enthusiasts')}
-                      {exp.slug.includes('day-pass') && (isEs ? 'Viajeros independientes a su propio ritmo' : 'Independent travellers at own pace')}
-                    </td>
+            <div className="overflow-x-auto rounded-lg border border-sand/30 shadow-sm">
+              <table className="w-full text-left border-collapse bg-white-warm text-sm font-body">
+                <thead>
+                  <tr className="bg-primary text-white-warm font-heading text-base border-b border-wood">
+                    <th className="p-4 font-semibold">{isEs ? 'Experiencia' : 'Experience'}</th>
+                    <th className="p-4 font-semibold text-center">{isEs ? 'Duración' : 'Duration'}</th>
+                    <th className="p-4 font-semibold text-center">{isEs ? 'Alimentación' : 'Meals'}</th>
+                    <th className="p-4 font-semibold text-center">{isEs ? 'Precios (Adulto / Niño)' : 'Prices (Adult / Child)'}</th>
+                    <th className="p-4 font-semibold">{isEs ? 'Ideal para...' : 'Best for...'}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-sand/20">
+                  {experiences.map((exp) => (
+                    <tr key={exp.slug} className="hover:bg-cream/20 transition-colors">
+                      <td className="p-4 font-bold text-primary font-heading">
+                        {isEs ? exp.title : exp.titleEN}
+                      </td>
+                      <td className="p-4 text-primary/80 text-center">
+                        {isEs ? exp.duration : exp.durationEN}
+                      </td>
+                      <td className="p-4 text-primary/80 text-center">
+                        {exp.slug.includes('cocina') || exp.slug.includes('cooking')
+                          ? (isEs ? 'Clase de Cocina (Incluye Comida)' : 'Cooking Class (Meal Included)')
+                          : (isEs ? 'Almuerzo o Cena a la Leña' : 'Wood-Fired Lunch or Dinner')}
+                      </td>
+                      <td className="p-4 text-terracotta font-semibold text-center whitespace-nowrap">
+                        ${exp.pricing.adult} / ${exp.pricing.child || 0}
+                      </td>
+                      <td className="p-4 text-xs text-primary/70 max-w-xs truncate md:max-w-md md:whitespace-normal font-medium">
+                        {exp.slug.includes('historico') && (isEs ? 'Familias, grupos y amantes de la cultura' : 'Families, groups & culture lovers')}
+                        {(exp.slug.includes('cocina') || exp.slug.includes('cooking')) && (isEs ? 'Aficionados a la gastronomía costarricense' : 'Foodies & culinary enthusiasts')}
+                        {exp.slug.includes('day-pass') && (isEs ? 'Viajeros independientes a su propio ritmo' : 'Independent travellers at own pace')}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeIn>
         </Container>
       </section>
 
-      {/* Group & Agency Inquiry Banner */}
-      <section className="py-12 bg-primary/5 border-b border-sand/20 text-center">
+      {/* Bloque 5: Group & Agency Inquiry Banner */}
+      <section className="py-12 bg-primary/5 border-b border-sand/20 text-center overflow-hidden">
         <Container className="max-w-3xl">
-          <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-2">
-            {isEs ? '¿Viaja en un grupo grande o representa una agencia de viajes?' : 'Travelling with a large group or representing a travel agency?'}
-          </h3>
-          <p className="text-sm text-primary/75 font-body mb-6">
-            {isEs
-              ? 'Ofrecemos paquetes especiales, horarios personalizados y cotizaciones a la medida para grupos de más de 10 personas y operadores de turismo.'
-              : 'We offer special packages, custom schedules, and tailored quotes for groups over 10 people and tour operators.'}
-          </p>
-          <a
-            href={isEs ? '/es/agencias' : '/en/agencies'}
-            className="inline-flex items-center gap-2 text-xs font-bold text-terracotta hover:text-terracotta/80 uppercase tracking-wider underline decoration-gold underline-offset-4"
-          >
-            {isEs ? 'Solicitar cotización para grupos y agencias →' : 'Request group & agency quote →'}
-          </a>
+          <FadeIn direction="up">
+            <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary mb-2">
+              {isEs ? '¿Viaja en un grupo grande o representa una agencia de viajes?' : 'Travelling with a large group or representing a travel agency?'}
+            </h3>
+            <p className="text-sm text-primary/75 font-body mb-6">
+              {isEs
+                ? 'Ofrecemos paquetes especiales, horarios personalizados y cotizaciones a la medida para grupos de más de 10 personas y operadores de turismo.'
+                : 'We offer special packages, custom schedules, and tailored quotes for groups over 10 people and tour operators.'}
+            </p>
+            <a
+              href={isEs ? '/es/agencias' : '/en/agencies'}
+              className="inline-flex items-center gap-2 text-xs font-bold text-terracotta hover:text-terracotta/80 uppercase tracking-wider underline decoration-gold underline-offset-4"
+            >
+              {isEs ? 'Solicitar cotización para grupos y agencias →' : 'Request group & agency quote →'}
+            </a>
+          </FadeIn>
         </Container>
       </section>
 
@@ -243,35 +254,38 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      {/* FAQ Section */}
-      <section className="py-16 sm:py-24 bg-cream">
+      {/* Bloque 6: FAQ Section */}
+      <section className="py-16 sm:py-24 bg-cream overflow-hidden">
         <Container className="max-w-3xl">
-          <SectionTitle
-            title={isEs ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
-            subtitle={isEs ? 'Todo lo que necesita saber antes de visitar' : 'Everything you need to know before visiting'}
-            className="mb-14"
-          />
+          <FadeIn direction="up">
+            <SectionTitle
+              title={isEs ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
+              subtitle={isEs ? 'Todo lo que necesita saber antes de visitar' : 'Everything you need to know before visiting'}
+              className="mb-14"
+            />
+          </FadeIn>
 
           <div className="flex flex-col gap-4">
             {faqs.map((faq, idx) => (
-              <details
-                key={idx}
-                className="group bg-white-warm border border-sand/25 rounded-lg shadow-sm overflow-hidden transition-all duration-200"
-                open={idx === 0}
-              >
-                <summary className="font-heading text-base sm:text-lg font-bold text-primary p-5 cursor-pointer flex items-center justify-between list-none hover:text-terracotta transition-colors select-none">
-                  <span className="flex items-start gap-2.5 pr-4">
-                    <span className="text-gold font-bold">Q.</span>
-                    <span>{faq.q}</span>
-                  </span>
-                  <span className="text-gold font-bold text-xl transition-transform duration-300 group-open:rotate-180 flex-shrink-0">
-                    ▾
-                  </span>
-                </summary>
-                <div className="px-5 pb-5 pt-1 text-sm text-primary/80 font-body leading-relaxed border-t border-sand/15 bg-cream/20">
-                  {faq.a}
-                </div>
-              </details>
+              <FadeIn key={idx} direction="up" delay={idx * 80}>
+                <details
+                  className="group bg-white-warm border border-sand/25 rounded-lg shadow-sm overflow-hidden transition-all duration-200"
+                  open={idx === 0}
+                >
+                  <summary className="font-heading text-base sm:text-lg font-bold text-primary p-5 cursor-pointer flex items-center justify-between list-none hover:text-terracotta transition-colors select-none">
+                    <span className="flex items-start gap-2.5 pr-4">
+                      <span className="text-gold font-bold">Q.</span>
+                      <span>{faq.q}</span>
+                    </span>
+                    <span className="text-gold font-bold text-xl transition-transform duration-300 group-open:rotate-180 flex-shrink-0">
+                      ▾
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 pt-1 text-sm text-primary/80 font-body leading-relaxed border-t border-sand/15 bg-cream/20">
+                    {faq.a}
+                  </div>
+                </details>
+              </FadeIn>
             ))}
           </div>
         </Container>
