@@ -146,7 +146,7 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
       </div>
 
       {/* Main Content Overlay */}
-      <Container className="relative z-25 text-left text-white-warm py-24 sm:py-32 flex flex-col items-start select-none w-full">
+      <Container className="relative z-30 text-left text-white-warm py-24 sm:py-32 flex flex-col items-start select-none w-full">
         {/* Fixed H1 */}
         <h1
           id="hero-title"

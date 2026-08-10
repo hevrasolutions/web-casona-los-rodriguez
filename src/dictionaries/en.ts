@@ -163,12 +163,12 @@ export const en: Dictionary = {
     title: 'A Living Legacy of Costa Rican History',
     subtitle: 'Over 120 years of history and rural tradition',
     desc: 'Discover the historic farmhouse once owned by former President Rafael Yglesias Castro, proudly preserved today by the Rodríguez Arias Family to keep the true soul of Costa Rican countryside alive.',
-    
+
     // Placa 1: History of the Casona
     casonaHistoryTitle: 'History of Casona Los Rodríguez',
     casonaHistorySubtitle: 'La Fortuna Heritage Landmark',
     casonaHistoryText: 'This is a Casona of more than 120 years that was owned by former President Rafael Yglesias Castro, then Mr. Fernando Retana became the owner and later sold it in 1963 to Mr. Federico (Kiko) Rodríguez Vargas, currently it is managed by the Rodríguez Arias Family.',
-    
+
     // Placa 2: President Rafael Yglesias Castro
     presidentTitle: 'Rafael Anselmo José Yglesias Castro',
     presidentSubtitle: 'National Hero (President of Costa Rica 1894–1902)',
@@ -240,15 +240,15 @@ export const en: Dictionary = {
   },
   termsPage: {
     title: 'Terms & Conditions',
-    subtitle: 'Rules and guidelines of our traditional farmhouse',
+    subtitle: 'Rules and guidelines for our traditional farmhouse',
     sections: [
       {
         id: 'reservas',
-        title: '1. Bookings & Payments',
+        title: '1. Reservations & Payments',
         content: [
-          'All individual or agency reservations must be made through our official channels or accredited external booking engines.',
-          'Rates are displayed in United States Dollars (USD) and do not include applicable taxes under Costa Rican law.',
-          'Booking confirmation is subject to full payment of the selected tour amount, unless special commercial agreements are in place with travel operators.'
+          'All individual or agency bookings must be made through our official channels or accredited booking engine.',
+          'Rates are displayed in United States Dollars (USD) and do not include Costa Rican taxes where applicable.',
+          'Reservation confirmation requires full payment of the selected experience amount, except for special B2B operator agreements.'
         ]
       },
       {
@@ -256,48 +256,48 @@ export const en: Dictionary = {
         title: '2. Safety on the Farm and Trapiche',
         content: [
           'Visitors must follow the instructions of guides and Rodríguez family members at all times during the tours.',
-          'It is strictly forbidden to approach work animals (oxen) without the direct supervision of a qualified operator.',
+          'It is strictly forbidden to approach farm animals without the direct supervision of a qualified operator.',
           'We recommend wearing closed-toe shoes suitable for walking on dirt trails and comfortable clothing for outdoor activities.'
         ]
       },
       {
         id: 'conducta',
-        title: '3. Visitor Conduct Rules',
+        title: '3. Rules of Conduct',
         content: [
-          'Casona Los Rodríguez promotes a family-friendly environment of mutual respect. Any offensive or harmful behavior toward other visitors, staff, or the natural environment will not be tolerated.',
-          'Smoking is strictly prohibited inside the historical structures and roofed areas of the casona for heritage protection and fire prevention.'
+          'Casona Los Rodríguez promotes a respectful, family-friendly environment. Harmful or offensive behavior toward guests, staff, or nature will not be tolerated.',
+          'Smoking is strictly prohibited inside historical structures and covered areas for heritage protection and fire prevention.'
         ]
       }
     ]
   },
   cancellationPage: {
-    title: 'Cancellation Policy',
-    subtitle: 'Our guidelines for refunds and booking changes',
-    tiersTitle: 'Cancellation and Refund Terms',
+    title: 'Cancellation & Rescheduling Policy',
+    subtitle: 'Clear guidelines for refunds, date changes, and booking modifications',
+    tiersTitle: 'Cancellation, Refund & Rescheduling Terms',
     tiers: [
       {
-        title: 'Flexible Cancellation',
+        title: 'Full Cancellation & Refund',
         percent: '100%',
-        desc: 'Full refund for cancellations notified more than 48 hours in advance of the scheduled experience start time.'
+        desc: 'Full refund for cancellations notified 24 hours or more in advance of the scheduled experience start time.'
       },
       {
-        title: 'Partial Cancellation',
-        percent: '50%',
-        desc: 'Refund of half the amount paid for requests submitted between 48 and 24 hours prior to the tour.'
+        title: 'Date & Time Changes',
+        percent: '12h',
+        desc: 'Rescheduling or time change requests are accepted without penalty when requested at least 12 hours prior to the tour (subject to availability).'
       },
       {
-        title: 'Non-Refundable',
+        title: 'Late Cancellation / No-Show',
         percent: '0%',
-        desc: 'No refunds will be made for cancellations notified less than 24 hours in advance or in case of no-show.'
+        desc: 'No refunds will be issued for cancellations notified less than 24 hours in advance or in case of no-show.'
       }
     ],
-    processTitle: 'How to Request a Cancellation or Change',
+    processTitle: 'How to Request a Cancellation or Date Change',
     processSteps: [
-      'Send a formal email to info@casonalosrodriguez.cr with your reservation number and details.',
-      'Or contact us directly via our official WhatsApp support channel at +506 6081-7929 indicating your information.',
-      'Approved refunds are processed to the original payment method and may take 5 to 10 business days depending on your bank.'
+      'Send a formal email to info@casonalosrodriguez.cr with your reservation number and details of the request.',
+      'Or contact us directly via our official WhatsApp at +506 6081-7929 with your booking name and reserved date (at least 24h prior for refund, or 12h prior for date change).',
+      'Approved refunds (cancellations made 24h+ in advance) are processed back to the original payment method within 3 to 7 business days depending on your bank.'
     ],
-    weatherTitle: 'Tropical Rain and Weather Policy',
-    weatherDesc: 'Being located in the northern zone of Costa Rica (La Fortuna/Arenal), tropical rains are part of the ecosystem. All of our key activities (wood-fired cooking, trapiche, dances, and dining room) are conducted under spacious, safely covered structures. Therefore, experiences are not suspended due to normal rain, and standard cancellation policies apply.'
+    weatherTitle: 'Tropical Rain & Weather Policy',
+    weatherDesc: 'Located in northern Costa Rica (La Fortuna/Arenal), tropical rainfall is part of the natural ecosystem. All of our primary activities (wood-fired cooking class, traditional trapiche, folk dances, and dining area) take place under spacious, fully covered structures. Tours are not cancelled due to regular rain, and standard cancellation (24h) and rescheduling (12h) terms apply.'
   }
 };

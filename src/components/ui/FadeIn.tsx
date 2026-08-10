@@ -34,12 +34,12 @@ export default function FadeIn({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.intersectionRatio > 0) {
           setIsVisible(true);
           observer.unobserve(node);
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0, rootMargin: '0px 0px -20px 0px' }
     );
 
     observer.observe(node);

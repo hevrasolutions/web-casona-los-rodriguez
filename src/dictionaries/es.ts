@@ -161,12 +161,12 @@ export const es = {
     title: 'Un Legado Vivo de la Historia de Costa Rica',
     subtitle: 'Más de 120 años de historia y tradición rural',
     desc: 'Descubra la casona histórica que perteneció al Ex-Presidente Rafael Yglesias Castro, custodiada hoy por la Familia Rodríguez Arias para preservar el verdadero alma del campo costarricense.',
-    
+
     // Placa 1: Historia de la Casona
     casonaHistoryTitle: 'Historia de la Casona Los Rodríguez',
     casonaHistorySubtitle: 'Patrimonio de La Fortuna',
     casonaHistoryText: 'Esta es una Casona de más de 120 años que perteneció al ex presidente Rafael Yglesias Castro, luego don Fernando Retana pasó a ser el propietario y más tarde la vendió en 1963 a don Federico (Kiko) Rodríguez Vargas, actualmente es administrada por la Familia Rodríguez Arias.',
-    
+
     // Placa 2: Benemérito Rafael Yglesias Castro
     presidentTitle: 'Rafael Anselmo José Yglesias Castro',
     presidentSubtitle: 'Benemérito de la Patria (Presidente de Costa Rica 1894–1902)',
@@ -254,7 +254,7 @@ export const es = {
         title: '2. Seguridad en la Finca y el Trapiche',
         content: [
           'Los visitantes deben seguir en todo momento las instrucciones de los guías y miembros de la familia Rodríguez durante los recorridos.',
-          'Está terminantemente prohibido acercarse a los animales de trabajo (bueyes) sin supervisión directa del operario calificado.',
+          'Está terminantemente prohibido acercarse a los animales de la granja sin supervisión directa del operario calificado.',
           'Recomendamos el uso de calzado cerrado apto para caminatas en senderos de tierra y ropa cómoda para las actividades al aire libre.'
         ]
       },
@@ -269,34 +269,34 @@ export const es = {
     ]
   },
   cancellationPage: {
-    title: 'Política de Cancelación',
-    subtitle: 'Nuestras pautas de reembolso y cambios de reserva',
-    tiersTitle: 'Términos de Cancelación y Reembolso',
+    title: 'Política de Cancelación y Cambios',
+    subtitle: 'Nuestras pautas claras para reembolsos, reprogramaciones y modificaciones de reserva',
+    tiersTitle: 'Términos de Cancelación, Reembolso y Cambios',
     tiers: [
       {
-        title: 'Cancelación Flexible',
+        title: 'Cancelación y Reembolso (100%)',
         percent: '100%',
-        desc: 'Reembolso total para cancelaciones notificadas con más de 48 horas de anticipación a la hora programada de la experiencia.'
+        desc: 'Reembolso completo del total pagado para cancelaciones notificadas con 24 horas o más de anticipación a la hora programada de la experiencia.'
       },
       {
-        title: 'Cancelación Parcial',
-        percent: '50%',
-        desc: 'Reembolso de la mitad del monto pagado para solicitudes enviadas entre 48 y 24 horas antes del tour.'
+        title: 'Cambios de Fecha u Horario',
+        percent: '12h',
+        desc: 'Se aceptan modificaciones de fecha o turno sin penalización solicitándolas con al menos 12 horas de anticipación (sujeto a disponibilidad).'
       },
       {
-        title: 'No Reembolsable',
+        title: 'Cancelación Tardía / No-Show',
         percent: '0%',
-        desc: 'No se realizarán devoluciones para cancelaciones notificadas con menos de 24 horas de anticipación o en caso de inasistencia (no-show).'
+        desc: 'No se realizarán devoluciones para cancelaciones notificadas con menos de 24 horas de anticipación ni en caso de inasistencia (no-show).'
       }
     ],
-    processTitle: 'Cómo solicitar una cancelación o cambio',
+    processTitle: 'Cómo solicitar una cancelación o cambio de fecha',
     processSteps: [
-      'Envíe un correo electrónico formal a info@casonalosrodriguez.cr con su número de reserva y detalles.',
-      'O comuníquese directamente a nuestro WhatsApp oficial de atención +506 6081-7929 indicando sus datos.',
-      'Los reembolsos aprobados se procesan en el mismo método de pago original y pueden tardar entre 5 y 10 días hábiles según su entidad bancaria.'
+      'Envíe un correo electrónico formal a info@casonalosrodriguez.cr con su número de reserva y detalles del cambio o cancelación.',
+      'O comuníquese directamente a nuestro WhatsApp oficial +506 6081-7929 indicando su nombre y fecha reservada (con al menos 24h para reembolso o 12h para cambio de fecha).',
+      'Los reembolsos aprobados (cancelaciones con 24h+ de antelación) se procesan al método de pago original y pueden tardar entre 3 y 7 días hábiles según su entidad bancaria.'
     ],
     weatherTitle: 'Política de Lluvia y Clima Tropical',
-    weatherDesc: 'Al encontrarnos en la zona norte de Costa Rica (La Fortuna/Arenal), las lluvias tropicales son parte del ecosistema. Todas nuestras actividades clave (cocina a la leña, trapiche, danzas y comedor) se realizan bajo cubiertas amplias y techadas de forma segura. Por lo tanto, las experiencias no se suspenden por lluvia común y aplican las políticas estándar de cancelación.'
+    weatherDesc: 'Al encontrarnos en la zona norte de Costa Rica (La Fortuna/Arenal), las lluvias tropicales son parte natural del entorno. Todas nuestras actividades principales (cocina a la leña, molienda en trapiche artesanal, bailes folclóricos y restaurante) se realizan bajo estructuras techadas y protegidas. Las experiencias no se suspenden por lluvia estándar y aplican las políticas regulares de cancelación (24h) y reprogramación (12h).'
   }
 };
 

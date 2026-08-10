@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Locale } from '@/lib/i18n';
 import { GalleryItem } from '@/lib/gallery';
 import Container from '../ui/Container';
+import FadeIn from '../ui/FadeIn';
 
 interface GalleryPageProps {
   locale: Locale;
@@ -126,17 +127,19 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
-          <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
-            {subtitle}
-          </span>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
-            {title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
-            {isEs
-              ? 'Un recorrido visual por nuestra finca de 120 años de antigüedad. Descubra los colores, texturas y momentos mágicos que le esperan.'
-              : 'A visual tour of our 120-year-old farmhouse estate. Discover the colors, textures, and magical moments that await you.'}
-          </p>
+          <FadeIn direction="up">
+            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+              {subtitle}
+            </span>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
+              {title}
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
+              {isEs
+                ? 'Un recorrido visual por nuestra finca de 120 años de antigüedad. Descubra los colores, texturas y momentos mágicos que le esperan.'
+                : 'A visual tour of our 120-year-old farmhouse estate. Discover the colors, textures, and magical moments that await you.'}
+            </p>
+          </FadeIn>
         </Container>
       </section>
 
@@ -144,24 +147,26 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
       <section className="py-16 sm:py-24 bg-cream">
         <Container>
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 select-none">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => {
-                  setActiveCategory(cat.id);
-                  closeLightbox();
-                }}
-                className={`cursor-pointer px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  activeCategory === cat.id
-                    ? 'bg-terracotta text-white-warm shadow-md border-b-2 border-primary/20 scale-[1.02]'
-                    : 'bg-white-warm text-primary border border-sand/30 hover:border-gold hover:bg-cream/40'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
+          <FadeIn direction="up">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 select-none">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    setActiveCategory(cat.id);
+                    closeLightbox();
+                  }}
+                  className={`cursor-pointer px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                    activeCategory === cat.id
+                      ? 'bg-terracotta text-white-warm shadow-md border-b-2 border-primary/20 scale-[1.02]'
+                      : 'bg-white-warm text-primary border border-sand/30 hover:border-gold hover:bg-cream/40'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
 
           {/* CSS Masonry Grid using Tailwind columns */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
@@ -169,47 +174,48 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
               const isPlaceholder = item.src === 'TODO_IMAGE';
               
               return (
-                <div
-                  key={item.id}
-                  onClick={() => openLightbox(index)}
-                  className="break-inside-avoid relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg border border-sand/20 bg-white-warm cursor-pointer transition-all duration-300 group select-none"
-                >
-                  {!isPlaceholder ? (
-                    <div className="relative w-full h-auto min-h-[200px]">
-                      {/* Responsive image container */}
-                      <Image
-                        src={item.src}
-                        alt={isEs ? item.altES : item.altEN}
-                        width={600}
-                        height={450}
-                        priority={index < 6} // Eager load first 6 images, lazy load rest
-                        loading={index >= 6 ? 'lazy' : undefined}
-                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-103"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-[4/3] w-full bg-sand/15 flex flex-col items-center justify-center p-6 text-center">
-                      <svg className="w-8 h-8 text-sand/65 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span className="text-xs text-primary/60 font-semibold uppercase tracking-wider block">
-                        {isEs ? 'Imagen Próximamente' : 'Image Coming Soon'}
-                      </span>
-                      <span className="text-[10px] text-gold uppercase tracking-wider block mt-1 font-semibold">
-                        TODO_IMAGE
-                      </span>
-                    </div>
-                  )}
+                <FadeIn key={item.id} direction="up" delay={(index % 6) * 80} className="break-inside-avoid">
+                  <div
+                    onClick={() => openLightbox(index)}
+                    className="relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg border border-sand/20 bg-white-warm cursor-pointer transition-all duration-300 group select-none"
+                  >
+                    {!isPlaceholder ? (
+                      <div className="relative w-full h-auto min-h-[200px]">
+                        {/* Responsive image container */}
+                        <Image
+                          src={item.src}
+                          alt={isEs ? item.altES : item.altEN}
+                          width={600}
+                          height={450}
+                          priority={index < 6} // Eager load first 6 images, lazy load rest
+                          loading={index >= 6 ? 'lazy' : undefined}
+                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-103"
+                        />
+                      </div>
+                    ) : (
+                      <div className="aspect-[4/3] w-full bg-sand/15 flex flex-col items-center justify-center p-6 text-center">
+                        <svg className="w-8 h-8 text-sand/65 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span className="text-xs text-primary/60 font-semibold uppercase tracking-wider block">
+                          {isEs ? 'Imagen Próximamente' : 'Image Coming Soon'}
+                        </span>
+                        <span className="text-[10px] text-gold uppercase tracking-wider block mt-1 font-semibold">
+                          TODO_IMAGE
+                        </span>
+                      </div>
+                    )}
 
-                  {/* Dark overlay showing title on hover */}
-                  {!isPlaceholder && (
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <p className="text-white-warm text-xs font-semibold font-body text-left">
-                        {isEs ? item.altES : item.altEN}
-                      </p>
-                    </div>
-                  )}
-                </div>
+                    {/* Dark overlay showing title on hover */}
+                    {!isPlaceholder && (
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p className="text-white-warm text-xs font-semibold font-body text-left">
+                          {isEs ? item.altES : item.altEN}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </FadeIn>
               );
             })}
           </div>

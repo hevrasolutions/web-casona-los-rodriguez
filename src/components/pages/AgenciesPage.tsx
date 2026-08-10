@@ -5,6 +5,7 @@ import { Locale, getDictionary } from '@/lib/i18n';
 import Container from '../ui/Container';
 import AgencyQuoteForm from '../forms/AgencyQuoteForm';
 import SectionTitle from '../ui/SectionTitle';
+import FadeIn from '../ui/FadeIn';
 
 interface AgenciesPageProps {
   locale: Locale;
@@ -42,15 +43,17 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
         <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
-          <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
-            {dict.agenciesPage.subtitle}
-          </span>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
-            {dict.agenciesPage.title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-3xl mx-auto leading-relaxed font-body">
-            {dict.agenciesPage.desc}
-          </p>
+          <FadeIn direction="up">
+            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+              {dict.agenciesPage.subtitle}
+            </span>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
+              {dict.agenciesPage.title}
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-3xl mx-auto leading-relaxed font-body">
+              {dict.agenciesPage.desc}
+            </p>
+          </FadeIn>
         </Container>
       </section>
 
@@ -61,7 +64,7 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
             
             {/* Left Column: Partnership Details */}
             <div className="lg:col-span-5 space-y-8 text-left">
-              <div>
+              <FadeIn direction="up">
                 <SectionTitle
                   title={dict.agenciesPage.benefitsTitle}
                   subtitle={isEs ? 'Alianzas Estratégicas' : 'Strategic Alliances'}
@@ -73,61 +76,67 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
                     ? 'Diseñamos planes adaptados para mayoristas, agencias locales, turoperadores independientes y coordinadores de grupos corporativos. Contáctenos hoy para recibir nuestro dossier de tarifas netas actualizadas.'
                     : 'We design tailored packages for wholesalers, local agencies, independent operators, and corporate group organizers. Contact us today to receive our updated net rates manual.'}
                 </p>
-              </div>
+              </FadeIn>
 
               {/* Benefits Checklist */}
               <div className="space-y-6">
                 {dict.agenciesPage.benefits.map((benefit, idx) => (
-                  <div key={idx} className="flex gap-4 items-start">
-                    <span className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0">
-                      {benefitIcons[idx]}
-                    </span>
-                    <div>
-                      <h4 className="font-heading text-base sm:text-lg font-bold text-primary mb-1">
-                        {benefit.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-primary/75 font-body leading-relaxed">
-                        {benefit.desc}
-                      </p>
+                  <FadeIn key={idx} direction="up" delay={idx * 100}>
+                    <div className="flex gap-4 items-start">
+                      <span className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                        {benefitIcons[idx]}
+                      </span>
+                      <div>
+                        <h4 className="font-heading text-base sm:text-lg font-bold text-primary mb-1">
+                          {benefit.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-primary/75 font-body leading-relaxed">
+                          {benefit.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </FadeIn>
                 ))}
               </div>
 
               {/* Additional B2B Contact Sidebar */}
-              <div className="border border-sand/30 rounded-lg overflow-hidden bg-primary text-white-warm p-6 shadow-sm">
-                <h4 className="font-heading text-lg font-bold text-gold mb-2">
-                  {isEs ? 'Atención Directa para Operadores' : 'Dedicated Operator Support'}
-                </h4>
-                <p className="text-xs text-white-warm/75 font-body leading-relaxed mb-4">
-                  {isEs 
-                    ? '¿Tiene solicitudes urgentes, inspección de sitio o bloqueos de series anuales? Comuníquese directamente por nuestro canal exclusivo para operadores.'
-                    : 'Do you have urgent requests, site inspection queries, or annual series blocks? Contact us directly via our operator channel.'}
-                </p>
-                <div className="space-y-2 font-body text-xs font-semibold">
-                  <p className="flex items-center gap-2">
-                    <span className="text-gold">Email:</span>
-                    <a href={`mailto:${dict.contact.agencyEmail}`} className="hover:text-gold transition-colors">{dict.contact.agencyEmail}</a>
+              <FadeIn direction="up" delay={300}>
+                <div className="border border-sand/30 rounded-lg overflow-hidden bg-primary text-white-warm p-6 shadow-sm">
+                  <h4 className="font-heading text-lg font-bold text-gold mb-2">
+                    {isEs ? 'Atención Directa para Operadores' : 'Dedicated Operator Support'}
+                  </h4>
+                  <p className="text-xs text-white-warm/75 font-body leading-relaxed mb-4">
+                    {isEs 
+                      ? '¿Tiene solicitudes urgentes, inspección de sitio o bloqueos de series anuales? Comuníquese directamente por nuestro canal exclusivo para operadores.'
+                      : 'Do you have urgent requests, site inspection queries, or annual series blocks? Contact us directly via our operator channel.'}
                   </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-gold">WhatsApp:</span>
-                    <a href={`https://wa.me/${dict.contact.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">{dict.contact.whatsapp}</a>
-                  </p>
+                  <div className="space-y-2 font-body text-xs font-semibold">
+                    <p className="flex items-center gap-2">
+                      <span className="text-gold">Email:</span>
+                      <a href={`mailto:${dict.contact.agencyEmail}`} className="hover:text-gold transition-colors">{dict.contact.agencyEmail}</a>
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <span className="text-gold">WhatsApp:</span>
+                      <a href={`https://wa.me/${dict.contact.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">{dict.contact.whatsapp}</a>
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             </div>
 
             {/* Right Column: Agency Quote Form */}
             <div className="lg:col-span-7 w-full">
-              <div className="mb-4 text-left">
-                <h4 className="font-heading text-lg font-bold text-primary mb-1">
-                  {dict.agenciesPage.quoteTitle}
-                </h4>
-                <p className="text-xs sm:text-sm text-primary/75 font-body leading-relaxed">
-                  {dict.agenciesPage.quoteDesc}
-                </p>
-              </div>
-              <AgencyQuoteForm locale={locale} />
+              <FadeIn direction="up" delay={150}>
+                <div className="mb-4 text-left">
+                  <h4 className="font-heading text-lg font-bold text-primary mb-1">
+                    {dict.agenciesPage.quoteTitle}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-primary/75 font-body leading-relaxed">
+                    {dict.agenciesPage.quoteDesc}
+                  </p>
+                </div>
+                <AgencyQuoteForm locale={locale} />
+              </FadeIn>
             </div>
 
           </div>
