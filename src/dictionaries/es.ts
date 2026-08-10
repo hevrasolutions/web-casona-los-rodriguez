@@ -158,32 +158,83 @@ export const es = {
     quoteDesc: 'Complete este formulario para solicitar una tarifa adaptada para su grupo. Le responderemos el mismo día.'
   },
   aboutPage: {
-    title: 'Nuestra Historia y Familia',
-    subtitle: '120 años de tradiciones campesinas',
-    desc: 'Casona Los Rodríguez no es solo un destino turístico; es el hogar de nuestra familia, donde conservamos y compartimos con orgullo la herencia rural de Costa Rica.',
-    historyTitle: 'El Legado del Fogón y la Finca',
-    historySubtitle: 'Nuestra Historia',
-    historyText1: 'Nuestra casona rural tiene una antigüedad de más de 120 años y ha sido el núcleo de nuestra familia por generaciones. Originalmente construida con maderas nativas y barro, representa la arquitectura tradicional de los primeros colonos de la zona norte de Costa Rica. Por décadas, esta propiedad ha albergado las faenas agrícolas cotidianas, la molienda de caña de azúcar y las reuniones familiares en torno al gran fogón de leña.',
-    historyText2: 'Con el paso del tiempo, decidimos abrir nuestras puertas a visitantes de todo el mundo para evitar que estas valiosas costumbres campesinas se perdieran en el olvido. Hoy, mantenemos viva la tradición de palmear tortillas a mano, cultivar la tierra de forma orgánica y extraer el dulce jugo de caña en el trapiche de bueyes, ofreciendo una ventana real a la Costa Rica de antaño.',
-    missionTitle: 'Nuestros Valores y Compromiso',
-    missionSubtitle: 'Misión Cultural',
-    missionList: [
+    title: 'Un Legado Vivo de la Historia de Costa Rica',
+    subtitle: 'Más de 120 años de historia y tradición rural',
+    desc: 'Descubra la casona histórica que perteneció al Ex-Presidente Rafael Yglesias Castro, custodiada hoy por la Familia Rodríguez Arias para preservar el verdadero alma del campo costarricense.',
+    
+    // Placa 1: Historia de la Casona
+    casonaHistoryTitle: 'Historia de la Casona Los Rodríguez',
+    casonaHistorySubtitle: 'Patrimonio de La Fortuna',
+    casonaHistoryText: 'Esta es una Casona de más de 120 años que perteneció al ex presidente Rafael Yglesias Castro, luego don Fernando Retana pasó a ser el propietario y más tarde la vendió en 1963 a don Federico (Kiko) Rodríguez Vargas, actualmente es administrada por la Familia Rodríguez Arias.',
+    
+    // Placa 2: Benemérito Rafael Yglesias Castro
+    presidentTitle: 'Rafael Anselmo José Yglesias Castro',
+    presidentSubtitle: 'Benemérito de la Patria (Presidente de Costa Rica 1894–1902)',
+    presidentText1: 'Fue un político, empresario y comerciante costarricense, presidente de Costa Rica de 1894 a 1902. Hombre de personalidad enérgica, gobernó el país durante 8 años, durante los cuales realizó múltiples obras impulsado por su deseo de ilustración y progreso.',
+    presidentText2: 'En el plano económico, impulsó una importante reforma monetaria en la cual estableció el patrón oro y permitió la creación del colón como moneda nacional (1896), que vino a sentar nuevas bases en la vida económica de la nación. Inició la construcción del ferrocarril al Pacífico que se desarrolló hasta 1909. Promovió la enseñanza y trajo del exterior una gran cantidad de profesores de construcción y obreros especializados.',
+    presidentText3: 'Asimismo, promovió la construcción y conclusión del Teatro Nacional de Costa Rica, inaugurado en su primer gobierno (1897). A nivel internacional se firmaron en sus gobiernos el tratado Pacheco-Matus (1896) que puso fin a las disputas limítrofes con Nicaragua; y el Laudo Loubet con Colombia. Fue candidato a la presidencia de la República en dos ocasiones más, posterior a su segundo gobierno: 1910 y 1913. La Asamblea Legislativa de Costa Rica lo declaró Benemérito de la Patria el 16 de noviembre de 1981.',
+
+    // Placa 3: Billete de 5 Colones
+    billTitle: 'El Billete de 5 Colones (Serie D, 1968)',
+    billSubtitle: 'La Alegoría del Café, el Banano y los Labriegos Sencillos',
+    billText: 'Se emitió por primera vez en 1968. Por el anverso contiene el retrato del ex presidente Rafael Yglesias Castro (1894-1902), durante cuyo Gobierno se construyó el Teatro Nacional y, por el reverso, un grabado de la pintura que se encuentra en el vestíbulo de ese Teatro, la cual es una "alegoría al café y al banano" como base de la agricultura comercial. Con ello se mantuvo la idea de la importancia del café dentro de la base económica del país y de la vocación agrícola de la sociedad costarricense, sociedad de "labriegos sencillos".',
+
+    // Cronología / Timeline
+    timelineTitle: 'Cronología de 120 Años de Historia',
+    timelineSubtitle: 'Línea de Tiempo Patrimonial',
+    timelineEvents: [
       {
-        title: 'Preservación de la Identidad Rural',
-        desc: 'Mantenemos vivas las técnicas culinarias ancestrales, el uso del trapiche y las expresiones artísticas del folcolr campesino costarricense.'
+        year: '~1894',
+        title: 'Construcción Presidencial',
+        desc: 'Construcción original de la casona rústica en maderas nativas costarricenses. Propiedad del Presidente de la República, Rafael Yglesias Castro.'
       },
       {
-        title: 'Apoyo a la Economía Local',
-        desc: 'Colaboramos directamente con la escuela de Sona Fluca y compramos ingredientes a pequeños productores agrícolas de La Fortuna.'
+        year: '1896 – 1897',
+        title: 'El Colón y el Teatro Nacional',
+        desc: 'Yglesias Castro promulga la reforma monetaria creando el Colón (1896) e inaugura el Teatro Nacional (1897), obras cumbre del progreso del país.'
       },
       {
-        title: 'Sostenibilidad y Agricultura Orgánica',
-        desc: 'Nuestra huerta y finca se manejan bajo principios ecológicos, enseñando a los visitantes la importancia de cultivar sin agroquímicos.'
+        year: '1940s',
+        title: 'Custodia Campesina',
+        desc: 'Don Fernando Retana adquiere la propiedad, preservando la arquitectura autóctona en madera y el trabajo agrícola del campo tico.'
+      },
+      {
+        year: '1963',
+        title: 'Inicio del Legado Rodríguez',
+        desc: 'Don Federico "Kiko" Rodríguez Vargas adquiere la casona y la finca en 1963, instaurando la molienda artesanal de caña y la cocina a la leña.'
+      },
+      {
+        year: '1968',
+        title: 'Alegoría al Labriego Sencillo',
+        desc: 'El Banco Central emite el legendario billete de 5 Colones (Serie D), inmortalizando la vocación agrícola y hospitalaria que vive en la finca.'
+      },
+      {
+        year: 'Hoy',
+        title: 'Experiencia Cultural Viva',
+        desc: 'La Familia Rodríguez Arias (Celin Rodríguez y Yamileth Arias) abre las puertas al mundo para compartir cocina a la leña, trapiche de madera y tradiciones.'
       }
     ],
-    familyTitle: 'La Familia Rodríguez',
-    familySubtitle: 'Hospitalidad Campesina',
-    familyText: 'Cuando nos visita, usted no es un cliente, es un invitado de honor en nuestra casa. De la mano de Don Gerardo, Doña María y nuestros hijos, usted compartirá anécdotas, aprenderá secretos de cocina y vivirá la calidez de un hogar rural auténtico. Nos apasiona ver las sonrisas de las personas cuando prueban su primera tortilla palmeada o escuchan la música de nuestra tierra.'
+
+    // Misión y Valores
+    missionTitle: 'Nuestros Pilares Culturales',
+    missionSubtitle: 'Misión y Compromiso',
+    missionList: [
+      {
+        title: 'Preservación Histórica y Patrimonial',
+        desc: 'Cuidamos la arquitectura original en maderas nativas de más de 120 años, manteniendo viva la historia patria.'
+      },
+      {
+        title: 'Gastronomía y Tradición Campesina',
+        desc: 'Rescatamos la cocina 100% a la leña en utensilios tradicionales, la molienda de caña interactiva y la calidez del hogar tico.'
+      },
+      {
+        title: 'Comunidad y Sostenibilidad',
+        desc: 'Apoyamos activamente a la comunidad de Sona Fluca, colaborando con escuelas locales y agricultores de la zona norte.'
+      }
+    ],
+    familyTitle: 'La Familia Rodríguez Arias',
+    familySubtitle: 'Hospitalidad y Custodia Campesina',
+    familyText: 'Bajo el liderazgo de Celin Rodríguez López y Yamileth Arias, abrimos las puertas de la casona para que cada visitante se sienta un invitado de honor en nuestra casa. Compartimos la molienda artesanal en el trapiche, las tortillas palmeadas en el fogón de leña y la alegría de nuestras raíces.'
   },
   termsPage: {
     title: 'Términos y Condiciones',

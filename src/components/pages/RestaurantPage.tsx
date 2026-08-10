@@ -30,7 +30,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
   // Group services
   const groupServices = [
     { title: isEs ? 'Servicio de Preorden' : 'Pre-order Service', desc: isEs ? 'Coordinación previa para grupos pequeños y familias que desean tener su almuerzo servido al llegar.' : 'Prior coordination for small groups and families wishing to have their lunch ready upon arrival.' },
-    { title: isEs ? 'Servicio Buffet Tradicional' : 'Traditional Buffet', desc: isEs ? 'Montaje de bufés típicos en bandejas de barro sobre el fogón de leña, ideal para agencias y operadores.' : 'Setup of typical buffets in clay trays over the wood-fired stove, ideal for operators and agencies.' },
+    { title: isEs ? 'Servicio Buffet Tradicional' : 'Traditional Buffet', desc: isEs ? 'Montaje de bufés típicos en bandejas tradicionales sobre el fogón de leña, ideal para agencias y operadores.' : 'Setup of typical buffets in traditional trays over the wood-fired stove, ideal for operators and agencies.' },
     { title: isEs ? 'Menús Personalizados' : 'Custom Menus', desc: isEs ? 'Diseño de opciones adaptadas a los requisitos dietéticos y preferencias específicas de su grupo.' : 'Custom menu choices tailored to the dietary requirements and specific preferences of your group.' }
   ];
 
@@ -99,7 +99,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             <div className="lg:col-span-6 relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl border border-sand/30 bg-sand/10">
               <Image
                 src="/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-kitchen-la-fortuna-002.webp"
-                alt={isEs ? 'Ollas de barro en fogón de leña tradicional' : 'Clay pots on traditional wood-fired stove'}
+                alt={isEs ? 'Ollas tradicionales en fogón de leña' : 'Traditional pots on wood-fired stove'}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

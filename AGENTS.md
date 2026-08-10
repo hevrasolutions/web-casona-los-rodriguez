@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-07-26
-**Fase Activa:** Rediseño de Páginas de Detalle de Experiencias — COMPLETO. Rediseño y Optimización de la Página de Agencias y Formulario de Cotización — COMPLETO (jul 2026). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
+**Última Actualización:** 2026-08-10
+**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo e Histórico de la Página Nosotros — COMPLETO (ago 2026). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
 
 ---
 
@@ -99,7 +99,7 @@ Organizados en `/src/components/`:
   * [`Footer.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/navigation/Footer.tsx): Pie de página bilingüe.
   * [`Header.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/navigation/Header.tsx): Barra de navegación con logo y menús adaptables.
 * **`pages/` (Vistas completas de página)**
-  * [`AboutPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AboutPage.tsx): Vista de Quiénes Somos.
+  * [`AboutPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AboutPage.tsx): Vista de Quiénes Somos / Nosotros. Rediseñada con narrativa histórica patrimonial: placas conmemorativas exactas (Presidente Rafael Yglesias Castro 1894-1902, creación del Colón 1896 y Teatro Nacional 1897, compra de 1963 por Don Federico "Kiko" Rodríguez y custodia actual por la Familia Rodríguez Arias), gráfico 2D del billete de 5 Colones (`costa-rica-5-colones-bill-v2.png` con `object-contain`), componente Timeline responsivo de 120 años de historia, tarjetas de pilares culturales y sección final de la familia centrada a ancho completo sin imagen.
   * [`AgenciesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AgenciesPage.tsx): Vista de la sección de agencias.
   * [`CancellationPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/CancellationPage.tsx): Políticas de cancelación.
   * [`ContactPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ContactPage.tsx): Vista de contacto.
@@ -272,6 +272,13 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * **Contacto Exclusivo:** Integrado correo especializado `agencias@casonalosrodriguez.cr` para el canal de operadores.
 * **Formulario Simplificado:** Removidos campos que generaban fricción (fecha, experiencia, conteo exacto de pax) y agregados campos de selección múltiple (casillas) para *Rango de clientes por reservación* y *Canal preferido de respuesta*.
 * **Catálogo de Países e i18n:** Creado `src/data/countries.ts` (240+ países ISO 3166-1) con type-to-select navegable por teclado en el idioma activo, y selector de prefijo telefónico internacional (`phonePrefix`) ordenado numéricamente con USA (`+1 (US)`) de primero y sincronización automática según el país de la agencia.
+
+### Track paralelo: Rediseño Narrativo e Histórico de la Página Nosotros / About Us (COMPLETA, ago 2026)
+* **Historia Real y Placas Conmemorativas:** Integración de los textos exactos de las placas históricas (Presidente Rafael Yglesias Castro 1894-1902, creación del Colón de 1896, Teatro Nacional de 1897, compra de 1963 por Don Federico "Kiko" Rodríguez Vargas y custodia por la Familia Rodríguez Arias).
+* **Ilustración del Billete de 5 Colones (Serie D, 1968):** Gráfico 2D plano centrado (`costa-rica-5-colones-bill-v2.png`) encajado con `object-contain p-2` sin recortes ni marcos de madera.
+* **Cronología de 120 Años:** Componente Timeline responsivo con 6 hitos clave desde el siglo XIX a la actualidad.
+* **Corrección Factual:** Eliminada totalmente la palabra *"barro"* de todo el proyecto (reemplazada por *"maderas nativas"*, *"utensilios tradicionales"*, etc.).
+* **Sección Familiar:** Diseñada a ancho completo centrado (`max-w-4xl mx-auto`) sin imagen lateral.
 
 ### Tareas Pendientes para la Fase 7:
 * [] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*

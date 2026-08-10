@@ -76,8 +76,8 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
 
   // Kitchen & Cooking Classes
   'authentic-costa-rican-food-experience.webp': {
-    altES: 'Visitantes sirviéndose en el buffet rústico tradicional con cazuelas y ollas de barro',
-    altEN: 'Visitors serving themselves at the traditional rustic buffet with clay pots and dishes'
+    altES: 'Visitantes sirviéndose en el buffet rústico tradicional con cazuelas y ollas tradicionales',
+    altEN: 'Visitors serving themselves at the traditional rustic buffet with traditional pots and dishes'
   },
   'casona-los-rodriguez-cooking-over-wood-fire-001.webp': {
     altES: 'Cocinera tradicional preparando alimentos en el fogón de leña con llamas vivas',
@@ -214,8 +214,8 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
 
   // Typical Food
   'casona-los-rodriguez-cultural-tour.webp': {
-    altES: 'Primer plano de ollas de barro artesanales esculpidas con rostros tradicionales',
-    altEN: 'Close-up of traditional handcrafted clay pots sculpted with faces'
+    altES: 'Primer plano de cazuelas artesanales esculpidas con rostros tradicionales',
+    altEN: 'Close-up of traditional handcrafted pots sculpted with faces'
   },
   'casona-los-rodriguez-typical-food-la-fortuna-001.webp': {
     altES: 'Plato de casado costarricense con carne encebollada, arroz y ensalada',
@@ -250,8 +250,8 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
     altEN: 'Wood-fired sweet corn chorreada with sour cream on a wooden plate'
   },
   'casona-los-rodriguez-typical-food-la-fortuna-009.webp': {
-    altES: 'Ollas de barro artesanales con rostros tallados en la mesa de servicio rústico',
-    altEN: 'Handcrafted clay pots with carved face designs on the rustic buffet table'
+    altES: 'Cazuelas artesanales con rostros tallados en la mesa de servicio rústico',
+    altEN: 'Handcrafted pots with carved face designs on the rustic buffet table'
   },
 
   // Customer Experiences

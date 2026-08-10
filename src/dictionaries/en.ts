@@ -160,32 +160,83 @@ export const en: Dictionary = {
     quoteDesc: 'Fill out this form to request a tailored quote for your group. We will respond the same day.'
   },
   aboutPage: {
-    title: 'Our History & Family',
-    subtitle: '120 years of countryside traditions',
-    desc: 'Casona Los Rodríguez is not just a tourist destination; it is our family home, where we preserve and proudly share Costa Rica\'s rural heritage.',
-    historyTitle: 'The Legacy of the Stove and the Farm',
-    historySubtitle: 'Our History',
-    historyText1: 'Our rural farmhouse has over 120 years of history and has been the core of our family for generations. Originally constructed from native timbers and clay, it represents the traditional architecture of the first settlers of northern Costa Rica. For decades, this property has hosted daily agricultural chores, sugar cane milling, and family gatherings around the grand wood-fired stove.',
-    historyText2: 'Over time, we decided to open our doors to visitors from around the world to prevent these valuable country customs from being forgotten. Today, we keep alive the tradition of patting tortillas by hand, farming organic land, and pressing sweet sugarcane juice in the oxen-driven trapiche, offering a real window into the Costa Rica of yesteryear.',
-    missionTitle: 'Our Values and Commitment',
-    missionSubtitle: 'Cultural Mission',
-    missionList: [
+    title: 'A Living Legacy of Costa Rican History',
+    subtitle: 'Over 120 years of history and rural tradition',
+    desc: 'Discover the historic farmhouse once owned by former President Rafael Yglesias Castro, proudly preserved today by the Rodríguez Arias Family to keep the true soul of Costa Rican countryside alive.',
+    
+    // Placa 1: History of the Casona
+    casonaHistoryTitle: 'History of Casona Los Rodríguez',
+    casonaHistorySubtitle: 'La Fortuna Heritage Landmark',
+    casonaHistoryText: 'This is a Casona of more than 120 years that was owned by former President Rafael Yglesias Castro, then Mr. Fernando Retana became the owner and later sold it in 1963 to Mr. Federico (Kiko) Rodríguez Vargas, currently it is managed by the Rodríguez Arias Family.',
+    
+    // Placa 2: President Rafael Yglesias Castro
+    presidentTitle: 'Rafael Anselmo José Yglesias Castro',
+    presidentSubtitle: 'National Hero (President of Costa Rica 1894–1902)',
+    presidentText1: 'He was a Costa Rican politician, businessman and merchant, president of Costa Rica from 1894 to 1902. A man of energetic personality, he ruled the country for 8 years, during which he completed many works, driven by his desire for illustration and progress.',
+    presidentText2: 'On the economic level, it promoted an important monetary reform, in which it established the gold standard and allowed the creation of the colón as a national currency (1896), which came to lay a new basis on the economic life of the nation. He began the construction of the railroad to the Pacific, which took place until 1909. He promoted teaching and brought from abroad a large number of construction teachers and specialized workers.',
+    presidentText3: 'Also, he promoted the construction and completion of the National Theater of Costa Rica, inaugurated in his first government (1897). At the international level, the Pacheco-Matus treaty (1896) was signed in their governments, which ended border disputes with Nicaragua; and the Loubet Award with Colombia. He was a candidate for the presidency of the Republic on two more occasions, after his second government: 1910 and 1913. The Legislative Assembly of Costa Rica declared him "Benemérito de la Patria" on November 16, 1981.',
+
+    // Placa 3: 5 Colones Bill
+    billTitle: 'The 5 Colones Banknote (D Series, 1968)',
+    billSubtitle: 'Allegory of Coffee, Bananas, and Hardworking Country Farmers',
+    billText: 'It was first issued in 1968. On the obverse contains the portrait of former President Rafael Yglesias Castro (1894-1902), during whose Government the National Theater was built and, by the reverse, an engraving of the painting found in the lobby of that Theater, which is an "allegory of coffee and bananas" as the basis of commercial agriculture. With this, the idea of the importance of coffee within the economic base of the country and of the agricultural vocation of the Costa Rican society, a society of "simple farmers", was maintained.',
+
+    // Timeline Section
+    timelineTitle: '120-Year Historical Timeline',
+    timelineSubtitle: 'Heritage Chronology',
+    timelineEvents: [
       {
-        title: 'Preserving Rural Identity',
-        desc: 'We keep alive ancestral cooking techniques, trapiche milling, and the artistic expressions of Costa Rican country folklore.'
+        year: '~1894',
+        title: 'Presidential Construction',
+        desc: 'Original construction of the rustic farmhouse in native Costa Rican woods. Originally owned by President Rafael Yglesias Castro.'
       },
       {
-        title: 'Supporting the Local Economy',
-        desc: 'We collaborate directly with the Sona Fluca school and purchase ingredients from local small farmers in La Fortuna.'
+        year: '1896 – 1897',
+        title: 'The Colón & National Theater',
+        desc: 'Yglesias Castro enacts the monetary reform creating the Colón currency (1896) and inaugurates the National Theater (1897).'
       },
       {
-        title: 'Sustainability and Organic Farming',
-        desc: 'Our garden and farm are managed under ecological principles, teaching visitors the importance of farming without agrochemicals.'
+        year: '1940s',
+        title: 'Country Stewardship',
+        desc: 'Mr. Fernando Retana acquires the property, preserving the native wooden architecture and traditional Costa Rican farming.'
+      },
+      {
+        year: '1963',
+        title: 'Start of the Rodríguez Legacy',
+        desc: 'Mr. Federico "Kiko" Rodríguez Vargas purchases the farmhouse and farm in 1963, establishing wood-fired cooking and sugarcane milling.'
+      },
+      {
+        year: '1968',
+        title: 'Allegory of Hardworking Farmers',
+        desc: 'The Central Bank issues the historic 5 Colones bill (D Series), honoring the agricultural vocation and country hospitality that thrives on the farm.'
+      },
+      {
+        year: 'Today',
+        title: 'Living Cultural Experience',
+        desc: 'The Rodríguez Arias Family (Celin Rodríguez & Yamileth Arias) opens the doors to share wood-fired cooking, sugarcane milling, and traditions.'
       }
     ],
-    familyTitle: 'The Rodríguez Family',
-    familySubtitle: 'Farmhouse Hospitality',
-    familyText: 'When you visit us, you are not a client; you are an honored guest in our home. Alongside Don Gerardo, Doña María, and our children, you will share anecdotes, learn cooking secrets, and experience the warmth of an authentic rural home. We love seeing the smiles on people\'s faces when they try their first handmade tortilla or hear the music of our land.'
+
+    // Mission and Values
+    missionTitle: 'Our Cultural Pillars',
+    missionSubtitle: 'Mission & Commitment',
+    missionList: [
+      {
+        title: 'Historic & Cultural Preservation',
+        desc: 'We maintain the original native wood architecture of over 120 years, keeping Costa Rica’s political and rural heritage alive.'
+      },
+      {
+        title: 'Country Cuisine & Traditions',
+        desc: 'We rescue 100% wood-fired cooking in traditional utensils, interactive sugarcane milling, and traditional Tico hospitality.'
+      },
+      {
+        title: 'Community & Sustainability',
+        desc: 'We actively support the Sona Fluca community, collaborating with local schools and northern farmers.'
+      }
+    ],
+    familyTitle: 'The Rodríguez Arias Family',
+    familySubtitle: 'Hospitality & Rural Stewardship',
+    familyText: 'Led by Celin Rodríguez López and Yamileth Arias, we open the doors of the casona so every visitor feels like an honored guest in our home. We share artisanal sugarcane milling, hand-patted tortillas over wood fires, and the authentic joy of our countryside roots.'
   },
   termsPage: {
     title: 'Terms & Conditions',
