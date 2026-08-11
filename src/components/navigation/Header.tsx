@@ -19,6 +19,8 @@ export default function Header({ locale, dict }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/` || pathname === '/';
+  const isExperienceDetail = pathname.includes('/experiencias/') || pathname.includes('/experiences/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,7 +99,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher currentLocale={locale} />
-            <BookingCTA variant="primary" size="md">
+            <BookingCTA locale={locale} variant="primary" size="md">
               {dict.nav.bookNow}
             </BookingCTA>
           </div>
@@ -149,18 +151,20 @@ export default function Header({ locale, dict }: HeaderProps) {
         </nav>
 
         <div className="flex flex-col gap-4 mt-auto mb-16">
-          <BookingCTA variant="primary" size="lg" className="w-full text-center">
+          <BookingCTA locale={locale} variant="primary" size="lg" className="w-full text-center">
             {dict.nav.bookNow}
           </BookingCTA>
         </div>
       </div>
 
-      {/* Mobile Fixed bottom CTA */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-cream/90 backdrop-blur-md border-t border-sand/20 p-3 shadow-lg flex justify-center">
-        <BookingCTA variant="primary" size="lg" className="w-full max-w-sm text-center shadow-lg">
-          {dict.nav.bookNow}
-        </BookingCTA>
-      </div>
+      {/* Mobile Fixed bottom CTA (hidden on Home page and Experience Detail pages to avoid redundancy and duplicates) */}
+      {!isHomePage && !isExperienceDetail && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-cream/90 backdrop-blur-md border-t border-sand/20 p-3 shadow-lg flex justify-center">
+          <BookingCTA locale={locale} variant="primary" size="lg" className="w-full max-w-sm text-center shadow-lg">
+            {dict.nav.bookNow}
+          </BookingCTA>
+        </div>
+      )}
     </>
   );
 }

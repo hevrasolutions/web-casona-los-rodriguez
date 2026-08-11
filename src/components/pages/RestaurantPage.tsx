@@ -165,6 +165,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                   isEs ? 'Tortillas palmeadas de maíz' : 'Hand-pressed corn tortillas',
                   isEs ? 'Picadillo de raíz de papaya' : 'Papaya root picadillo',
                   isEs ? 'Chorreadas de maíz con natilla' : 'Corn chorreadas with natilla cream',
+                  'Chifrijo',
                 ].map((plate, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <svg className="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">

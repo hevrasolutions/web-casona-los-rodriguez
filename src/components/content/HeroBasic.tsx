@@ -71,6 +71,7 @@ export default function HeroBasic({ locale, dict }: HeroBasicProps) {
             {dict.common.exploreExperiences}
           </Button>
           <BookingCTA
+            locale={locale}
             variant="secondary"
             size="lg"
             className="shadow-md min-w-[200px]"

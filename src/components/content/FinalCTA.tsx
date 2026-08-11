@@ -37,6 +37,7 @@ export default function FinalCTA({ locale }: FinalCTAProps) {
             {desc}
           </p>
           <BookingCTA
+            locale={locale}
             variant="primary"
             size="lg"
             className="shadow-xl px-10 py-4 hover:scale-[1.03] transition-transform duration-200"

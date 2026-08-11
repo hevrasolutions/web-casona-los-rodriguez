@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Locale } from '@/lib/i18n';
 import { Dictionary } from '@/dictionaries/es';
 import { Experience } from '@/types/experience';
@@ -63,8 +64,12 @@ export default function ExperienceCard({
 
   return (
     <article className="flex flex-col bg-white-warm rounded-lg overflow-hidden border border-sand/20 hover:shadow-xl transition-all duration-300 group h-full">
-      {/* Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-sand/10">
+      {/* Image Container - Clickable Link */}
+      <Link
+        href={detailHref}
+        aria-label={title}
+        className="relative aspect-[4/3] w-full overflow-hidden bg-sand/10 block cursor-pointer"
+      >
         {hasImage ? (
           <Image
             src={experience.heroImage}
@@ -96,7 +101,7 @@ export default function ExperienceCard({
             {badgeLabels[experience.badge]}
           </span>
         )}
-      </div>
+      </Link>
 
       {/* Card Content */}
       <div className="p-6 flex-grow flex flex-col justify-between">
@@ -120,7 +125,9 @@ export default function ExperienceCard({
           </div>
 
           <h3 className="font-heading text-xl sm:text-2xl font-bold text-primary group-hover:text-terracotta transition-colors mb-2 leading-tight">
-            {title}
+            <Link href={detailHref} className="hover:text-terracotta transition-colors">
+              {title}
+            </Link>
           </h3>
           
           <p className="text-sm text-primary/75 font-body line-clamp-3 mb-4">
@@ -177,6 +184,8 @@ export default function ExperienceCard({
               </Button>
               <BookingCTA
                 experienceSlug={experience.slug}
+                locale={locale}
+                href={experience.whatsappBookingUrl?.[locale]}
                 variant="primary"
                 size="sm"
                 className="text-center w-full text-xs"
