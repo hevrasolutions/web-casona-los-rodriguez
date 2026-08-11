@@ -13,6 +13,9 @@ import BookingSidebar from '../experiences/BookingSidebar';
 import MobileBookingBar from '../experiences/MobileBookingBar';
 import FadeIn from '../ui/FadeIn';
 
+import JsonLdScript from '../seo/JsonLdScript';
+import { getExperienceEventSchema, getFaqSchema } from '@/lib/jsonLd';
+
 interface ExperienceDetailV2Props {
   experience: Experience;
   locale: Locale;
@@ -27,6 +30,9 @@ export default function ExperienceDetailV2({
 }: ExperienceDetailV2Props) {
   const isEs = locale === 'es';
   const dict = getDictionary(locale);
+
+  const eventSchema = getExperienceEventSchema(experience, locale);
+  const faqSchema = getFaqSchema((isEs ? experience.faq : experience.faqEN) ?? []);
 
   const title = isEs ? experience.title : experience.titleEN;
   const h1 = (isEs ? experience.h1 : experience.h1EN) ?? title;
@@ -151,6 +157,7 @@ export default function ExperienceDetailV2({
 
   return (
     <>
+      <JsonLdScript data={[eventSchema, faqSchema]} />
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -159,7 +166,7 @@ export default function ExperienceDetailV2({
       )}
 
       {/* 1. Hero full-width */}
-      <section className="relative bg-primary overflow-hidden">
+      <section className="relative bg-[#1c140e] overflow-hidden">
         <Image
           src={experience.heroImage}
           alt={galleryAlt(experience.heroImage, 0)}

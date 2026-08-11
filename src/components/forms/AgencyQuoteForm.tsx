@@ -70,14 +70,24 @@ export default function AgencyQuoteForm({ locale }: AgencyQuoteFormProps) {
     setIsSubmitSuccess(false);
 
     try {
-      // Mock API call to TODO_FORM_PROVIDER B2B endpoint
-      console.log('Sending B2B agency quote form data to provider:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+      const response = await fetch('/api/agencies', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Error enviando la solicitud');
+      }
+
       setIsSubmitSuccess(true);
       reset();
     } catch (error) {
-      console.error('Error submitting B2B form:', error);
+      console.error('Error submitting B2B agency form:', error);
       setIsSubmitError(true);
     } finally {
       setIsSubmitting(false);

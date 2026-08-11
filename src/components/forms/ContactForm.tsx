@@ -42,14 +42,24 @@ export default function ContactForm({ locale }: ContactFormProps) {
     setIsSubmitSuccess(false);
 
     try {
-      // Mock API call to TODO_FORM_PROVIDER
-      console.log('Sending contact form data to provider:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Error enviando el mensaje');
+      }
+
       setIsSubmitSuccess(true);
       reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting contact form:', error);
       setIsSubmitError(true);
     } finally {
       setIsSubmitting(false);

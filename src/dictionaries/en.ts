@@ -129,8 +129,8 @@ export const en: Dictionary = {
       a: 'Yes, we offer preferential net rates and complimentary (FOC) policies for accredited guides and drivers. Please fill out the form in our Agencies section to receive the rate manual.'
     },
     {
-      q: 'What are the cancellation policies?',
-      a: 'Cancellations made more than 48 hours in advance receive a 100% refund. Between 48 and 24 hours receive 50%. Cancellations with less than 24 hours notice or no-shows are non-refundable.'
+      q: 'What are the cancellation and date change policies?',
+      a: 'Cancellations made 24 hours or more in advance receive a 100% refund. Rescheduling or date changes are permitted up to 12 hours prior without penalty. Cancellations with less than 24 hours notice or no-shows are non-refundable.'
     }
   ],
   agenciesPage: {

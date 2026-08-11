@@ -28,12 +28,20 @@ export function getExperienceMetadata(locale: string, slug: string): Metadata {
     : `/en/experiences/${experience.slugEN}`;
   const url = `${SITE_URL}${path}`;
 
+  const esUrl = `${SITE_URL}/es/experiencias/${experience.slug}`;
+  const enUrl = `${SITE_URL}/en/experiences/${experience.slugEN}`;
+
   return {
     title,
     description,
     keywords: isEs ? experience.keywords : experience.keywordsEN,
     alternates: {
       canonical: url,
+      languages: {
+        'es': esUrl,
+        'en': enUrl,
+        'x-default': esUrl,
+      },
     },
     openGraph: {
       title,
@@ -41,10 +49,11 @@ export function getExperienceMetadata(locale: string, slug: string): Metadata {
       url,
       siteName: 'Casona Los Rodríguez',
       locale: isEs ? 'es_CR' : 'en_US',
+      alternateLocale: [isEs ? 'en_US' : 'es_CR'],
       type: 'website',
       images: [
         {
-          url: experience.heroImage,
+          url: `${SITE_URL}${experience.heroImage}`,
           alt: title,
         },
       ],
@@ -53,7 +62,7 @@ export function getExperienceMetadata(locale: string, slug: string): Metadata {
       card: 'summary_large_image',
       title,
       description,
-      images: [experience.heroImage],
+      images: [`${SITE_URL}${experience.heroImage}`],
     },
   };
 }

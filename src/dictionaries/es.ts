@@ -127,8 +127,8 @@ export const es = {
       a: 'Sí, ofrecemos tarifas preferenciales y políticas de gratuidades (FOC) para guías y choferes acreditados. Por favor, complete el formulario en nuestra sección de Agencias para recibir el tarifario.'
     },
     {
-      q: '¿Cuáles son las políticas de cancelación?',
-      a: 'Las cancelaciones realizadas con más de 48 horas de anticipación reciben un reembolso del 100%. Entre 48 y 24 horas reciben un 50%. Cancelaciones con menos de 24 horas o no-show no son reembolsables.'
+      q: '¿Cuáles son las políticas de cancelación y cambios?',
+      a: 'Las cancelaciones realizadas con 24 horas o más de anticipación reciben un reembolso del 100%. Se permiten reprogramaciones o cambios de fecha sin penalización solicitados con al menos 12 horas de anticipación. Cancelaciones con menos de 24 horas o inasistencias (no-show) no son reembolsables.'
     }
   ],
   agenciesPage: {

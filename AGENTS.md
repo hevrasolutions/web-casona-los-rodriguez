@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-08-10
-**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo de Nosotros — COMPLETO. Sistema FadeIn — COMPLETO EN TODO EL SITIO WEB (8/8 páginas). Política de Cancelación y Cambios (Reembolso 100% 24h+ / Reprogramación 12h+) — COMPLETO (ago 2026). Fase actual: Fase 7 — SEO Técnico y Optimización (En Progreso)
+**Última Actualización:** 2026-08-11
+**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo de Nosotros — COMPLETO. Sistema FadeIn — COMPLETO. Configuración de Formularios (/api/contact y /api/agencies con Hostinger SMTP / Resend) — COMPLETO. Fase 7 — SEO Técnico 360°, AEO, JSON-LD, Sitemap, Robots.txt & GA4 — COMPLETO (ago 2026).
 
 ---
 
@@ -223,8 +223,18 @@ Las imágenes reales del sitio se organizan en:
 
 ## 10. Variables de Entorno Requeridas
 
+* `NEXT_PUBLIC_SITE_URL`: Dominio público oficial del sitio web (`https://casonalosrodriguez.cr`). Usado para URLs canónicas y metaetiquetas OpenGraph/Twitter.
 * `NEXT_PUBLIC_BOOKING_URL`: URL base del motor de reserva externo.
   * Si la variable no está definida o equivale a `'TODO_BOOKING_URL'`, el sistema resolverá de forma segura hacia `#` y prevendrá errores de redirección, controlada mediante [`src/lib/booking.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/lib/booking.ts).
+* `NEXT_PUBLIC_GA_MEASUREMENT_ID`: ID de propiedad de Google Analytics 4 (ej. `G-XXXXXXXXXX`).
+* `SMTP_HOST`: Servidor SMTP de Hostinger (`smtp.hostinger.com`). Opción primaria recomendada.
+* `SMTP_PORT`: Puerto SSL/TLS de Hostinger (`465`).
+* `SMTP_USER`: Cuenta de correo creada en Hostinger (ej. `info@casonalosrodriguez.cr`).
+* `SMTP_PASS`: Contraseña de la cuenta de correo de Hostinger.
+* `RESEND_API_KEY`: API Key de Resend (opción secundaria/fallback). Si ni SMTP ni Resend están configurados, el sistema opera en modo simulado para desarrollo.
+* `EMAIL_FROM`: Dirección de remitente (`Casona Los Rodríguez <info@casonalosrodriguez.cr>`).
+* `CONTACT_EMAIL_TO`: Correo receptor del Formulario de Contacto General (`info@casonalosrodriguez.cr`).
+* `AGENCY_EMAIL_TO`: Correo receptor del Formulario de Cotización de Agencias B2B (`agencias@casonalosrodriguez.cr`).
 
 ### Reserva temporal por WhatsApp (mientras no exista motor externo)
 
@@ -299,14 +309,22 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * **Cancelación Tardía / No-Show (0%):** Cancelaciones con menos de 24 horas o inasistencias no son reembolsables.
 * **Sincronización:** Actualizado el componente [`CancellationPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/CancellationPage.tsx) y las traducciones en [`es.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/dictionaries/es.ts) y [`en.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/dictionaries/en.ts) (incluyendo `cancellationPage` y la pregunta de política de cancelación en `faqsList`).
 
-### Tareas Pendientes para la Fase 7:
-* [ ] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos por página (`title`, `description`, `keywords`). *Completado: metadatos dinámicos bilingües en layout base, favicon SVG e imagen para compartir en chats (og:image) optimizada (<300KB).*
-* [ ] **Schema Markup:** Integrar datos estructurados en formato JSON-LD para `LocalBusiness`, `TouristAttraction` (experiencias) y `Restaurant` para optimizar Rich Snippets en Google.
-* [ ] **Archivos SEO:** Configurar sitemap dinámico (`sitemap.xml`) y el archivo estático `robots.txt`.
-* [ ] **Hreflang Tags:** Declarar etiquetas hreflang cruzadas entre las páginas localizadas `/es` y `/en` para evitar penalizaciones por contenido duplicado.
-* [/] **Core Web Vitals:** Auditoría de velocidad y optimización de rendimiento (Lazy loading, optimización de fuentes y tamaños de imágenes WebP). *Completado: Estabilización de altura del Hero Carousel utilizando CSS Grid para eliminar por completo el Cumulative Layout Shift (CLS) en Desktop y Mobile.*
-* [x] **Animaciones Micro-interactivas:** Integrar transiciones fluidas de entrada (`FadeIn`) y efectos de parallax sutiles que enriquezcan la estética visual premium sin perjudicar el rendimiento. *Completado: Componente reutilizable `FullViewportParallax` de Ventana Fija nativa (`clip-path: inset(0)`). Sistema `FadeIn` (scroll reveal) completado en el 100% de las 8 páginas del sitio web.*
-* [ ] **Google Analytics 4:** Añadir los scripts de GA4 vinculando la variable de medición correspondiente.
+### Track paralelo: Configuración de Formularios de Contacto y Agencias B2B (COMPLETA, ago 2026)
+* **Endpoints de API:** Creados `/api/contact` y `/api/agencies` en Next.js 16 App Router con validación de esquemas `Zod` en servidor.
+* **Integración de Correo Híbrida (Hostinger SMTP + Resend):** Creado el módulo de mensajería [`email.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/lib/email.ts) integrado primariamente con el servidor **SMTP de Hostinger** (`smtp.hostinger.com:465`) a través de `nodemailer`, con fallback a la API de Resend y modo de simulación seguro para desarrollo.
+* **Plantillas HTML Responsive:** Diseñadas plantillas rústicas de notificación interna dirigidas a `info@casonalosrodriguez.cr` y `agencias@casonalosrodriguez.cr`, además de correos automáticos de respuesta/confirmación para clientes y operadores B2B.
+
+### Track paralelo: Optimización de Carga de Imágenes Hero (Zero-Flash, ago 2026)
+* **Eliminación del Parpadeo Café:** Se reemplazó el color de fondo preliminar de los contenedores Hero (`bg-primary = #4A2511`) por un tono oscuro neutro (`bg-[#1c140e]`) coincidente con la capa de oscurecimiento `bg-black/60` en [`HeroBasic.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/HeroBasic.tsx), [`HeroCarousel.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/HeroCarousel.tsx) y [`ExperienceDetailV2.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailV2.tsx).
+* **Transición Suave (`onLoad` Fade):** Se añadió `onLoad` con la clase `transition-opacity duration-500` para revelar la foto suavemente sin saltos visuales ni cortes de contraste.
+
+### Track paralelo: Fase 7 — SEO Técnico 360°, AEO, JSON-LD, Sitemap, Robots.txt & GA4 (COMPLETO, ago 2026)
+* [x] **SEO Técnico Completo:** Optimización de metadatos estáticos y dinámicos bilingües (`title`, `description`, `keywords`, `openGraph`, `twitter`) para las 8 rutas principales y las 3 páginas de experiencia dinámicas.
+* [x] **Schema Markup (JSON-LD):** Integrados datos estructurados en formato `application/ld+json` para `Organization`, `LocalBusiness` / `TouristAttraction`, `Restaurant`, `TouristTrip` (experiencias) y `FAQPage` para Rich Snippets en Google y motores de IA.
+* [x] **AEO (Answer Engine Optimization):** Contenido y esquemas optimizados para motores de búsqueda generativa por Inteligencia Artificial (ChatGPT, Perplexity, Gemini, Claude, Copilot).
+* [x] **Hreflang Tags & Canonicals:** Enlaces `rel="alternate"` bilingües (`es`, `en`, `x-default`) declarados cruzados entre todas las páginas del sitio para prevenir duplicados.
+* [x] **Archivos SEO Técnicos:** `sitemap.xml` dinámico ([`sitemap.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/app/sitemap.ts)) mapeando las 53 rutas localizadas con `lastModified`, `changeFrequency` y `priority`, más `robots.txt` ([`robots.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/app/robots.ts)).
+* [x] **Google Analytics 4:** Componente ([`GoogleAnalytics.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/seo/GoogleAnalytics.tsx)) integrado para inyección no bloqueante de `gtag.js`.
 
 ---
 

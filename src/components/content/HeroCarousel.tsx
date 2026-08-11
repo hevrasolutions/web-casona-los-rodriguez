@@ -98,12 +98,12 @@ export default function HeroCarousel({ locale, dict }: HeroCarouselProps) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-primary overflow-hidden"
+      className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center bg-[#1c140e] overflow-hidden"
       onMouseEnter={() => setIsPlaying(false)}
       onMouseLeave={() => setIsPlaying(true)}
     >
       {/* Background Slides */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-[#1c140e]">
         {heroSlides.map((slide, index) => {
           const isActive = index === currentIndex;
           const isPlaceholder = slide.image === 'TODO_IMAGE';

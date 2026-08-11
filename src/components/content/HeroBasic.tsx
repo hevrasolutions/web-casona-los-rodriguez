@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Locale } from '@/lib/i18n';
 import { Dictionary } from '@/dictionaries/es';
@@ -12,6 +14,7 @@ interface HeroBasicProps {
 }
 
 export default function HeroBasic({ locale, dict }: HeroBasicProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const isEs = locale === 'es';
   const h1Text = isEs 
     ? 'Donde la tierra cuenta su historia' 
@@ -23,17 +26,20 @@ export default function HeroBasic({ locale, dict }: HeroBasicProps) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative min-h-[80vh] flex items-center justify-center bg-primary overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center bg-[#1c140e] overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-[#1c140e]">
         <Image
           src="/images/hero/casona-los-rodriguez-exterior-001.webp"
           alt={isEs ? 'Fachada exterior de la Casona Los Rodríguez' : 'Exterior facade of Casona Los Rodríguez'}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center scale-105"
+          onLoad={() => setIsLoaded(true)}
+          className={`object-cover object-center scale-105 transition-opacity duration-500 ease-out ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60 mix-blend-multiply z-10" />
