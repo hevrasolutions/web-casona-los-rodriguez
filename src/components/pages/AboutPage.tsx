@@ -35,8 +35,15 @@ export default function AboutPage({ locale }: AboutPageProps) {
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp')] pointer-events-none" />
-        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
+        <Image
+          src="/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp"
+          alt={isEs ? 'Fachada histórica de La Casona Los Rodríguez' : 'Historic facade of Casona Los Rodríguez'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
           <FadeIn direction="up">

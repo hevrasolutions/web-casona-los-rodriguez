@@ -14,7 +14,6 @@ interface HeroBasicProps {
 }
 
 export default function HeroBasic({ locale, dict }: HeroBasicProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
   const isEs = locale === 'es';
   const h1Text = isEs 
     ? 'Donde la tierra cuenta su historia' 
@@ -36,13 +35,10 @@ export default function HeroBasic({ locale, dict }: HeroBasicProps) {
           fill
           priority
           sizes="100vw"
-          onLoad={() => setIsLoaded(true)}
-          className={`object-cover object-center scale-105 transition-opacity duration-500 ease-out ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="object-cover object-center scale-105"
         />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60 mix-blend-multiply z-10" />
+        {/* Balanced overlay for readability & photo warmth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-black/60 z-10 pointer-events-none" />
       </div>
 
       {/* Hero Content */}

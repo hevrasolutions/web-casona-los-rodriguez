@@ -175,7 +175,7 @@ export default function ExperienceDetailV2({
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-primary/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
         <Container className="relative z-10 py-16 sm:py-20 lg:py-28 flex flex-col items-center text-center">
           <FadeIn direction="up">
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white-warm leading-tight max-w-4xl">

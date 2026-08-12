@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Locale, getDictionary } from '@/lib/i18n';
 import { experiences } from '@/data/experiences';
 import Container from '../ui/Container';
@@ -118,8 +119,15 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
     <>
       {/* Bloque 1: Page Header Hero */}
       <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/traditional-events/casona-los-rodriguez-costa-rican-cultural-event-001.webp')] pointer-events-none" />
-        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
+        <Image
+          src="/images/gallery/traditional-events/casona-los-rodriguez-costa-rican-cultural-event-001.webp"
+          alt={isEs ? 'Evento cultural costarricense en La Casona Los Rodríguez' : 'Costa Rican Cultural Event at Casona Los Rodríguez'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
           <FadeIn direction="up">

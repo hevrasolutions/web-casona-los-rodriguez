@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Locale, getDictionary } from '@/lib/i18n';
 import Container from '../ui/Container';
 import ContactForm from '../forms/ContactForm';
@@ -27,8 +28,15 @@ export default function ContactPage({ locale }: ContactPageProps) {
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-001.webp')] pointer-events-none" />
-        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
+        <Image
+          src="/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-001.webp"
+          alt={isEs ? 'Instalaciones de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facilities'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
           <FadeIn direction="up">

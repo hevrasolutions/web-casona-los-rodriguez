@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Locale, getDictionary } from '@/lib/i18n';
 import Container from '../ui/Container';
 import AgencyQuoteForm from '../forms/AgencyQuoteForm';
@@ -15,23 +16,50 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
   const dict = getDictionary(locale);
   const isEs = locale === 'es';
 
-  // SVG benefit icons mapping
+  // Benefits list
+  const benefits = [
+    {
+      title: isEs ? 'Tarifas Especiales B2B' : 'Special B2B Rates',
+      desc: isEs
+        ? 'Precios y condiciones exclusivas para agencias de viajes, tour operadores y DMCs.'
+        : 'Exclusive prices and terms for travel agencies, tour operators, and DMCs.',
+    },
+    {
+      title: isEs ? 'Atención Personalizada' : 'Personalized Assistance',
+      desc: isEs
+        ? 'Un equipo dedicado para gestionar la logística y requerimientos de sus grupos.'
+        : 'A dedicated team to manage your groups\' logistics and specific requirements.',
+    },
+    {
+      title: isEs ? 'Experiencias a la Medida' : 'Tailored Experiences',
+      desc: isEs
+        ? 'Adaptación de horarios, menús y actividades según las necesidades de su itinerario.'
+        : 'Flexible schedules, menus, and activities adapted to your itinerary needs.',
+    },
+    {
+      title: isEs ? 'Capacidad para Grupos' : 'Group Capacity',
+      desc: isEs
+        ? 'Instalaciones preparadas para recibir grupos desde pequeños hasta 100 personas.'
+        : 'Facilities ready to host groups ranging from small gatherings up to 100 guests.',
+    },
+  ];
+
   const benefitIcons = [
-    // Percent/Commission
-    <svg key="percent" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    // B2B Rates
+    <svg key="rates" className="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>,
-    // Users/Guide
-    <svg key="users" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    // Dedicated Team
+    <svg key="team" className="w-6 h-6 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
     </svg>,
-    // Food/Kitchen
-    <svg key="food" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.232.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.232.477-4.5 1.253" />
+    // Tailored Experiences
+    <svg key="tailored" className="w-6 h-6 text-jungle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zm-6 8a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1zm12 0a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2v-1z" />
     </svg>,
-    // Clock/Calendar
-    <svg key="clock" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    // Group Capacity
+    <svg key="capacity" className="w-6 h-6 text-blue-colonial" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4" />
     </svg>
   ];
 
@@ -39,8 +67,15 @@ export default function AgenciesPage({ locale }: AgenciesPageProps) {
     <>
       {/* Hero Header */}
       <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/hero/casona-los-rodriguez-exterior-001.webp')] pointer-events-none" />
-        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
+        <Image
+          src="/images/hero/casona-los-rodriguez-exterior-001.webp"
+          alt={isEs ? 'Fachada de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facade'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
         
         <Container className="relative z-10 py-6">
           <FadeIn direction="up">

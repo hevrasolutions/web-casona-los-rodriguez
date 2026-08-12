@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Locale, getDictionary } from '@/lib/i18n';
 import Container from '../ui/Container';
 
@@ -16,8 +17,15 @@ export default function TermsPage({ locale }: TermsPageProps) {
     <>
       {/* Page Header */}
       <section className="bg-primary text-white-warm py-16 relative overflow-hidden text-center border-b border-wood/50">
-        <div className="absolute inset-0 bg-cover bg-center bg-[url('/images/hero/casona-los-rodriguez-exterior-001.webp')] pointer-events-none" />
-        <div className="absolute inset-0 bg-primary/85 pointer-events-none" />
+        <Image
+          src="/images/hero/casona-los-rodriguez-exterior-001.webp"
+          alt={isEs ? 'Fachada de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facade'}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
         
         <Container className="relative z-10">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2">
