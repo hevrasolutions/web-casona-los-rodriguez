@@ -23,7 +23,7 @@ export default function BookingSidebar({
   const schedule = isEs ? experience.schedule : experience.scheduleEN;
 
   return (
-    <div className="bg-white-warm border border-sand/30 rounded-lg p-6 lg:p-8 shadow-md lg:sticky lg:top-24">
+    <div className="bg-white-warm border border-sand/30 rounded-lg p-6 lg:p-8 shadow-md">
       {/* Title */}
       <h3 className="font-heading text-lg sm:text-xl font-bold text-primary mb-4 pb-3 border-b border-sand/15 uppercase tracking-wide">
         {isEs ? 'Detalle de Reserva' : 'Booking Details'}

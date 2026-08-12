@@ -222,7 +222,7 @@ export default function ExperienceDetailV2({
       </div>
 
       {/* 3. Main 2-column layout (single column on mobile) */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-cream overflow-hidden">
+      <section className="py-8 sm:py-12 lg:py-16 bg-cream">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
             {/* Main Content Column */}
@@ -552,7 +552,7 @@ export default function ExperienceDetailV2({
             </div>
 
             {/* Booking column: in-flow card on mobile, sticky sidebar on desktop */}
-            <aside className="lg:col-span-1">
+            <aside className="lg:col-span-1 lg:sticky lg:top-28 self-start z-20">
               <FadeIn direction="up" delay={200}>
                 <BookingSidebar
                   experience={experience}
