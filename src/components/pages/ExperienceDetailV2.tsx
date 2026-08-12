@@ -166,7 +166,7 @@ export default function ExperienceDetailV2({
       )}
 
       {/* 1. Hero full-width */}
-      <section className="relative bg-[#1c140e] overflow-hidden">
+      <section className="relative bg-stone-950 overflow-hidden">
         <Image
           src={experience.heroImage}
           alt={galleryAlt(experience.heroImage, 0)}
@@ -175,13 +175,13 @@ export default function ExperienceDetailV2({
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
-        <Container className="relative z-10 py-16 sm:py-20 lg:py-28 flex flex-col items-center text-center">
-          <FadeIn direction="up">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white-warm leading-tight max-w-4xl">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
+        <Container className="relative z-10 py-16 sm:py-20 lg:py-28 flex flex-col items-center justify-center text-center">
+          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white-warm leading-tight max-w-4xl text-center mx-auto">
               {h1}
             </h1>
-            <p className="mt-4 sm:mt-6 font-subheading italic text-base sm:text-lg md:text-xl text-gold max-w-2xl leading-relaxed">
+            <p className="mt-4 sm:mt-6 font-subheading italic text-base sm:text-lg md:text-xl text-gold max-w-2xl leading-relaxed text-center mx-auto">
               {tagline}
             </p>
           </FadeIn>

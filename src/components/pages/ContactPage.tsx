@@ -27,7 +27,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
   return (
     <>
       {/* Hero Header */}
-      <section className="bg-primary text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
+      <section className="bg-stone-950 text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
         <Image
           src="/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-001.webp"
           alt={isEs ? 'Instalaciones de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facilities'}
@@ -36,20 +36,20 @@ export default function ContactPage({ locale }: ContactPageProps) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
         
-        <Container className="relative z-10 py-6">
-          <FadeIn direction="up">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
+          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
+            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
               {isEs ? 'Póngase en contacto' : 'Get in touch'}
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-center mx-auto max-w-4xl">
               {dict.nav.contact}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
               {isEs
-                ? '¿Tiene preguntas sobre nuestras experiencias o desea organizar un evento especial? Escríbanos y le responderemos con gusto.'
-                : 'Have questions about our experiences or want to host a special event? Write to us and we will gladly reply.'}
+                ? '¿Tiene preguntas sobre nuestras experiencias o reservaciones? Escríbanos o llámenos directamente, estamos para servirle.'
+                : 'Have questions about our experiences or bookings? Write to us or call us directly, we are here to help you.'}
             </p>
           </FadeIn>
         </Container>

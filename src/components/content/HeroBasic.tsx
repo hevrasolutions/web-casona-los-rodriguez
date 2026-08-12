@@ -25,10 +25,10 @@ export default function HeroBasic({ locale, dict }: HeroBasicProps) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative min-h-[80vh] flex items-center justify-center bg-[#1c140e] overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center bg-stone-950 overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 bg-[#1c140e]">
+      <div className="absolute inset-0 z-0 bg-stone-950">
         <Image
           src="/images/hero/casona-los-rodriguez-exterior-001.webp"
           alt={isEs ? 'Fachada exterior de la Casona Los Rodríguez' : 'Exterior facade of Casona Los Rodríguez'}
@@ -38,7 +38,7 @@ export default function HeroBasic({ locale, dict }: HeroBasicProps) {
           className="object-cover object-center scale-105"
         />
         {/* Balanced overlay for readability & photo warmth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-black/60 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 z-10 pointer-events-none" />
       </div>
 
       {/* Hero Content */}

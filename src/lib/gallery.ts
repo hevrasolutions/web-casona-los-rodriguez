@@ -48,6 +48,15 @@ const categoryDefaults: Record<GalleryCategory, { es: string; en: string }> = {
 
 const VALID_IMAGE_EXTENSIONS = ['.webp', '.jpg', '.jpeg', '.png', '.gif'];
 
+/**
+ * Filenames of images inside public/images/gallery/ that should NOT be displayed on the gallery page.
+ * Add any image filename here to exclude it from the public gallery page.
+ */
+export const EXCLUDED_GALLERY_IMAGES: string[] = [
+  'costa-rica-5-colones-bill-v2.png',
+  'costa-rica-5-colones-bill.png',
+];
+
 export function getDynamicGalleryItems(): GalleryItem[] {
   const galleryItems: GalleryItem[] = [];
   const galleryDir = path.join(process.cwd(), 'public/images/gallery');
@@ -77,9 +86,15 @@ export function getDynamicGalleryItems(): GalleryItem[] {
           return; // Skip non-image files
         }
 
+        const metadata = galleryMetadata[file];
+
+        // Skip images that are explicitly excluded (via list or metadata flag)
+        if (EXCLUDED_GALLERY_IMAGES.includes(file) || metadata?.excluded === true) {
+          return;
+        }
+
         const id = `${category}-${path.basename(file, ext)}`;
         const src = `/images/gallery/${category}/${file}`;
-        const metadata = galleryMetadata[file];
 
         // Generate alt fallback based on filename or category default
         let altES = metadata?.altES;

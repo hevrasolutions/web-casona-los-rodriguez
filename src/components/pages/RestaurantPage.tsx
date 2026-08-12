@@ -44,7 +44,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
   return (
     <>
       {/* Bloque 1: Hero Header */}
-      <section className="relative bg-primary text-white-warm py-24 overflow-hidden text-center border-b border-wood/50">
+      <section className="relative bg-stone-950 text-white-warm py-24 overflow-hidden text-center border-b border-wood/50">
         <Image
           src="/images/gallery/restaurant-kitchen/casona-los-rodriguez-traditional-dining-room-004.webp"
           alt={isEs ? 'Ambiente rústico y acogedor del comedor de La Casona' : 'Cozy rustic atmosphere in the dining room of La Casona'}
@@ -53,20 +53,20 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
 
-        <Container className="relative z-10 py-6">
-          <FadeIn direction="up">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
+          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
+            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
               {subtitle}
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 max-w-4xl mx-auto leading-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 max-w-4xl mx-auto leading-tight text-center">
               {title}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
               {isEs
                 ? 'Le invitamos a redescubrir los sabores auténticos del campo costarricense. Nuestra cocina es un homenaje a las tradiciones de antaño.'
-                : 'We invite you to rediscover the authentic flavors of the Costa Rican countryside. Our kitchen is a tribute to the traditions of the past.'}
+                : 'We invite you to rediscover the authentic flavors of the Costa Rican countryside. Our kitchen is a homage to old traditions.'}
             </p>
           </FadeIn>
         </Container>

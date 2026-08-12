@@ -6,8 +6,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Casona Los Rodríguez — Guía de Desarrollo para Agentes (AGENTS.md)
 
-**Última Actualización:** 2026-08-11
-**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo de Nosotros — COMPLETO. Sistema FadeIn — COMPLETO. Configuración de Formularios (/api/contact y /api/agencies con Hostinger SMTP / Resend) — COMPLETO. Fase 7 — SEO Técnico 360°, AEO, JSON-LD, Sitemap, Robots.txt & GA4 — COMPLETO (ago 2026).
+**Última Actualización:** 2026-08-12
+**Fase Activa:** Rediseño de Detalle de Experiencias — COMPLETO. Rediseño de Agencias — COMPLETO. Rediseño Narrativo de Nosotros — COMPLETO. Sistema FadeIn — COMPLETO. Configuración de Formularios (/api/contact y /api/agencies con Hostinger SMTP / Resend) — COMPLETO. Fase 7 — SEO Técnico 360°, AEO, JSON-LD, Sitemap, Robots.txt & GA4 — COMPLETO. Integración Narrativa de Entorno Natural (Perezosos de 2 dedos, Volcán Arenal, Campos de Cultivo, Río Fortuna) & Galería de 9 fotos — COMPLETO (ago 2026).
 
 ---
 
@@ -332,6 +332,13 @@ Los siguientes placeholders deben reemplazarse a medida que se confirme la infor
 * [x] **Hreflang Tags & Canonicals:** Enlaces `rel="alternate"` bilingües (`es`, `en`, `x-default`) declarados cruzados entre todas las páginas del sitio para prevenir duplicados.
 * [x] **Archivos SEO Técnicos:** `sitemap.xml` dinámico ([`sitemap.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/app/sitemap.ts)) mapeando las 53 rutas localizadas con `lastModified`, `changeFrequency` y `priority`, más `robots.txt` ([`robots.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/app/robots.ts)).
 * [x] **Google Analytics 4:** Componente ([`GoogleAnalytics.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/seo/GoogleAnalytics.tsx)) integrado para inyección no bloqueante de `gtag.js`.
+
+### Track paralelo: Integración Narrativa de Entorno Natural, Fauna Silvestre & Galerías (COMPLETO, ago 2026)
+* **Narrativa de Entorno Natural & Fauna:** Integradas menciones bilingües de la familia residente de perezosos de dos dedos, aves tropicales, mariposas libres, vistas al Volcán Arenal, campos de cultivo de Sona Fluca y cercanía al Río Fortuna en [`TrustBar.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/TrustBar.tsx), [`LocationBrief.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/content/LocationBrief.tsx), [`AboutPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AboutPage.tsx) (*"Un Refugio Natural entre Campos, Ríos y Perezosos"*) y en los destacados (*Highlights*) de [`experiences.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/data/experiences.ts).
+* **Fotografía del Perezoso (`sloths-la-fortuna.webp`):** Registrada en [`gallery-metadata.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/data/gallery-metadata.ts) con textos alt accesibles bilingües.
+* **Galerías de 9 Fotografías:** Fichas de detalle del **Tour Histórico Cultural** y del **Day Pass** ampliadas a 9 imágenes en [`experiences.ts`](file:///c:/Proyectos/casona_los_rodriguez/src/data/experiences.ts), formando una grilla simétrica 3x3 en tabletas y responsiva en escritorios y móviles con Lightbox interactivo.
+* **Alineación Centrada en Headers Hero:** Aplicado `text-center mx-auto` homogéneo a los títulos, subtítulos y descripciones en los encabezados Hero de todas las páginas secundarias y plantillas de detalle ([`ExperienceDetailV2.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperienceDetailV2.tsx), [`AboutPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AboutPage.tsx), [`AgenciesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/AgenciesPage.tsx), [`ContactPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ContactPage.tsx), [`ExperiencesPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/ExperiencesPage.tsx), [`GalleryPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/GalleryPage.tsx), [`RestaurantPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/RestaurantPage.tsx), [`CancellationPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/CancellationPage.tsx), [`TermsPage.tsx`](file:///c:/Proyectos/casona_los_rodriguez/src/components/pages/TermsPage.tsx)), conservando la portada Home original.
+* **Optimización de Degradado Hero:** Estandarizado el degradado overlay `bg-gradient-to-b from-primary/85 via-black/60 to-primary/80` en los 10 componentes Hero para brindar calidez rústica de marca y contraste nítido sin parpadeo café preliminar (`bg-stone-950`).
 
 ---
 

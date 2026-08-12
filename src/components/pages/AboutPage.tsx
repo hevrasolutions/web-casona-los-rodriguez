@@ -34,7 +34,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
   return (
     <>
       {/* Hero Header */}
-      <section className="bg-primary text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
+      <section className="bg-stone-950 text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
         <Image
           src="/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp"
           alt={isEs ? 'Fachada histórica de La Casona Los Rodríguez' : 'Historic facade of Casona Los Rodríguez'}
@@ -43,17 +43,17 @@ export default function AboutPage({ locale }: AboutPageProps) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/65 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
         
-        <Container className="relative z-10 py-6">
-          <FadeIn direction="up">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block">
+        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
+          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
+            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
               {dict.aboutPage.subtitle}
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-center mx-auto max-w-4xl">
               {dict.aboutPage.title}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
               {dict.aboutPage.desc}
             </p>
           </FadeIn>
@@ -274,6 +274,27 @@ export default function AboutPage({ locale }: AboutPageProps) {
               </FadeIn>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* Natural Environment & Wildlife Section */}
+      <section className="py-20 sm:py-28 bg-white-warm border-t border-sand/15">
+        <Container className="max-w-5xl mx-auto">
+          <FadeIn direction="up">
+            <div className="bg-cream/50 border border-gold/30 rounded-xl p-8 sm:p-12 shadow-sm text-center space-y-6">
+              <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider block">
+                {isEs ? 'Paisaje y Vida Silvestre' : 'Landscape & Wildlife'}
+              </span>
+              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary max-w-3xl mx-auto leading-tight">
+                {isEs ? 'Un Refugio Natural entre Campos, Ríos y Perezosos' : 'A Natural Haven Among Fields, Rivers & Sloths'}
+              </h2>
+              <p className="text-base sm:text-lg text-primary/85 font-body leading-relaxed max-w-4xl mx-auto">
+                {isEs
+                  ? 'Más allá de sus 120 años de historia, La Casona descansa en Sona Fluca rodeada de cultivos tradicionales del campo tico. Aquí los visitantes disfrutan del canto de aves nativas, el revoloteo de mariposas y el avistamiento de nuestra querida familia residente de perezosos de dos dedos en los árboles de la finca. En días claros, el horizonte regala postales imponentes del Volcán Arenal, mientras la brisa del cercano Río Fortuna evoca la serenidad de la vida rural costarricense.'
+                  : 'Beyond its 120-year history, La Casona rests in Sona Fluca surrounded by classic Costa Rican farm crops. Here, guests enjoy native birdsong, colorful butterflies, and glimpses of our resident family of two-toed sloths in the farm\'s canopy. On clear days, the horizon offers stunning backdrops of Arenal Volcano, while the cool breeze from the nearby Fortuna River evokes the peaceful rhythm of rural Costa Rica.'}
+              </p>
+            </div>
+          </FadeIn>
         </Container>
       </section>
 

@@ -49,6 +49,7 @@ export const experiences: Experience[] = [
       '/images/gallery/traditional-events/costa-rica-folklore-dance-cultural-experience.webp',
       '/images/gallery/traditional-events/casona-los-rodriguez-costa-rican-cultural-event-001.webp',
       '/images/gallery/farm-trapiche/organic-ingredients-costa-rican-cuisine.webp',
+      '/images/gallery/farm-trapiche/sloths-la-fortuna.webp',
       '/images/gallery/farm-trapiche/horses-costa-rican-farm-la-fortuna.webp',
       '/images/gallery/farm-trapiche/pigs-rural-farm-in-casona-los-rodriguez.webp',
       '/images/gallery/typical-food/casona-los-rodriguez-typical-food-la-fortuna-003.webp',
@@ -83,6 +84,8 @@ export const experiences: Experience[] = [
     ],
     highlights: [
       { icon: '🌾', text: 'Cultivos tradicionales de la Zona Norte, explicados por guías locales' },
+      { icon: '🦥', text: 'Avistamiento natural de perezosos de dos dedos, aves silvestres y mariposas en la finca' },
+      { icon: '🌋', text: 'Vistas panorámicas a los campos de cultivo y al Volcán Arenal (sujeto al clima)' },
       { icon: '🗣️', text: 'Conversatorio genuino sobre historia, religión y costumbres de La Fortuna' },
       { icon: '🐄', text: 'Recorrido por huerta orgánica y granja de animales' },
       { icon: '🍽️', text: 'Almuerzo o cena típica compartida en familia, con opciones de proteína a elegir' },
@@ -91,6 +94,8 @@ export const experiences: Experience[] = [
     ],
     highlightsEN: [
       { icon: '🌾', text: 'Traditional crops of the Zona Norte, explained by local guides' },
+      { icon: '🦥', text: 'Natural wildlife observation: resident two-toed sloths, tropical birds, and butterflies' },
+      { icon: '🌋', text: 'Panoramic views of local crop fields and Arenal Volcano (weather permitting)' },
       { icon: '🗣️', text: "A genuine conversation about La Fortuna's history, religion, and customs" },
       { icon: '🐄', text: 'Walk through the organic garden and animal farm' },
       { icon: '🍽️', text: 'Traditional lunch or dinner shared as a family, with a choice of protein' },
@@ -414,6 +419,7 @@ export const experiences: Experience[] = [
     notIncludesEN: ['Transportation', '13% VAT'],
     heroImage: '/images/gallery/farm-trapiche/pigs-rural-farm-la-fortuna-costa-rica.webp',
     images: [
+      '/images/gallery/farm-trapiche/sloths-la-fortuna.webp',
       '/images/gallery/farm-trapiche/pigs-rural-farm-la-fortuna-costa-rica.webp',
       '/images/gallery/farm-trapiche/casona-los-rodriguez-farm-to-table-experience.webp',
       '/images/gallery/farm-trapiche/organic-garden-casona-los-rodriguez-la-fortuna.webp',
@@ -451,6 +457,9 @@ export const experiences: Experience[] = [
     ],
     highlights: [
       { icon: '🚶', text: 'Acceso libre a las instalaciones, la huerta y la granja' },
+      { icon: '🦥', text: 'Avistamiento natural de perezosos de dos dedos, aves y mariposas en la finca' },
+      { icon: '🌋', text: 'Vistas a campos de cultivo y al Volcán Arenal (sujeto al clima)' },
+      { icon: '🌊', text: 'Ubicación a minutos del cristalino y popular Río Fortuna' },
       { icon: '🍽️', text: 'Almuerzo o cena típica (según horario seleccionado) con opciones a escoger' },
       { icon: '🥤', text: 'Bebida natural y agua incluidas' },
       { icon: '⏱️', text: 'Sin horarios fijos dentro del pase — explora a tu ritmo' },
@@ -458,6 +467,9 @@ export const experiences: Experience[] = [
     ],
     highlightsEN: [
       { icon: '🚶', text: 'Free access to the grounds, garden, and farm' },
+      { icon: '🦥', text: 'Natural wildlife spotting: resident two-toed sloths, tropical birds, and butterflies' },
+      { icon: '🌋', text: 'Views of local crop fields and Arenal Volcano (weather permitting)' },
+      { icon: '🌊', text: 'Location just minutes away from the popular Fortuna River' },
       { icon: '🍽️', text: 'Traditional lunch or dinner (depending on time slot) with menu options' },
       { icon: '🥤', text: 'Natural drink and water included' },
       { icon: '⏱️', text: 'No fixed schedule within the pass — explore at your own pace' },

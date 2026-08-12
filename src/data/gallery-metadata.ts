@@ -1,6 +1,7 @@
 export interface GalleryPhotoMetadata {
   altES: string;
   altEN: string;
+  excluded?: boolean; // Set to true to exclude from public gallery pages
 }
 
 export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
@@ -180,6 +181,10 @@ export const galleryMetadata: Record<string, GalleryPhotoMetadata> = {
   'chickens-traditional-farm-casona-los-rodriguez.webp': {
     altES: 'Gallinas de campo en el corral de la finca tradicional',
     altEN: 'Farmhouse chickens in the pen of the traditional farm'
+  },
+  'sloths-la-fortuna.webp': {
+    altES: 'Perezoso de dos dedos descansando apaciblemente entre las ramas de las copas de los árboles de Casona Los Rodríguez en La Fortuna',
+    altEN: 'Two-toed sloth peacefully resting high in the tree canopy at Casona Los Rodríguez farm in La Fortuna'
   },
   'fresh-organic-vegetables-farm-to-table-costa-rica.webp': {
     altES: 'Frutos tropicales verdes creciendo en los árboles del huerto orgánico',

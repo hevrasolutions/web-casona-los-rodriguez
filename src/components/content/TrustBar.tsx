@@ -39,10 +39,10 @@ export default function TrustBar({ locale }: TrustBarProps) {
       ),
     },
     {
-      title: isEs ? 'Inmersión Rural' : 'Rural Immersion',
+      title: isEs ? 'Entorno Rural & Fauna Silvestre' : 'Rural Setting & Native Wildlife',
       desc: isEs
-        ? 'Reconéctese con la tierra a través de actividades prácticas que celebran el ritmo tranquilo de la vida de campo.'
-        : 'Reconnect with the earth through hands-on activities that celebrate the slow pace of rural life.',
+        ? 'Rodeada de campos de cultivo tradicionales y vistas al Volcán Arenal, la finca es hogar natural de una familia residente de perezosos de dos dedos, aves tropicales y mariposas en libertad.'
+        : 'Surrounded by traditional crop fields and views of Arenal Volcano, our farm is home to resident two-toed sloths, tropical birds, and free-flying butterflies.',
       icon: (
         <svg className="w-6 h-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 19v2M9 21h6" />

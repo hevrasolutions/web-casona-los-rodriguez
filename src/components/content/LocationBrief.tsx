@@ -17,8 +17,8 @@ export default function LocationBrief({ locale, dict }: LocationBriefProps) {
   const title = isEs ? 'Nuestra Ubicación' : 'Our Location';
   const subtitle = isEs ? 'Cómo Encontrarnos' : 'How to Find Us';
   const addressText = isEs
-    ? 'Estamos ubicados en Sona Fluca, una tranquila localidad rural a solo minutos del centro de La Fortuna, San Carlos. Nuestra ubicación le permite desconectarse de la ciudad y conectar directamente con el campo costarricense.'
-    : 'We are located in Sona Fluca, a quiet rural town just minutes away from downtown La Fortuna, San Carlos. Our location allows you to disconnect from the city noise and connect directly with the Costa Rican countryside.';
+    ? 'Nos encontramos en la apacible zona rural de Sona Fluca, rodeados por extensos campos de cultivo y con imponentes vistas al Volcán Arenal en días despejados. A solo minutos del popular Río Fortuna —donde las familias locales se reúnen tradicionalmente a nadar y pasar el día—, La Casona ofrece el refugio perfecto para conectar con el campo costarricense.'
+    : 'We are located in the peaceful countryside of Sona Fluca, surrounded by agricultural fields and framed by majestic views of Arenal Volcano on clear days. Just minutes from the popular Fortuna River —a beloved local spot where families gather to swim and enjoy the day— La Casona provides the ultimate retreat to connect with authentic Costa Rica.';
 
   const directionLabel = isEs ? 'Cómo llegar' : 'How to get there';
   const whatsappLabel = isEs ? 'Consultar por WhatsApp' : 'Inquire on WhatsApp';
