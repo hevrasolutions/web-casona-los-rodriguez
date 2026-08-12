@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +10,59 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# Next.js Build & Output
 /.next/
 /out/
+/build/
+/dist/
 
-# production
-/build
+# TypeScript & Next.js auto-generated types
+*.tsbuildinfo
+next-env.d.ts
 
-# misc
-.DS_Store
-*.pem
+# Environment Files (Protects real secrets, explicitly allows template .env.example)
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+!.env.example
 
-# debug
+# IDEs & Editor Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# AI Assistants & Local Tools
+.claude/
+.gemini/
+
+# Testing & Coverage
+/coverage
+
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+*.pem
 
-# vercel
+# Deployment & Temporary Archives
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+.hostinger
+*.zip
+*.tar.gz
