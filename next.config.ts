@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   async redirects() {
     return [
       // Slug renombrado en Fase 1 (Next emite 308, equivalente permanente de 301)
