@@ -6,6 +6,7 @@ import { Locale, getDictionary } from '@/lib/i18n';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import FadeIn from '../ui/FadeIn';
+import SecondaryHero from '../ui/SecondaryHero';
 
 interface AboutPageProps {
   locale: Locale;
@@ -34,31 +35,13 @@ export default function AboutPage({ locale }: AboutPageProps) {
   return (
     <>
       {/* Hero Header */}
-      <section className="bg-stone-950 text-white-warm py-24 relative overflow-hidden text-center border-b border-wood/50">
-        <Image
-          src="/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp"
-          alt={isEs ? 'Fachada histórica de La Casona Los Rodríguez' : 'Historic facade of Casona Los Rodríguez'}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
-        
-        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
-          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
-              {dict.aboutPage.subtitle}
-            </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-center mx-auto max-w-4xl">
-              {dict.aboutPage.title}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
-              {dict.aboutPage.desc}
-            </p>
-          </FadeIn>
-        </Container>
-      </section>
+      <SecondaryHero
+        imageSrc="/images/gallery/farmhouse/casona-los-rodriguez-historic-farmhouse-001.webp"
+        imageAlt={isEs ? 'Fachada histórica de La Casona Los Rodríguez' : 'Historic facade of Casona Los Rodríguez'}
+        subtitle={dict.aboutPage.subtitle}
+        title={dict.aboutPage.title}
+        description={dict.aboutPage.desc}
+      />
 
       {/* Casona Origin & Plaque 1 Section */}
       <section className="py-20 sm:py-28 bg-cream">

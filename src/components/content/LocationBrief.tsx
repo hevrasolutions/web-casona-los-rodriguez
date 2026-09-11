@@ -5,6 +5,7 @@ import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
 import FadeIn from '../ui/FadeIn';
+import { GOOGLE_MAPS_EMBED_URL, WAZE_URL } from '@/lib/maps';
 
 interface LocationBriefProps {
   locale: Locale;
@@ -24,7 +25,7 @@ export default function LocationBrief({ locale, dict }: LocationBriefProps) {
   const whatsappLabel = isEs ? 'Consultar por WhatsApp' : 'Inquire on WhatsApp';
 
   // Waze URL for navigation
-  const wazeUrl = 'https://ul.waze.com/ul?place=ChIJL8VyNzpzoI8RMGWSa0vr8eY&ll=10.46365560%2C-84.59485400&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location';
+  const wazeUrl = WAZE_URL;
   
   // WhatsApp link configuration
   const phoneNumber = '50660817929';
@@ -91,8 +92,8 @@ export default function LocationBrief({ locale, dict }: LocationBriefProps) {
             <FadeIn direction="right">
               <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-lg overflow-hidden shadow-xl border border-sand/30 bg-sand/10">
                 <iframe
-                  title={isEs ? 'Mapa de ubicación Casona Los Rodríguez' : 'Casona Los Rodríguez location map'}
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.6395357904724!2d-84.59742892398466!3d10.463660989666759!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0733a3772c52f%3A0xe6f1eb6b6b6a6530!2sCasona%20Los%20Rodr%C3%ADguez!5e0!3m2!1ses!2scr!4v1700000000000!5m2!1ses!2scr"
+                  title={isEs ? 'Mapa de ubicación Restaurante Casona Los Rodríguez' : 'Restaurante Casona Los Rodríguez location map'}
+                  src={GOOGLE_MAPS_EMBED_URL}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

@@ -12,17 +12,18 @@ import ExperienceGallery from '../experiences/ExperienceGallery';
 import BookingSidebar from '../experiences/BookingSidebar';
 import MobileBookingBar from '../experiences/MobileBookingBar';
 import FadeIn from '../ui/FadeIn';
+import SecondaryHero from '../ui/SecondaryHero';
 
 import JsonLdScript from '../seo/JsonLdScript';
 import { getExperienceEventSchema, getFaqSchema } from '@/lib/jsonLd';
+import { GOOGLE_MAPS_EMBED_URL } from '@/lib/maps';
 
 interface ExperienceDetailV2Props {
   experience: Experience;
   locale: Locale;
 }
 
-const MAPS_EMBED_URL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.4688669405245!2d-84.594854!3d10.463655599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0733a3772c52f%3A0xe6f1eb4b6b926530!2sCasona%20Los%20Rodr%C3%ADguez!5e0!3m2!1ses-419!2scr!4v1780812023707!5m2!1ses-419!2scr';
+const MAPS_EMBED_URL = GOOGLE_MAPS_EMBED_URL;
 
 export default function ExperienceDetailV2({
   experience,
@@ -166,27 +167,21 @@ export default function ExperienceDetailV2({
       )}
 
       {/* 1. Hero full-width */}
-      <section className="relative bg-stone-950 overflow-hidden">
-        <Image
-          src={experience.heroImage}
-          alt={galleryAlt(experience.heroImage, 0)}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
-        <Container className="relative z-10 py-16 sm:py-20 lg:py-28 flex flex-col items-center justify-center text-center">
-          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white-warm leading-tight max-w-4xl text-center mx-auto">
-              {h1}
-            </h1>
-            <p className="mt-4 sm:mt-6 font-subheading italic text-base sm:text-lg md:text-xl text-gold max-w-2xl leading-relaxed text-center mx-auto">
-              {tagline}
-            </p>
-          </FadeIn>
-        </Container>
-      </section>
+      <SecondaryHero
+        imageSrc={experience.heroImage}
+        imageAlt={galleryAlt(experience.heroImage, 0)}
+        className="py-16 sm:py-20 lg:py-28 border-b-0"
+        title={
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white-warm leading-tight max-w-4xl text-center mx-auto">
+            {h1}
+          </h1>
+        }
+        description={
+          <p className="mt-4 sm:mt-6 font-subheading italic text-base sm:text-lg md:text-xl text-gold max-w-2xl leading-relaxed text-center mx-auto">
+            {tagline}
+          </p>
+        }
+      />
 
       {/* 2. Breadcrumbs + Badges */}
       <div className="bg-cream border-b border-sand/15 py-3 text-xs select-none">

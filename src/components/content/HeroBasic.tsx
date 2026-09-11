@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Locale } from '@/lib/i18n';
 import { Dictionary } from '@/dictionaries/es';
+import { getHeroBlur } from '@/lib/heroPlaceholders';
 import Button from '../ui/Button';
 import BookingCTA from '../ui/BookingCTA';
 import Container from '../ui/Container';
@@ -22,23 +23,27 @@ export default function HeroBasic({ locale, dict }: HeroBasicProps) {
     ? 'Una casona rural de más de 120 años donde el visitante cocina, come, aprende, baila y revive las tradiciones del campo costarricense.'
     : 'A 120+ year old rural farmhouse where visitors cook, eat, learn, dance, and revive Costa Rican countryside traditions.';
 
+  const heroImg = '/images/hero/casona-los-rodriguez-exterior-001.webp';
+
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative min-h-[80vh] flex items-center justify-center bg-stone-950 overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center bg-[#1c140e] overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0 bg-stone-950">
+      <div className="absolute inset-0 z-0 bg-[#1c140e]">
         <Image
-          src="/images/hero/casona-los-rodriguez-exterior-001.webp"
+          src={heroImg}
           alt={isEs ? 'Fachada exterior de la Casona Los Rodríguez' : 'Exterior facade of Casona Los Rodríguez'}
           fill
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={getHeroBlur(heroImg)}
           className="object-cover object-center scale-105"
         />
         {/* Balanced overlay for readability & photo warmth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/75 via-black/45 to-primary/80 z-10 pointer-events-none" />
       </div>
 
       {/* Hero Content */}

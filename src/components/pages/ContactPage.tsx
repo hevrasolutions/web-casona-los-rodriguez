@@ -7,6 +7,8 @@ import Container from '../ui/Container';
 import ContactForm from '../forms/ContactForm';
 import SectionTitle from '../ui/SectionTitle';
 import FadeIn from '../ui/FadeIn';
+import SecondaryHero from '../ui/SecondaryHero';
+import { GOOGLE_MAPS_EMBED_URL, COORDINATES } from '@/lib/maps';
 
 interface ContactPageProps {
   locale: Locale;
@@ -22,38 +24,22 @@ export default function ContactPage({ locale }: ContactPageProps) {
   };
 
   // Coordinates description
-  const coordinatesString = '10.4636556, -84.5948540';
+  const coordinatesString = COORDINATES.displayString;
 
   return (
     <>
       {/* Hero Header */}
-      <section className="bg-stone-950 text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <Image
-          src="/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-001.webp"
-          alt={isEs ? 'Instalaciones de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facilities'}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
-        
-        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
-          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
-              {isEs ? 'Póngase en contacto' : 'Get in touch'}
-            </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-center mx-auto max-w-4xl">
-              {dict.nav.contact}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
-              {isEs
-                ? '¿Tiene preguntas sobre nuestras experiencias o reservaciones? Escríbanos o llámenos directamente, estamos para servirle.'
-                : 'Have questions about our experiences or bookings? Write to us or call us directly, we are here to help you.'}
-            </p>
-          </FadeIn>
-        </Container>
-      </section>
+      <SecondaryHero
+        imageSrc="/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-001.webp"
+        imageAlt={isEs ? 'Instalaciones de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facilities'}
+        subtitle={isEs ? 'Póngase en contacto' : 'Get in touch'}
+        title={dict.nav.contact}
+        description={
+          isEs
+            ? '¿Tiene preguntas sobre nuestras experiencias o reservaciones? Escríbanos o llámenos directamente, estamos para servirle.'
+            : 'Have questions about our experiences or bookings? Write to us or call us directly, we are here to help you.'
+        }
+      />
 
       {/* Main Grid Content */}
       <section className="py-16 sm:py-24 bg-cream">
@@ -189,14 +175,14 @@ export default function ContactPage({ locale }: ContactPageProps) {
       <section className="w-full h-[400px] sm:h-[450px] relative border-b border-sand/20 bg-cream">
         <FadeIn direction="none" fullWidth>
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.4688669405245!2d-84.594854!3d10.463655599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0733a3772c52f%3A0xe6f1eb4b6b926530!2sCasona%20Los%20Rodr%C3%ADguez!5e0!3m2!1ses-419!2scr!4v1780812023707!5m2!1ses-419!2scr" 
+            src={GOOGLE_MAPS_EMBED_URL} 
             width="100%" 
             height="450" 
             style={{ border: 0 }} 
             allowFullScreen={true} 
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
-            title={isEs ? "Mapa de ubicación de Casona Los Rodríguez" : "Location map of Casona Los Rodríguez"}
+            title={isEs ? "Mapa de ubicación de Restaurante Casona Los Rodríguez" : "Location map of Restaurante Casona Los Rodríguez"}
           ></iframe>
         </FadeIn>
       </section>

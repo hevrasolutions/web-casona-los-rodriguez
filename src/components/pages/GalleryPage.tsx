@@ -6,6 +6,7 @@ import { Locale } from '@/lib/i18n';
 import { GalleryItem } from '@/lib/gallery';
 import Container from '../ui/Container';
 import FadeIn from '../ui/FadeIn';
+import SecondaryHero from '../ui/SecondaryHero';
 
 interface GalleryPageProps {
   locale: Locale;
@@ -122,33 +123,17 @@ export default function GalleryPage({ locale, initialItems }: GalleryPageProps) 
   return (
     <>
       {/* Page Header */}
-      <section className="bg-stone-950 text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <Image
-          src="/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-002.webp"
-          alt={isEs ? 'Instalaciones rústicas de La Casona Los Rodríguez' : 'Rustic facilities at Casona Los Rodríguez'}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
-        
-        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
-          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
-              {subtitle}
-            </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-center mx-auto max-w-4xl">
-              {title}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
-              {isEs
-                ? 'Un recorrido visual por nuestra finca de 120 años de antigüedad. Descubra los colores, texturas y momentos mágicos que le esperan.'
-                : 'A visual journey through our 120-year-old estate. Discover the colors, textures, and magical moments awaiting you.'}
-            </p>
-          </FadeIn>
-        </Container>
-      </section>
+      <SecondaryHero
+        imageSrc="/images/gallery/farmhouse/casona-los-rodriguez-rustic-facilities-002.webp"
+        imageAlt={isEs ? 'Instalaciones rústicas de La Casona Los Rodríguez' : 'Rustic facilities at Casona Los Rodríguez'}
+        subtitle={subtitle}
+        title={title}
+        description={
+          isEs
+            ? 'Un recorrido visual por nuestra finca de 120 años de antigüedad. Descubra los colores, texturas y momentos mágicos que le esperan.'
+            : 'A visual journey through our 120-year-old estate. Discover the colors, textures, and magical moments awaiting you.'
+        }
+      />
 
       {/* Gallery Showcase Grid */}
       <section className="py-16 sm:py-24 bg-cream">

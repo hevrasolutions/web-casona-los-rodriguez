@@ -9,6 +9,7 @@ import SectionTitle from '../ui/SectionTitle';
 import ExperienceFilter from '../experiences/ExperienceFilter';
 import ExperienceGrid from '../experiences/ExperienceGrid';
 import FadeIn from '../ui/FadeIn';
+import SecondaryHero from '../ui/SecondaryHero';
 
 interface ExperiencesPageProps {
   locale: Locale;
@@ -118,31 +119,13 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
   return (
     <>
       {/* Bloque 1: Page Header Hero */}
-      <section className="bg-stone-950 text-white-warm py-20 relative overflow-hidden text-center border-b border-wood/50">
-        <Image
-          src="/images/gallery/traditional-events/casona-los-rodriguez-costa-rican-cultural-event-001.webp"
-          alt={isEs ? 'Evento cultural costarricense en La Casona Los Rodríguez' : 'Costa Rican Cultural Event at Casona Los Rodríguez'}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
-        
-        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
-          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
-            <span className="font-subheading text-base sm:text-lg text-gold font-medium uppercase tracking-wider mb-3 block text-center mx-auto">
-              {subtitle}
-            </span>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-center mx-auto max-w-4xl">
-              {title}
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white-warm/80 max-w-2xl mx-auto leading-relaxed font-body text-center">
-              {description}
-            </p>
-          </FadeIn>
-        </Container>
-      </section>
+      <SecondaryHero
+        imageSrc="/images/gallery/traditional-events/casona-los-rodriguez-costa-rican-cultural-event-001.webp"
+        imageAlt={isEs ? 'Evento cultural costarricense en La Casona Los Rodríguez' : 'Costa Rican Cultural Event at Casona Los Rodríguez'}
+        subtitle={subtitle}
+        title={title}
+        description={description}
+      />
 
       {/* Bloque 2: Trust Pillars Bar */}
       <section className="bg-cream-dark/60 py-8 border-b border-sand/20 overflow-hidden">

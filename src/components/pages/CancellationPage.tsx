@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Locale, getDictionary } from '@/lib/i18n';
 import Container from '../ui/Container';
 import FadeIn from '../ui/FadeIn';
+import SecondaryHero from '../ui/SecondaryHero';
 
 interface CancellationPageProps {
   locale: Locale;
@@ -24,28 +25,21 @@ export default function CancellationPage({ locale }: CancellationPageProps) {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-stone-950 text-white-warm py-16 relative overflow-hidden text-center border-b border-wood/50">
-        <Image
-          src="/images/hero/casona-los-rodriguez-exterior-001.webp"
-          alt={isEs ? 'Fachada de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facade'}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-black/60 to-primary/80 pointer-events-none" />
-        
-        <Container className="relative z-10 py-6 flex flex-col items-center justify-center text-center">
-          <FadeIn direction="up" className="w-full flex flex-col items-center text-center">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2 text-center mx-auto max-w-4xl">
-              {dict.cancellationPage.title}
-            </h1>
-            <p className="text-xs sm:text-sm text-white-warm/75 max-w-xl mx-auto leading-relaxed font-body text-center">
-              {dict.cancellationPage.subtitle}
-            </p>
-          </FadeIn>
-        </Container>
-      </section>
+      <SecondaryHero
+        imageSrc="/images/hero/casona-los-rodriguez-exterior-001.webp"
+        imageAlt={isEs ? 'Fachada de La Casona Los Rodríguez' : 'Casona Los Rodríguez Facade'}
+        className="py-16"
+        title={
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2 text-center mx-auto max-w-4xl">
+            {dict.cancellationPage.title}
+          </h1>
+        }
+        description={
+          <p className="text-xs sm:text-sm text-white-warm/85 max-w-xl mx-auto leading-relaxed font-body text-center">
+            {dict.cancellationPage.subtitle}
+          </p>
+        }
+      />
 
       {/* Main Content */}
       <section className="py-16 bg-cream space-y-12">
