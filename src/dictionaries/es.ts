@@ -297,6 +297,9 @@ export const es = {
     ],
     weatherTitle: 'Política de Lluvia y Clima Tropical',
     weatherDesc: 'Al encontrarnos en la zona norte de Costa Rica (La Fortuna/Arenal), las lluvias tropicales son parte natural del entorno. Todas nuestras actividades principales (cocina a la leña, molienda en trapiche artesanal, bailes folclóricos y restaurante) se realizan bajo estructuras techadas y protegidas. Las experiencias no se suspenden por lluvia estándar y aplican las políticas regulares de cancelación (24h) y reprogramación (12h).'
+  },
+  restaurantPage: {
+    menuCta: 'Ver menú y pedir express'
   }
 };
 

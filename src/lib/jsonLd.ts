@@ -1,4 +1,5 @@
 import { Experience } from '@/types/experience';
+import { getMenuId, getMenuUrl } from '@/lib/menu';
 
 const SITE_URL = 'https://casonalosrodriguez.cr';
 const LOGO_URL = `${SITE_URL}/images/logo/casona-los-rodriguez-logo.png`;
@@ -69,12 +70,13 @@ export function getLocalBusinessSchema() {
   };
 }
 
-export function getRestaurantSchema() {
+export function getRestaurantSchema(locale: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
     '@id': `${SITE_URL}/#restaurant`,
-    name: 'Restaurante Rústico Casona Los Rodríguez',
+    name: 'Restaurante Casona Los Rodríguez',
+    alternateName: 'Casona Los Rodríguez',
     description: 'Restaurante de cocina tradicional costarricense 100% preparada a la leña en ollas y sartenes tradicionales. Sabores auténticos del campo costarricense.',
     url: `${SITE_URL}/es/restaurante`,
     image: HERO_IMG,
@@ -87,6 +89,11 @@ export function getRestaurantSchema() {
       addressLocality: 'La Fortuna',
       addressRegion: 'San Carlos, Alajuela',
       addressCountry: 'CR',
+    },
+    hasMenu: {
+      '@type': 'Menu',
+      '@id': getMenuId(locale),
+      url: getMenuUrl(locale),
     },
   };
 }

@@ -299,5 +299,8 @@ export const en: Dictionary = {
     ],
     weatherTitle: 'Tropical Rain & Weather Policy',
     weatherDesc: 'Located in northern Costa Rica (La Fortuna/Arenal), tropical rainfall is part of the natural ecosystem. All of our primary activities (wood-fired cooking class, traditional trapiche, folk dances, and dining area) take place under spacious, fully covered structures. Tours are not cancelled due to regular rain, and standard cancellation (24h) and rescheduling (12h) terms apply.'
+  },
+  restaurantPage: {
+    menuCta: 'View menu & order express'
   }
 };

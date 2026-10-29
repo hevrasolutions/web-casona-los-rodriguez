@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Locale } from '@/lib/i18n';
+import { Locale, getDictionary } from '@/lib/i18n';
+import { getMenuUrl } from '@/lib/menu';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
@@ -16,6 +17,8 @@ interface RestaurantPageProps {
 
 export default function RestaurantPage({ locale }: RestaurantPageProps) {
   const isEs = locale === 'es';
+  const dict = getDictionary(locale);
+  const menuUrl = getMenuUrl(locale);
 
   const title = isEs ? 'Restaurante típico a la leña en La Fortuna' : 'Traditional wood-fired restaurant in La Fortuna';
   const subtitle = isEs ? 'Sabores del Campo Costarricense' : 'Flavors of the Costa Rican Countryside';
@@ -55,7 +58,11 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             ? 'Le invitamos a redescubrir los sabores auténticos del campo costarricense. Nuestra cocina es un homenaje a las tradiciones de antaño.'
             : 'We invite you to rediscover the authentic flavors of the Costa Rican countryside. Our kitchen is a homage to old traditions.'
         }
-      />
+      >
+        <Button variant="secondary" size="lg" href={menuUrl} className="mt-8 shadow-md">
+          {dict.restaurantPage.menuCta}
+        </Button>
+      </SecondaryHero>
 
       {/* Bloque 2: Culinary Detail section (2 columnas: Texto a la izq, Imagen a la der) */}
       <section className="py-20 sm:py-28 bg-cream overflow-hidden">
@@ -175,19 +182,24 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             </p>
 
             <div className="flex flex-col items-center gap-4">
-              <Button
-                variant="primary"
-                size="lg"
-                href={
-                  isEs
-                    ? 'https://wa.me/50660817929?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20propuesta%20gastron%C3%B3mica%20de%20Casona%20Los%20Rodr%C3%ADguez.'
-                    : 'https://wa.me/50660817929?text=Hello,%20I%20would%20like%20to%20request%20more%20information%20about%20the%20culinary%20proposal%20at%20Casona%20Los%20Rodr%C3%ADguez.'
-                }
-                external={true}
-                className="shadow-md min-w-[220px]"
-              >
-                {isEs ? 'Reservar ahora' : 'Book Now'}
-              </Button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  href={
+                    isEs
+                      ? 'https://wa.me/50660817929?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20propuesta%20gastron%C3%B3mica%20de%20Casona%20Los%20Rodr%C3%ADguez.'
+                      : 'https://wa.me/50660817929?text=Hello,%20I%20would%20like%20to%20request%20more%20information%20about%20the%20culinary%20proposal%20at%20Casona%20Los%20Rodr%C3%ADguez.'
+                  }
+                  external={true}
+                  className="shadow-md min-w-[220px]"
+                >
+                  {isEs ? 'Reservar ahora' : 'Book Now'}
+                </Button>
+                <Button variant="secondary" size="lg" href={menuUrl} className="shadow-md min-w-[220px]">
+                  {dict.restaurantPage.menuCta}
+                </Button>
+              </div>
 
               <p className="text-xs sm:text-sm text-primary/70 font-body max-w-md leading-relaxed mt-1">
                 {isEs ? (

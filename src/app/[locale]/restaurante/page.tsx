@@ -66,7 +66,7 @@ export default async function Page({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const restaurantSchema = getRestaurantSchema();
+  const restaurantSchema = getRestaurantSchema(locale);
 
   return (
     <>
